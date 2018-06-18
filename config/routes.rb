@@ -1,17 +1,13 @@
 Rails.application.routes.draw do
 
-
   namespace :admin_panel do
-    get 'editors/index'
-  end
-  namespace :admin_panel do
-    get 'dashboard/index'
     resources :diagrams, only: [:index]
+    resources :admins, except: [:show]
   end
 
   root 'home#index'
   get 'home', to: 'home#index'
-  get 'admin_panel', to: 'admin_panel/dashboard#index'
+  get 'admin_panel', to: 'admin_panel/admins#index'
 
   devise_for :users
   devise_for :admins

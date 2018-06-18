@@ -28,7 +28,7 @@ class EditorsController < AdminPanelController
 
     respond_to do |format|
       if @editor.save
-        format.html { redirect_to @editor, notice: 'Editor was successfully created.' }
+        format.html { redirect_to editors_path, notice: 'Editor was successfully created.' }
         format.json { render :show, status: :created, location: @editor }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class EditorsController < AdminPanelController
   def update
     respond_to do |format|
       if @editor.update(editor_params)
-        format.html { redirect_to @editor, notice: 'Editor was successfully updated.' }
+        format.html { redirect_to editors_path, notice: 'Editor was successfully updated.' }
         format.json { render :show, status: :ok, location: @editor }
       else
         format.html { render :edit }
