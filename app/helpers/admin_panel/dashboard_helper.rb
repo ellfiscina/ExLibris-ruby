@@ -1,0 +1,2 @@
+module AdminPanel::DashboardHelper
+end
