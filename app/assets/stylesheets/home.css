@@ -408,9 +408,15 @@ body {
   -webkit-tap-highlight-color: #0085A1;
 }
 
-.portfolio-item {
+.home-item {
     margin-bottom: 25px;
 }
 .sidebar{
   margin-top: 0;
+}
+.sidebar a{
+  font-size: medium;
+}
+.divider{
+  margin: 0;
 }

@@ -13,8 +13,7 @@
               <li>
                   <a href="#"><i class="fa fa-bookmark fa-fw" style="color: #e74c3c;"></i>Fila de Leitura</a>
               </li>
-              <li class="divider"></li>
-              <hr>
+              <hr class="divider">
               <li>
                   <a href="#"><i class="fa fa-book fa-fw"></i>Tenho</a>
               </li>
@@ -25,14 +24,24 @@
           <!-- /.nav-second-level -->
       </li>
       <li>
+        <%= link_to authors_home_index_path do %>
+          <i class="fa fa-users fa-fw"></i> Autores
+        <% end %>
+      </li>
+      <li>
+          <%= link_to editors_home_index_path do %>
+            <i class="fa fa-edit fa-fw"></i>Editoras
+          <% end %>
+      </li>
+      <li>
           <a href="#"><i class="fa fa-list fa-fw"></i> Listas<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
+
+            <% lista.each do |list| %>
               <li>
-                  <a href="#"><i class="fa fa-book fa-fw"></i>2008</a>
+                  <a href="#"><i class="fa fa-book fa-fw"></i><%= list %></a>
               </li>
-              <li>
-                  <a href="#"><i class="fa fa-book fa-fw"></i>2008</a>
-              </li>
+            <% end %>
           </ul>
           <!-- /.nav-second-level -->
       </li>

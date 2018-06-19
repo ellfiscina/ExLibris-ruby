@@ -22,8 +22,8 @@
             <% @authors.each do |author| %>
             <tr>
               <td><%= author.id %></td>
-              <td><%= author.name.split(' ')[0] %></td>
-              <td><%= author.name.split(' ')[1] %></td>
+              <td><%= first_name(author.name) %></td>
+              <td><%= last_name(author.name) %></td>
               <td style="width: 83px">
                 <%= link_to edit_author_path(author), class: "btn btn-primary btn-circle" do %>
                 <i class="fa fa-edit"></i>

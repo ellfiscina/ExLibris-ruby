@@ -9,6 +9,7 @@ one:
   edition: 1
   language: MyString
   editor: one
+  user: one
 
 two:
   isbn: 1
@@ -19,3 +20,4 @@ two:
   edition: 1
   language: MyString
   editor: two
+  user: two

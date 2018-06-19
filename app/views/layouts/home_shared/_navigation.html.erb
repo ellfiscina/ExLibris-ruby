@@ -31,7 +31,10 @@
           <%= link_to current_user.email, home_path %>
         </li>
         <li>
-          <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          Sair
+          <% end %>
         </li>
         <% end %>
       </ul>

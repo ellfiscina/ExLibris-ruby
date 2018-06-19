@@ -1,15 +1,10 @@
 class EditorsController < AdminPanelController
-  before_action :set_editor, only: [:show, :edit, :update, :destroy]
+  before_action :set_editor, only: [:edit, :update, :destroy]
 
   # GET /editors
   # GET /editors.json
   def index
     @editors = Editor.all
-  end
-
-  # GET /editors/1
-  # GET /editors/1.json
-  def show
   end
 
   # GET /editors/new
@@ -29,10 +24,8 @@ class EditorsController < AdminPanelController
     respond_to do |format|
       if @editor.save
         format.html { redirect_to editors_path, notice: 'Editor was successfully created.' }
-        format.json { render :show, status: :created, location: @editor }
       else
         format.html { render :new }
-        format.json { render json: @editor.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +36,8 @@ class EditorsController < AdminPanelController
     respond_to do |format|
       if @editor.update(editor_params)
         format.html { redirect_to editors_path, notice: 'Editor was successfully updated.' }
-        format.json { render :show, status: :ok, location: @editor }
       else
         format.html { render :edit }
-        format.json { render json: @editor.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -5,8 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-puts "Cadastrando o ADMINISTRADOR Padrão..."
+puts "Cadastrando o adm padrão..."
 
 Admin.create!(
   email: "admin@admin.com",
@@ -17,7 +16,7 @@ Admin.create!(
 puts "[OK]"
 
 
-puts "Cadastrando o USER Padrão..."
+puts "Cadastrando o user padrão..."
 
 User.create!(
   email: "membro@membro.com",

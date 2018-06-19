@@ -1,15 +1,10 @@
 class AuthorsController < AdminPanelController
-  before_action :set_author, only: [:show, :edit, :update, :destroy]
+  before_action :set_author, only: [:edit, :update, :destroy]
 
   # GET /authors
   # GET /authors.json
   def index
     @authors = Author.all
-  end
-
-  # GET /authors/1
-  # GET /authors/1.json
-  def show
   end
 
   # GET /authors/new
@@ -29,10 +24,8 @@ class AuthorsController < AdminPanelController
     respond_to do |format|
       if @author.save
         format.html { redirect_to authors_path, notice: 'Author was successfully created.' }
-        format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new }
-        format.json { render json: @author.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +36,8 @@ class AuthorsController < AdminPanelController
     respond_to do |format|
       if @author.update(author_params)
         format.html { redirect_to authors_path, notice: 'Author was successfully updated.' }
-        format.json { render :show, status: :ok, location: @author }
       else
         format.html { render :edit }
-        format.json { render json: @author.errors, status: :unprocessable_entity }
       end
     end
   end
