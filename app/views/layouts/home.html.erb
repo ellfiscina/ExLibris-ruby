@@ -20,37 +20,40 @@
 
  <%= render partial: 'layouts/home_shared/navigation' %>
 
- <!-- Page Header -->
- <!-- Set your background image for this header on the line below. -->
- <header class="intro-header" style="background-image: url('assets/home-bg.jpg')">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="site-heading">
-          <h1>Clean Blog</h1>
-          <hr class="small">
-          <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
-        </div>
-      </div>
+  <header class="intro-header" style="background-image: url('/assets/home-bg.jpg')">
+   <div class="overlay"></div>
+   <div class="container">
+     <div class="row">
+       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+         <div class="site-heading">
+           <h1>Ex Libris</h1>
+           <hr class="small">
+           <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+         </div>
+       </div>
+     </div>
+   </div>
+ </header>
+
+ <% if user_signed_in? %>
+   <%= render partial: 'layouts/home_shared/sidebar' %>
+   <div id="page-wrapper">
+     <div class="container-fluid">
+       <div class="row">
+         <div class="col-lg-12" id="home">
+           <%= yield %>
+         </div>
+       </div>
+     </div>
+   </div>
+<% else %>
+  <div class="container-fluid">
+    <div class="row" style="text-align: center;">
+        <%= yield %>
     </div>
   </div>
-</header>
+<% end %>
 
-<%= render partial: 'layouts/home_shared/sidebar' %>
-<!-- Main Content -->
-<div id="page-wrapper">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-12">
-              <%= yield %>
-            </div>
-            <!-- /.col-lg-12 -->
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-      </div>
 <hr>
 
 <%= render partial: 'layouts/home_shared/footer' %>

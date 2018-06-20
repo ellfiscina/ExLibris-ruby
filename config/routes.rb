@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :lists
   root 'home#index'
+
+  get 'home', to: 'home#index'
+  get 'admin_panel', to: 'admin_panel/admins#index'
 
   namespace :admin_panel do
     resources :diagrams, only: [:index]
@@ -12,12 +14,11 @@ Rails.application.routes.draw do
     resources :users, except: [:show]
   end
 
-  get 'home', to: 'home#index'
-  get 'admin_panel', to: 'admin_panel/admins#index'
-
   devise_for :users
   devise_for :admins
   resources :books
+  resources :lists
+  resources :statistics
   resources :editors, except: [:show]
   resources :authors, except: [:show]
 

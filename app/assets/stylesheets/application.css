@@ -18,3 +18,6 @@
  *= require_self
  */
 
+a:hover{
+  background: none;
+}

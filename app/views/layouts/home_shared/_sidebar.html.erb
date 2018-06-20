@@ -36,17 +36,24 @@
       <li>
           <a href="#"><i class="fa fa-list fa-fw"></i> Listas<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
-
             <% lista.each do |list| %>
               <li>
-                  <a href="#"><i class="fa fa-book fa-fw"></i><%= list %></a>
+                  <a href="#"><i class="fa fa-angle-double-right fa-xs"></i><%= " #{list}" %></a>
               </li>
             <% end %>
           </ul>
           <!-- /.nav-second-level -->
       </li>
+
       <li>
-        <a href="#"><i class="fa fa-bar-chart fa-fw"></i>Estatísticas</a>
+        <%= link_to statistics_path do %>
+        <i class="fa fa-bar-chart fa-fw"></i>Estatísticas
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_book_path do %>
+        <i class="fa fa-plus fa-fw"></i>Novo Livro
+        <% end %>
       </li>
     </ul>
   </div>

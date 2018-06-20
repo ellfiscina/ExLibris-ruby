@@ -1,0 +1,136 @@
+<div class="row">
+  <h1 class="page-header">Estatísticas</h1>
+</div>
+<div class="row">
+  <div class="row">
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-tasks fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <div class="huge"><%= current_user.books_count %></div>
+              <div>Livros</div>
+            </div>
+          </div>
+        </div>
+          <div class="panel-footer">
+            <span class="pull-left">Total</span>
+            <div class="clearfix"></div>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-green">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-book fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <div class="huge">26</div>
+              <div>Livros</div>
+            </div>
+          </div>
+        </div>
+          <div class="panel-footer">
+            <span class="pull-left">Lidos</span>
+            <div class="clearfix"></div>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-yellow">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-angle-up fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <div class="huge">26</div>
+              <div>Páginas</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <a  data-toggle="collapse" data-target="#bigger">
+            <span class="pull-left">Maior</span>
+            <span class="pull-right" id="iconB">
+              <i class="fa fa-arrow-circle-down"></i>
+            </span>
+            <div class="clearfix"></div>
+          </a>
+          <div id="bigger" class="collapse"><small>Título</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-red">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-angle-down fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <div class="huge">26</div>
+              <div>Páginas</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <a  data-toggle="collapse" data-target="#smaller">
+            <span class="pull-left">Menor</span>
+            <span class="pull-right" id="iconS">
+              <i class="fa fa-arrow-circle-down"></i>
+            </span>
+            <div class="clearfix"></div>
+          </a>
+          <div id="smaller" class="collapse"><small>Título</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <i class="fa fa-list fa-fw"></i> Listas
+          </div>
+          <!-- /.panel-heading -->
+          <div class="panel-body">
+              <div class="list-group">
+                <% lista.each do |list| %>
+                  <div class="list-group-item">
+                      <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list}" %>
+                      <span class="pull-right text-muted small"><em>Qtd</em>
+                      </span>
+                  </div>
+                <% end %>
+              </div>
+              <!-- /.list-group -->
+          </div>
+          <!-- /.panel-body -->
+      </div>
+      <!-- /.panel -->
+    </div>
+
+     <div class="col-md-6">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
+          </div>
+          <div class="panel-body">
+              <div id="morris-donut-chart"></div>
+              <a href="#" class="btn btn-default btn-block">View Details</a>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_201939) do
+ActiveRecord::Schema.define(version: 2018_06_20_135300) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,11 +34,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_201939) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "authors_books", id: false, force: :cascade do |t|
-    t.integer "author_id", null: false
-    t.integer "book_id", null: false
+    t.integer "books_count"
   end
 
   create_table "books", force: :cascade do |t|
@@ -50,9 +46,11 @@ ActiveRecord::Schema.define(version: 2018_06_19_201939) do
     t.integer "edition"
     t.string "language"
     t.integer "editor_id"
+    t.integer "author_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["editor_id"], name: "index_books_on_editor_id"
     t.index ["user_id"], name: "index_books_on_user_id"
   end
@@ -61,6 +59,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_201939) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "books_count"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -84,6 +83,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_201939) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "books_count"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

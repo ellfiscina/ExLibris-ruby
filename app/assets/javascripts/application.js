@@ -14,6 +14,5 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap
-//= require rails-ujs
 //= require bootstrap.growl
 //= require bootstrap_sb_admin_base_v2

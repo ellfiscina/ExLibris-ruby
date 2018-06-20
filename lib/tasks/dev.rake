@@ -11,7 +11,6 @@ namespace :dev do
     puts %x(rake dev:generate_authors)
     puts %x(rake dev:generate_editors)
     puts %x(rake dev:generate_books)
-    puts %x(rake dev:generate_author_book)
     puts %x(rake dev:generate_lists)
     puts "[OK]"
   end
@@ -65,6 +64,7 @@ namespace :dev do
         edition: Random.rand(1..5),
         language: Faker::Book.genre,
         editor: Editor.all.sample,
+        author: Author.all.sample,
         user: User.first
         )
     end

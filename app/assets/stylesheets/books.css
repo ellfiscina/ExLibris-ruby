@@ -3,11 +3,6 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
-
-.bg{
-  background-image: url('/assets/home-bg.jpg');
-  height: -webkit-fill-available;
-}
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
@@ -32,18 +27,9 @@ h6 {
 a {
   color: #333333;
 }
-a:visited {
-  color: white;
-}
-#side-menu a,
-a:visited{
-  color: #7f8c8d;
-}
-#side-menu a:visited:hover,
-a:visited:hover,
 a:hover,
-a:focus{
-  color: #e74c3c;
+a:focus {
+  color: #0085A1;
 }
 a img:hover,
 a img:focus {
@@ -436,63 +422,4 @@ body {
 }
 .landingpage{
   height: 200px;
-}
-.btn-home{
-  border-radius: 300px;
-  width: 150px;
-  align-self: center;
-}
-.btn-primary {
-  color: white;
-  background-color: #c0392b;
-  border-color: #c0392b;
-  -webkit-transition: all 0.35s;
-  -moz-transition: all 0.35s;
-  transition: all 0.35s;
-}
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary.focus,
-.btn-primary:active,
-.btn-primary.active,
-.open > .dropdown-toggle.btn-primary {
-  color: white;
-  background-color: #e74c3c;
-  border-color: #e74c3c;
-}
-.btn-primary:active,
-.btn-primary.active,
-.open > .dropdown-toggle.btn-primary {
-  background-image: none;
-}
-.btn-primary.disabled,
-.btn-primary[disabled],
-fieldset[disabled] .btn-primary,
-.btn-primary.disabled:hover,
-.btn-primary[disabled]:hover,
-fieldset[disabled] .btn-primary:hover,
-.btn-primary.disabled:focus,
-.btn-primary[disabled]:focus,
-fieldset[disabled] .btn-primary:focus,
-.btn-primary.disabled.focus,
-.btn-primary[disabled].focus,
-fieldset[disabled] .btn-primary.focus,
-.btn-primary.disabled:active,
-.btn-primary[disabled]:active,
-fieldset[disabled] .btn-primary:active,
-.btn-primary.disabled.active,
-.btn-primary[disabled].active,
-fieldset[disabled] .btn-primary.active {
-  background-color: #c0392b;
-  border-color: #c0392b;
-}
-.btn-primary .badge {
-  color: #c0392b;
-  background-color: white;
-}
-.panel-primary span{
-  color: #337ab7;
-}
-.panel-green span{
-  color: #5cb85c;
 }

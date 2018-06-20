@@ -9,6 +9,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.integer :edition
       t.string :language
       t.references :editor, foreign_key: true
+      t.references :author, foreign_key: true
       t.references :user, foreign_key: true
 
       t.timestamps
