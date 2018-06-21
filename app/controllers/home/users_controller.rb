@@ -32,7 +32,7 @@ class Home::UsersController < HomeController
 
   def destroy
     if @user.destroy
-      redirect_to home_path, notice: "User excluído com sucesso"
+      redirect_to root_path, notice: "User excluído com sucesso"
     else
       render :index
     end

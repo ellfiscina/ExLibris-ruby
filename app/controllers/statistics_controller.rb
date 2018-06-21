@@ -4,19 +4,19 @@ class StatisticsController < HomeController
     @list = List.group(:year).count(:year)
 
     @total = current_user.books_count
-    @big = Book.max_value(:pages)
-    @small = Book.min_value(:pages)
-    @old = Book.min_value(:year)
-    @new = Book.max_value(:year)
+    @big = @books.max_value(:pages)
+    @small = @books.min_value(:pages)
+    @old = @books.min_value(:year)
+    @new = @books.max_value(:year)
 
-    @big_title = Book.title_pages(@big)
-    @small_title = Book.title_pages(@small)
-    @old_title = Book.title_age(@old)
-    @new_title = Book.title_age(@new)
+    @big_title = @books.title_pages(@big)
+    @small_title = @books.title_pages(@small)
+    @old_title = @books.title_age(@old)
+    @new_title = @books.title_age(@new)
 
-
-    gon.read = current_user.books_count
-    gon.reading = current_user.books_count
-    gon.to_read = current_user.books_count
+    gon.read = @books.count_status(1)
+    gon.reading = @books.count_status(2)
+    gon.to_read = @books.count_status(3)
   end
+
 end

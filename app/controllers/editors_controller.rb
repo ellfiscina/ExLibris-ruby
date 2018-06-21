@@ -1,10 +1,10 @@
-class EditorsController < AdminPanelController
+class EditorsController < HomeController
   before_action :set_editor, only: [:edit, :update, :destroy]
 
   # GET /editors
   # GET /editors.json
   def index
-    @editors = Editor.all
+    @editors = Editor.all.per_page(params[:page])
   end
 
   # GET /editors/new

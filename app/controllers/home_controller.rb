@@ -10,11 +10,4 @@ class HomeController < ApplicationController
     #@books = Book.all.per_page(params[:page])
   end
 
-  def authors
-    @authors = Author.all.per_page(params[:page])
-  end
-
-  def editors
-    @editors = Editor.all.per_page(params[:page])
-  end
 end

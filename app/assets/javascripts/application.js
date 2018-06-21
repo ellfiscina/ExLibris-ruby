@@ -13,6 +13,7 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+//= require jquery_ujs
 //= require bootstrap
 //= require bootstrap.growl
 //= require bootstrap_sb_admin_base_v2

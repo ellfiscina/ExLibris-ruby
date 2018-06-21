@@ -14,9 +14,11 @@
   <%= stylesheet_link_tag    'home', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= csrf_meta_tags %>
 
+
 </head>
 
 <body>
+  <%= include_gon %>
 
  <%= render partial: 'layouts/home_shared/navigation' %>
 
@@ -55,7 +57,6 @@
 <% end %>
 
 <hr>
-<%= include_gon %>
 <%= render partial: 'layouts/home_shared/footer' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'home', 'data-turbolinks-track': 'reload' %>

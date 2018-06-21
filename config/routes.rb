@@ -14,20 +14,14 @@ Rails.application.routes.draw do
     resources :users, except: [:show]
   end
 
-  devise_for :users
-  devise_for :admins
+  devise_for :users do
+   get '/users/sign_out' => 'devise/sessions#destroy'
+ end
   resources :books
   resources :lists
   resources :statistics
   resources :editors, except: [:show]
   resources :authors, except: [:show]
-
-  resources :home do
-    collection do
-      get :authors
-      get :editors
-    end
-  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

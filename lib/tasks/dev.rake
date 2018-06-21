@@ -59,10 +59,12 @@ namespace :dev do
         isbn: 13.times.map{rand(10)}.join,
         title: Faker::Book.title,
         subtitle: Faker::Book.title,
-        year: 4.times.map{rand(10)}.join,
+        year: Random.rand(1500..2017),
         pages: Random.rand(50..1000),
         edition: Random.rand(1..5),
         language: Faker::Book.genre,
+        status: Random.rand(1..3),
+        shelf: [true, false].sample,
         editor: Editor.all.sample,
         author: Author.all.sample,
         user: User.first

@@ -1,10 +1,10 @@
-class AuthorsController < AdminPanelController
+class AuthorsController < HomeController
   before_action :set_author, only: [:edit, :update, :destroy]
 
   # GET /authors
   # GET /authors.json
   def index
-    @authors = Author.all
+    @authors = Author.all.per_page(params[:page])
   end
 
   # GET /authors/new
