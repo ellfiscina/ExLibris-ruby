@@ -71,19 +71,6 @@ namespace :dev do
     puts "[OK]"
   end
 
-  ####################################################################
-
-  desc "TODO"
-  task generate_author_book: :environment do
-
-    puts "Gerando associação autor e livro"
-
-    Book.all.each do |book|
-      book.authors << Author.all.sample
-    end
-
-    puts "[OK]"
-  end
 
   ####################################################################
 

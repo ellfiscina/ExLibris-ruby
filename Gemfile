@@ -14,6 +14,7 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'paperclip', '~>6.0.0'
 gem 'kaminari'
 gem 'kaminari-i18n'
+gem 'gon'
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap', '~> 3.3.7'
   gem 'rails-assets-bootstrap.growl'

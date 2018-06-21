@@ -55,10 +55,13 @@
 <% end %>
 
 <hr>
-
+<%= include_gon %>
 <%= render partial: 'layouts/home_shared/footer' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'home', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'statistics', 'data-turbolinks-track': 'reload' %>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 </body>
 
 </html>

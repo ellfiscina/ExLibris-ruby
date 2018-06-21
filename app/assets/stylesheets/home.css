@@ -490,9 +490,6 @@ fieldset[disabled] .btn-primary.active {
   color: #c0392b;
   background-color: white;
 }
-.panel-primary span{
+.panel-primary a{
   color: #337ab7;
-}
-.panel-green span{
-  color: #5cb85c;
 }

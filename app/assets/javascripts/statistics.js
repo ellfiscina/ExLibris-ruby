@@ -2,15 +2,16 @@ $(function() {
     Morris.Donut({
         element: 'morris-donut-chart',
         data: [{
-            label: "Download Sales",
-            value: 12
+            label: "Livros lidos",
+            value: gon.read
         }, {
-            label: "In-Store Sales",
-            value: 30
+            label: "Livros lendo",
+            value: gon.reading
         }, {
-            label: "Mail-Order Sales",
-            value: 20
+            label: "Fila de Leitura",
+            value: gon.to_read
         }],
+        colors: ['#2ecc71', '#3498db', '#e74c3c'],
         resize: true
     });
 });

@@ -8,4 +8,9 @@ class Book < ApplicationRecord
   scope :per_page, -> (page) {
     order(created_at: :desc).page(page).per(QTT_PER_PAGE)
   }
+  scope :max_value, -> (q) { maximum(q) }
+  scope :min_value, -> (q) { minimum(q) }
+
+  scope :title_pages, -> (value) { select(:title).where(pages: value).pluck(:title) }
+  scope :title_age, -> (value) { select(:title).where(year: value).pluck(:title) }
 end
