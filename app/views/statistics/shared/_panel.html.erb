@@ -1,0 +1,24 @@
+<div class="col-lg-3 col-md-6">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-xs-3">
+          <i class="fa fa-tasks fa-5x"></i>
+        </div>
+        <div class="col-xs-9 text-right">
+          <div class="huge"><%= value %></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <a data-toggle="collapse" data-target="#older">
+        <span class="pull-left"><%= title %></span>
+        <span class="pull-right" id="iconO">
+          <i class="fa fa-arrow-circle-down"></i>
+        </span>
+        <div class="clearfix"></div>
+      </a>
+      <div id="older" class="collapse"><small><%= text %></small></div>
+    </div>
+  </div>
+</div>

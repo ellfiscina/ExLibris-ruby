@@ -5,13 +5,19 @@
           <a href="#"><i class="fa fa-book fa-fw"></i> Estantes<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
               <li>
-                  <a href="#"><i class="fa fa-bookmark fa-fw" style="color: #2ecc71;"></i>Lidos</a>
+                  <%= link_to read_path do %>
+                    <i class="fa fa-bookmark fa-fw" style="color: #2ecc71;"></i>Lidos
+                  <% end %>
               </li>
               <li>
-                  <a href="#"><i class="fa fa-bookmark fa-fw" style="color: #3498db;"></i>Lendo</a>
+                  <%= link_to reading_path do %>
+                    <i class="fa fa-bookmark fa-fw" style="color: #3498db;"></i>Lendo</a>
+                  <% end %>
               </li>
               <li>
-                  <a href="#"><i class="fa fa-bookmark fa-fw" style="color: #e74c3c;"></i>Fila de Leitura</a>
+                  <%= link_to to_read_path do %>
+                    <i class="fa fa-bookmark fa-fw" style="color: #e74c3c;"></i>Fila de Leitura
+                  <% end %>
               </li>
               <hr class="divider">
               <li>

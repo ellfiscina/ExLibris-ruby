@@ -3,23 +3,19 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'home', to: 'home#index'
-  get 'admin_panel', to: 'admin_panel/admins#index'
-
-  namespace :admin_panel do
-    resources :diagrams, only: [:index]
-    resources :admins, except: [:show]
-  end
+  get 'read', to: 'shelf#read'
+  get 'reading', to: 'shelf#reading'
+  get 'to-read', to: 'shelf#to_read'
 
   namespace :home do
     resources :users, except: [:show]
   end
 
-  devise_for :users do
-   get '/users/sign_out' => 'devise/sessions#destroy'
- end
+  devise_for :users
+
   resources :books
   resources :lists
-  resources :statistics
+  resources :statistics, only: [:index]
   resources :editors, except: [:show]
   resources :authors, except: [:show]
 
