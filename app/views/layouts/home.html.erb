@@ -10,15 +10,14 @@
 
   <title>Clean Blog - Start Bootstrap Theme</title>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag    'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= include_gon %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag    'home', media: 'all' %>
   <%= csrf_meta_tags %>
-
 
 </head>
 
 <body>
-  <%= include_gon %>
 
  <%= render partial: 'layouts/home_shared/navigation' %>
 
@@ -58,9 +57,9 @@
 
 <hr>
 <%= render partial: 'layouts/home_shared/footer' %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'home', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'statistics', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application' %>
+<%= javascript_include_tag 'home' %>
+<%= javascript_include_tag 'statistics' %>
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 </body>

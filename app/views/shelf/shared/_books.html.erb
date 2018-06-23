@@ -1,0 +1,25 @@
+<div class="row">
+    <h1 class="page-header">Livros
+      <small><%= title %></small>
+    </h1>
+</div>
+
+<% @book.in_groups_of(4, false).each do |group| %>
+  <div class="row">
+    <% group.each do |book| %>
+      <div class="col-md-3 home-item">
+        <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+        <%= book %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<hr>
+
+<!-- Pagination -->
+<div class="row">
+  <div class="text-center">
+    <%= paginate @books %>
+  </div>
+</div>

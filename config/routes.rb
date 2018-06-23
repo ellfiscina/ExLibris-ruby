@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'read', to: 'shelf#read'
   get 'reading', to: 'shelf#reading'
   get 'to-read', to: 'shelf#to_read'
+  get 'own', to: 'shelf#own'
+  get 'want', to: 'shelf#want'
 
   namespace :home do
     resources :users, except: [:show]

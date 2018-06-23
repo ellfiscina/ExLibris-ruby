@@ -8,14 +8,21 @@ class Book < ApplicationRecord
   scope :per_page, -> (page) {
     order(created_at: :desc).page(page).per(QTT_PER_PAGE)
   }
+  scope :title_pages, -> (value) {
+    select(:title).where(pages: value).pluck(:title)
+  }
+  scope :title_age, -> (value) {
+    select(:title).where(year: value).pluck(:title)
+  }
+  scope :sel_status, -> (value) {
+    select(:title).where(status: value).pluck(:title)
+  }
+  scope :sel_shelf, -> (value) {
+    select(:title).where(shelf: value).pluck(:title)
+  }
   scope :max_value, -> (q) { maximum(q) }
   scope :min_value, -> (q) { minimum(q) }
-
-  scope :title_pages, -> (value) { select(:title).where(pages: value).pluck(:title) }
-  scope :title_age, -> (value) { select(:title).where(year: value).pluck(:title) }
-
   scope :count_status, -> (value) { where(status: value).count }
-
 
   # status
   # 1 - Lido

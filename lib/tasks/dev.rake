@@ -64,7 +64,7 @@ namespace :dev do
         edition: Random.rand(1..5),
         language: Faker::Book.genre,
         status: Random.rand(1..3),
-        shelf: [true, false].sample,
+        shelf: Random.rand(1..3),
         editor: Editor.all.sample,
         author: Author.all.sample,
         user: User.first

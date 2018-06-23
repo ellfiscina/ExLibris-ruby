@@ -21,10 +21,14 @@
               </li>
               <hr class="divider">
               <li>
-                  <a href="#"><i class="fa fa-book fa-fw"></i>Tenho</a>
+                  <%= link_to own_path do %>
+                    <i class="fa fa-book fa-fw"></i>Tenho
+                  <% end %>
               </li>
               <li>
-                  <a href="#"><i class="fa fa-gift fa-fw"></i>Desejo</a>
+                  <%= link_to want_path do %>
+                    <i class="fa fa-gift fa-fw"></i>Desejo
+                  <% end %>
               </li>
           </ul>
           <!-- /.nav-second-level -->
