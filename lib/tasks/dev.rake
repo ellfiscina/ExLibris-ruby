@@ -2,6 +2,8 @@ namespace :dev do
   desc "Setup development"
   task setup: :environment do
 
+    images_path = Rails.root.join('public','system')
+
     puts "Executando..."
 
     puts "Apagando o banco... #{%x(rake db:drop)}"
@@ -11,6 +13,7 @@ namespace :dev do
     puts %x(rake dev:generate_authors)
     puts %x(rake dev:generate_editors)
     puts %x(rake dev:generate_books)
+    puts %x(rake dev:generate_images)
     puts %x(rake dev:generate_lists)
     puts "[OK]"
   end
@@ -55,7 +58,7 @@ namespace :dev do
     puts "Gerando livros aleatórios"
 
     100.times do
-      Book.create!(
+      book = Book.create!(
         isbn: 13.times.map{rand(10)}.join,
         title: Faker::Book.title,
         subtitle: Faker::Book.title,
@@ -69,7 +72,27 @@ namespace :dev do
         author: Author.all.sample,
         user: User.first
         )
+      book.image.attach(
+        File.open(Rails.root.join('public', 'templates', 'images', "#{Random.rand(9)}.jpg"), 'r')
+      )
     end
+    puts "[OK]"
+  end
+
+  ####################################################################
+
+  desc "TODO"
+  task generate_images: :environment do
+
+    puts "Gerando livros aleatórios"
+
+    books = Book.all
+    books.each do |book|
+      book.image.attach(
+        File.open(Rails.root.join('public', 'templates', 'images', "#{Random.rand(9)}.jpg"), 'r')
+      )
+    end
+
     puts "[OK]"
   end
 

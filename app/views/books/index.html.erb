@@ -8,7 +8,9 @@
   <div class="row">
     <% group.each do |book| %>
       <div class="col-md-3 home-item">
-        <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+        <% if book.image.attached? %>
+          <%= image_tag book.image, class:"img-responsive" %>
+        <% end %>
         <%= book.title %>
       </div>
     <% end %>

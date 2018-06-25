@@ -5,6 +5,8 @@ class Book < ApplicationRecord
   belongs_to :user, counter_cache: true
   belongs_to :author, counter_cache: true
 
+  has_one_attached :image
+
   scope :per_page, -> (page) {
     order(created_at: :desc).page(page).per(QTT_PER_PAGE)
   }
