@@ -1,5 +1,5 @@
 class EditorsController < HomeController
-  before_action :set_editor, only: [:edit, :update, :destroy]
+  before_action :set_editor, only: [:show, :edit, :update, :destroy]
 
   # GET /editors
   # GET /editors.json
@@ -14,6 +14,9 @@ class EditorsController < HomeController
 
   # GET /editors/1/edit
   def edit
+  end
+
+  def show
   end
 
   # POST /editors

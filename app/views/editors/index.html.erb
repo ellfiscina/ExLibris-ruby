@@ -23,8 +23,11 @@
             <tr>
               <td><%= editor.name %></td>
               <td style="width: 150px"><%= editor.books_count %></td>
-              <td style="width: 83px">
-                <%= link_to edit_editor_path(editor), class: "btn btn-info btn-circle" do %>
+              <td style="width: 120px">
+                <%= link_to editor_path(editor), class: "btn btn-info btn-circle" do %>
+                  <i class="fa fa-list"></i>
+                <% end %>
+                <%= link_to edit_editor_path(editor), class: "btn btn-warning btn-circle" do %>
                 <i class="fa fa-edit"></i>
                 <% end %>
                 <%= link_to editor, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-circle" do %>

@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   resources :books
   resources :lists
   resources :statistics, only: [:index]
-  resources :editors, except: [:show]
-  resources :authors, except: [:show]
+  resources :editors
+  resources :authors
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
