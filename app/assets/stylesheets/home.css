@@ -12,6 +12,7 @@ body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
   color: #333333;
+  -webkit-tap-highlight-color: #0085A1;
 }
 p {
   line-height: 1.5;
@@ -33,7 +34,7 @@ a {
   color: #333333;
 }
 a:visited {
-  color: white;
+  color: #7f8c8d;
 }
 #side-menu a,
 #side-menu a:visited{
@@ -57,7 +58,7 @@ hr.small {
   max-width: 100px;
   margin: 15px auto;
   border-width: 4px;
-  border-color: white;
+  border-color: #ECF0F1;
 }
 .navbar-custom {
   position: absolute;
@@ -88,7 +89,7 @@ hr.small {
     border-bottom: 1px solid transparent;
   }
   .navbar-custom .navbar-brand {
-    color: white;
+    color: #ECF0F1;
     padding: 20px;
   }
   .navbar-custom .navbar-brand:hover,
@@ -96,7 +97,7 @@ hr.small {
     color: rgba(255, 255, 255, 0.8);
   }
   .navbar-custom .nav li a {
-    color: white;
+    color: #ECF0F1;
     padding: 20px;
   }
   .navbar-custom .nav li a:hover,
@@ -174,7 +175,7 @@ hr.small {
 .intro-header .post-heading,
 .intro-header .page-heading {
   padding: 100px 0 50px;
-  color: white;
+  color: #ECF0F1;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
@@ -228,7 +229,7 @@ hr.small {
   font-size: 20px;
 }
 .intro-header .post-heading .meta a {
-  color: white;
+  color: #ECF0F1;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .post-heading h1 {
@@ -370,7 +371,7 @@ form .row:first-child .floating-label-form-group {
 .btn-default:focus {
   background-color: #0085A1;
   border: 1px solid #0085A1;
-  color: white;
+  color: #ECF0F1;
 }
 .pager {
   margin: 20px 0 0;
@@ -383,12 +384,12 @@ form .row:first-child .floating-label-form-group {
   font-weight: 800;
   letter-spacing: 1px;
   padding: 15px 25px;
-  background-color: white;
+  background-color: #ECF0F1;
   border-radius: 0;
 }
 .pager li > a:hover,
 .pager li > a:focus {
-  color: white;
+  color: #ECF0F1;
   background-color: #0085A1;
   border: 1px solid #0085A1;
 }
@@ -401,29 +402,36 @@ form .row:first-child .floating-label-form-group {
   cursor: not-allowed;
 }
 ::-moz-selection {
-  color: white;
+  color: #ECF0F1;
   text-shadow: none;
   background: #0085A1;
 }
 ::selection {
-  color: white;
+  color: #ECF0F1;
   text-shadow: none;
   background: #0085A1;
 }
 img::selection {
-  color: white;
+  color: #ECF0F1;
   background: transparent;
 }
 img::-moz-selection {
-  color: white;
+  color: #ECF0F1;
   background: transparent;
 }
-body {
-  -webkit-tap-highlight-color: #0085A1;
+.img-show {
+  height: 250px;
+  max-width: 180px;
+}
+.img-responsive{
+  height: 150px;
+  max-width: 180px;
+  margin: auto;
 }
 
 .home-item {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
 .divider{
@@ -438,7 +446,7 @@ body {
   align-self: center;
 }
 .btn-primary {
-  color: white;
+  color: #ECF0F1;
   background-color: #c0392b;
   border-color: #c0392b;
   -webkit-transition: all 0.35s;
@@ -451,7 +459,7 @@ body {
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-  color: white;
+  color: #ECF0F1;
   background-color: #e74c3c;
   border-color: #e74c3c;
 }
@@ -483,7 +491,7 @@ fieldset[disabled] .btn-primary.active {
 }
 .btn-primary .badge {
   color: #c0392b;
-  background-color: white;
+  background-color: #ECF0F1;
 }
 
 table.dataTable thead .sorting,
@@ -551,7 +559,7 @@ table.dataTable thead .sorting:after {
 }
 .panel-green > .panel-heading {
   border-color: #5cb85c;
-  color: white;
+  color: #ECF0F1;
   background-color: #5cb85c;
 }
 .panel-green > a {
@@ -565,7 +573,7 @@ table.dataTable thead .sorting:after {
 }
 .panel-red > .panel-heading {
   border-color: #d9534f;
-  color: white;
+  color: #ECF0F1;
   background-color: #d9534f;
 }
 .panel-red > a {
@@ -579,7 +587,7 @@ table.dataTable thead .sorting:after {
 }
 .panel-yellow > .panel-heading {
   border-color: #f0ad4e;
-  color: white;
+  color: #ECF0F1;
   background-color: #f0ad4e;
 }
 .panel-yellow > a {
@@ -619,7 +627,7 @@ table.dataTable thead .sorting:after {
 .btn-info.btn-outline:hover,
 .btn-warning.btn-outline:hover,
 .btn-danger.btn-outline:hover {
-  color: white;
+  color: #ECF0F1;
 }
 .sidebar .sidebar-nav.navbar-collapse {
   padding-left: 0;
@@ -673,4 +681,16 @@ table.dataTable thead .sorting:after {
 }
 .plus{
   color: green;
+}
+.p-show{
+  font-size: large;
+  margin: 15px 0;
+}
+.p-show strong,
+#p-header{
+  color: #c0392b;
+}
+#p-header{
+  color: #c0392b;
+  margin: 0;
 }

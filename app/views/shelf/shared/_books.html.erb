@@ -4,13 +4,19 @@
     </h1>
 </div>
 
-<% @book.in_groups_of(4, false).each do |group| %>
+<% @books.in_groups_of(4, false).each do |group| %>
   <div class="row">
     <% group.each do |book| %>
-      <div class="col-md-3 home-item">
-        <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-        <%= book %>
-      </div>
+      <%= link_to book_path(book) do %>
+        <div class="col-md-3 home-item">
+          <div class="img-div">
+            <% if book.image.attached? %>
+              <%= image_tag book.image, class:"img-responsive" %>
+            <% end %>
+          </div>
+          <%= book.title %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 <% end %>

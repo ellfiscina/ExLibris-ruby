@@ -72,24 +72,24 @@ namespace :dev do
         author: Author.all.sample,
         user: User.first
         )
-      book.image.attach(
-        File.open(Rails.root.join('public', 'templates', 'images', "#{Random.rand(9)}.jpg"), 'r')
-      )
     end
+
     puts "[OK]"
   end
 
   ####################################################################
-
   desc "TODO"
   task generate_images: :environment do
 
-    puts "Gerando livros aleatórios"
+
+    puts "Gerando images aleatórias"
 
     books = Book.all
     books.each do |book|
+      n = Random.rand(9)
       book.image.attach(
-        File.open(Rails.root.join('public', 'templates', 'images', "#{Random.rand(9)}.jpg"), 'r')
+        io: File.open("/home/ellen/projects/Ex-libris-ruby/public/templates/images/#{n}.jpg"),
+        filename: "#{n}.jpg"
       )
     end
 

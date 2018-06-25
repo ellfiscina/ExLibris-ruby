@@ -1,44 +1,71 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-2"></div>
+<div class="col-md-8">
 
-<p>
-  <strong>Isbn:</strong>
-  <%= @book.isbn %>
-</p>
+<div class="panel panel-default container-fluid">
+  <div class="panel-heading row">
+    <div class="col-sm-4">
+      <%= image_tag @book.image, class:"img-show" %>
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
+    <div class="col-sm-8">
+      <div class="pull-right">
+        <%= link_to edit_book_path(@book) do %>
+          <i class="fa fa-pencil"> </i>
+        <% end %>
+        <%= link_to book_path, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash"> </i>
+        <% end %>
+      </div>
+      <div class="div-show">
+        <h2 style="color: #6C7A89;">
+          <%= @book.title %>
+        </h2>
+        <p class="p-show pull-right" id="p-header">
+          <%= "by #{@book.author.name}" %>
+        </p>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Subtitle:</strong>
-  <%= @book.subtitle %>
-</p>
+  <div class="panel-body">
+    <% if @book.subtitle? %>
+      <p class="p-show">
+        <strong>Subtitle:</strong>
+        <%= @book.subtitle %>
+      </p>
+    <% end %>
 
-<p>
-  <strong>Year:</strong>
-  <%= @book.year %>
-</p>
+    <p class="p-show">
+      <strong>Editor:</strong>
+      <%= @book.editor.name %>
+    </p>
 
-<p>
-  <strong>Pages:</strong>
-  <%= @book.pages %>
-</p>
+    <p class="p-show">
+      <strong>Isbn:</strong>
+      <%= @book.isbn %>
+    </p>
 
-<p>
-  <strong>Edition:</strong>
-  <%= @book.edition %>
-</p>
+    <p class="p-show">
+      <strong>Year:</strong>
+      <%= @book.year %>
+    </p>
 
-<p>
-  <strong>Language:</strong>
-  <%= @book.language %>
-</p>
+    <p class="p-show">
+      <strong>Pages:</strong>
+      <%= @book.pages %>
+    </p>
 
-<p>
-  <strong>Editor:</strong>
-  <%= @book.editor %>
-</p>
+    <p class="p-show">
+      <strong>Edition:</strong>
+      <%= @book.edition %>
+    </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+    <p class="p-show">
+      <strong>Language:</strong>
+      <%= @book.language %>
+    </p>
+
+
+  </div>
+</div>
+</div>

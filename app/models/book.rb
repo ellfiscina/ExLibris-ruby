@@ -16,11 +16,11 @@ class Book < ApplicationRecord
   scope :title_age, -> (value) {
     select(:title).where(year: value).pluck(:title)
   }
-  scope :sel_status, -> (value) {
-    select(:title).where(status: value).pluck(:title)
+  scope :per_status, -> (value, page) {
+    where(status: value).order(created_at: :desc).page(page).per(QTT_PER_PAGE)
   }
-  scope :sel_shelf, -> (value) {
-    select(:title).where(shelf: value).pluck(:title)
+  scope :per_shelf, -> (value, page) {
+    where(shelf: value).order(created_at: :desc).page(page).per(QTT_PER_PAGE)
   }
   scope :max_value, -> (q) { maximum(q) }
   scope :min_value, -> (q) { minimum(q) }
@@ -32,5 +32,6 @@ class Book < ApplicationRecord
   # 3 - Ler
   # shelf
   # 1 - Sim
-  # 0 - Não
+  # 2 - Não
+  # 3 - Quero
 end
