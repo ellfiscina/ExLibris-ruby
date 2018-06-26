@@ -1,4 +1,4 @@
-class ListsController < ApplicationController
+class ListsController < HomeController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   # GET /lists

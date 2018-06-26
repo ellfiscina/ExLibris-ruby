@@ -9,10 +9,10 @@
 
     <div class="col-sm-8">
       <div class="pull-right">
-        <%= link_to edit_book_path(@book) do %>
+        <%= link_to edit_book_path(@book), class:"btn-show" do %>
           <i class="fa fa-pencil"> </i>
         <% end %>
-        <%= link_to book_path, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <%= link_to book_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn-show" do %>
           <i class="fa fa-trash"> </i>
         <% end %>
       </div>

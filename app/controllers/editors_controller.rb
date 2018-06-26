@@ -17,6 +17,7 @@ class EditorsController < HomeController
   end
 
   def show
+    @books = @editor.books
   end
 
   # POST /editors

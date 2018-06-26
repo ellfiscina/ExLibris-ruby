@@ -1,6 +1,6 @@
 class StatisticsController < HomeController
   def index
-    @books = Book.all
+    @books = current_user.books.all
     @list = List.group(:year).count(:year)
 
     @total = current_user.books_count

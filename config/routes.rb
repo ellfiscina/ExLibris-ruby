@@ -9,10 +9,6 @@ Rails.application.routes.draw do
   get 'own', to: 'shelf#own'
   get 'want', to: 'shelf#want'
 
-  namespace :home do
-    resources :users, except: [:show]
-  end
-
   devise_for :users
 
   resources :books

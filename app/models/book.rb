@@ -4,7 +4,9 @@ class Book < ApplicationRecord
   belongs_to :editor, counter_cache: true
   belongs_to :user, counter_cache: true
   belongs_to :author, counter_cache: true
+
   has_many :lists, dependent: :destroy
+
   has_one_attached :image
 
 

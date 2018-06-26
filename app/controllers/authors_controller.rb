@@ -17,6 +17,7 @@ class AuthorsController < HomeController
   end
 
   def show
+    @books = @author.books
   end
   # POST /authors
   # POST /authors.json

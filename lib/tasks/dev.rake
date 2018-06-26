@@ -27,7 +27,7 @@ namespace :dev do
 
     10.times do
       Author.create!(
-        name: Faker::Name.name
+        name: Faker::Book.author
         )
     end
 
@@ -43,7 +43,7 @@ namespace :dev do
 
     10.times do
       Editor.create!(
-        name: Faker::Company.name
+        name: Faker::Book.publisher
         )
     end
 
@@ -59,15 +59,15 @@ namespace :dev do
 
     100.times do
       book = Book.create!(
-        isbn: 13.times.map{rand(10)}.join,
+        isbn: Faker::Code.isbn,
         title: Faker::Book.title,
         subtitle: Faker::Book.title,
-        year: Random.rand(1500..2017),
-        pages: Random.rand(50..1000),
-        edition: Random.rand(1..5),
+        year: Faker::Number.between(1500,2018),
+        pages: Faker::Number.between(50,1000),
+        edition: Faker::Number.number(1),
         language: Faker::Book.genre,
-        status: Random.rand(1..3),
-        shelf: Random.rand(1..3),
+        status: Faker::Number.between(1,3),
+        shelf: Faker::Number.between(1,3),
         editor: Editor.all.sample,
         author: Author.all.sample,
         user: User.first
@@ -106,7 +106,7 @@ namespace :dev do
 
     50.times do
       List.create!(
-        year: Random.rand(2008..2017),
+        year: Faker::Number.between(2008,2018),
         book: Book.all.sample
         )
     end

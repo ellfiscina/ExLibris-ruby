@@ -11,7 +11,13 @@
               <i class="fa fa-tasks fa-5x"></i>
             </div>
             <div class="col-xs-9 text-right">
-              <div class="huge"><%= @old %></div>
+              <div class="huge">
+                <% if current_user.books_count.nil? %>
+                  0
+                <% else %>
+                  <%= @old %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -36,7 +42,13 @@
               <i class="fa fa-book fa-5x"></i>
             </div>
             <div class="col-xs-9 text-right">
-              <div class="huge"><%= @new %></div>
+              <div class="huge">
+                <% if current_user.books_count.nil? %>
+                  0
+                <% else %>
+                  <%= @new %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -61,7 +73,13 @@
               <i class="fa fa-angle-up fa-5x"></i>
             </div>
             <div class="col-xs-9 text-right">
-              <div class="huge"><%= Book.maximum("pages") %></div>
+              <div class="huge">
+                <% if current_user.books_count.nil? %>
+                  0
+                <% else %>
+                  <%= Book.maximum("pages") %>
+                <% end %>
+              </div>
               <div>Páginas</div>
             </div>
           </div>
@@ -87,7 +105,13 @@
               <i class="fa fa-angle-down fa-5x"></i>
             </div>
             <div class="col-xs-9 text-right">
-              <div class="huge"><%= @small %></div>
+              <div class="huge">
+                <% if current_user.books_count.nil? %>
+                  0
+                <% else %>
+                  <%= @small %>
+                <% end %>
+              </div>
               <div>Páginas</div>
             </div>
           </div>
@@ -114,9 +138,15 @@
         <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
       </div>
       <div class="panel-body">
-        <div id="morris-donut-chart"></div>
+        <% if current_user.books_count.nil? %>
+        <% else %>
+          <div id="morris-donut-chart"></div>
+        <% end %>
         <div class="well well-sm">
-          <h4><%= "Total: #{current_user.books_count} livros" %></h4>
+          <h4>
+            <%= "Total: #{current_user.books_count} livros" %>
+
+          </h4>
         </div>
       </div>
     </div>

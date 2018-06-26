@@ -4,7 +4,7 @@ class BooksController < HomeController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all.per_page(params[:page])
+    @books = current_user.books.all.per_page(params[:page])
   end
 
   # GET /books/1

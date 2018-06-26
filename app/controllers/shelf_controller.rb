@@ -1,27 +1,27 @@
 class ShelfController < HomeController
 
   def read
-    @books = Book.per_status(1, params[:page])
+    @books = current_user.books.per_status(1, params[:page])
     #title_book
   end
 
   def reading
-    @books = Book.per_status(2, params[:page])
+    @books = current_user.books.per_status(2, params[:page])
     title_book
   end
 
   def to_read
-    @books = Book.per_status(3, params[:page])
+    @books = current_user.books.per_status(3, params[:page])
     title_book
   end
 
   def own
-    @books = Book.per_shelf(1, params[:page])
+    @books = current_user.books.per_shelf(1, params[:page])
     title_book
   end
 
   def want
-    @books = Book.per_shelf(3, params[:page])
+    @books = current_user.books.per_shelf(3, params[:page])
     title_book
   end
 
