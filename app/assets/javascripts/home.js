@@ -2,6 +2,8 @@
     $(".dropdown-toggle").dropdown();
 });*/
 $(document).ready(function() {
+/*  $('#list_book_id').multiSelect();*/
+
   $("#bigger").on("hide.bs.collapse", function(){
     $("#iconB").html('<i class="fa fa-arrow-circle-down"></i>');
   });

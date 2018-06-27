@@ -1,0 +1,19 @@
+ <div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
+    </div>
+    <div class="panel-body">
+      <% if current_user.books_count.nil? %>
+      <% else %>
+        <div id="morris-donut-chart"></div>
+      <% end %>
+      <div class="well well-sm">
+        <h4>
+          <%= "Total: #{current_user.books_count} livros" %>
+
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>

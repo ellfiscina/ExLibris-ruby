@@ -26,13 +26,13 @@
               <td style="width: 150px"><%= author.books_count %></td>
               <td style="width: 120px">
                 <%= link_to author_path(author), class: "btn btn-info btn-circle", remote: true do %>
-                  <i class="fa fa-list"></i>
+                <i class="fa fa-list"></i>
                 <% end %>
                 <%= link_to edit_author_path(author), class: "btn btn-warning btn-circle" do %>
-                  <i class="fa fa-edit"></i>
+                <i class="fa fa-edit"></i>
                 <% end %>
                 <%= link_to author, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-circle" do %>
-                  <i class="fa fa-trash"></i>
+                <i class="fa fa-trash"></i>
                 <% end %>
               </td>
             </tr>
@@ -41,5 +41,10 @@
         </table>
       </div>
       <!-- /.table-responsive -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="text-center">
+      <%= paginate @authors %>
     </div>
   </div>

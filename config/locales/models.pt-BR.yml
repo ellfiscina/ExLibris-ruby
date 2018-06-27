@@ -1,0 +1,44 @@
+'pt-BR':
+  activerecord:
+    models:
+      author:
+        one: Autor
+        other: Autores
+      book:
+        one: Livro
+        other: Livros
+      editor:
+        one: Editora
+        other: Editoras
+      list:
+        one: Lista
+        other: Listas
+      user:
+        one: Usuário
+        other: Usuários
+    attributes:
+      author:
+        id: Código
+        name: Nome
+      book:
+        id: Código
+        isbn: ISBN
+        title: Título
+        subtitle: Subtítulo
+        year: Ano
+        pages: Páginas
+        edition: Edição
+        language: Idioma
+      editor:
+        id: Código
+        name: Nome
+      list:
+        id: Código
+        year: Ano
+      user:
+        id: Código
+        created_at: Criado em
+        updated_at: Atualizado em
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmação de senha

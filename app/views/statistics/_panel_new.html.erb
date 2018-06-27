@@ -1,0 +1,30 @@
+<div class="col-lg-3 col-md-6">
+  <div class="panel panel-green">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-xs-3">
+          <i class="fa fa-book fa-5x"></i>
+        </div>
+        <div class="col-xs-9 text-right">
+          <div class="huge">
+            <% if current_user.books_count.nil? %>
+              0
+            <% else %>
+              <%= @new %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <a  data-toggle="collapse" data-target="#newer">
+        <span class="pull-left">Mais novo</span>
+        <span class="pull-right" id="iconN">
+          <i class="fa fa-arrow-circle-down"></i>
+        </span>
+        <div class="clearfix"></div>
+      </a>
+      <div id="newer" class="collapse"><small><%= @new_title[0] %></small></div>
+    </div>
+  </div>
+</div>

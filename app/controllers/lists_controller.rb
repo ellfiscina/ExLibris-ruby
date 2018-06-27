@@ -4,7 +4,9 @@ class ListsController < HomeController
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all
+    @year = params[:year]
+    @lists = List.where(year: @year).per_page(params[:page])
+    @list = List.new
   end
 
   # GET /lists/1
@@ -25,10 +27,9 @@ class ListsController < HomeController
   # POST /lists.json
   def create
     @list = List.new(list_params)
-
     respond_to do |format|
-      if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
+      if @list.save!
+        format.html { redirect_back(fallback_location: root_path) }
         format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new }

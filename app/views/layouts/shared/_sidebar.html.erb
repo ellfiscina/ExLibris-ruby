@@ -2,62 +2,64 @@
   <div class="sidebar-nav navbar-collapse">
     <ul class="nav" id="side-menu">
       <li>
-          <a href="#"><i class="fa fa-book fa-fw"></i> Estantes<span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level">
-              <li>
-                  <%= link_to read_path do %>
-                    <i class="fa fa-bookmark fa-fw" style="color: #2ecc71;"></i>Lidos
-                  <% end %>
-              </li>
-              <li>
-                  <%= link_to reading_path do %>
-                    <i class="fa fa-bookmark fa-fw" style="color: #3498db;"></i>Lendo</a>
-                  <% end %>
-              </li>
-              <li>
-                  <%= link_to to_read_path do %>
-                    <i class="fa fa-bookmark fa-fw" style="color: #e74c3c;"></i>Fila de Leitura
-                  <% end %>
-              </li>
-              <hr class="divider">
-              <li>
-                  <%= link_to own_path do %>
-                    <i class="fa fa-book fa-fw"></i>Tenho
-                  <% end %>
-              </li>
-              <li>
-                  <%= link_to want_path do %>
-                    <i class="fa fa-gift fa-fw"></i>Desejo
-                  <% end %>
-              </li>
-          </ul>
-          <!-- /.nav-second-level -->
+        <a href="#"><i class="fa fa-book fa-fw"></i> Estantes<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+          <li>
+            <%= link_to read_path do %>
+            <i class="fa fa-bookmark fa-fw" style="color: #2ecc71;"></i>Lidos
+            <% end %>
+          </li>
+          <li>
+            <%= link_to reading_path do %>
+            <i class="fa fa-bookmark fa-fw" style="color: #3498db;"></i>Lendo</a>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to to_read_path do %>
+            <i class="fa fa-bookmark fa-fw" style="color: #e74c3c;"></i>Fila de Leitura
+            <% end %>
+          </li>
+          <hr class="divider">
+          <li>
+            <%= link_to own_path do %>
+            <i class="fa fa-book fa-fw"></i>Tenho
+            <% end %>
+          </li>
+          <li>
+            <%= link_to want_path do %>
+            <i class="fa fa-gift fa-fw"></i>Desejo
+            <% end %>
+          </li>
+        </ul>
+        <!-- /.nav-second-level -->
       </li>
       <li>
         <%= link_to authors_path do %>
-          <i class="fa fa-users fa-fw"></i> Autores
+        <i class="fa fa-users fa-fw"></i> Autores
         <% end %>
       </li>
       <li>
-          <%= link_to editors_path do %>
-            <i class="fa fa-edit fa-fw"></i>Editoras
-          <% end %>
+        <%= link_to editors_path do %>
+        <i class="fa fa-edit fa-fw"></i>Editoras
+        <% end %>
       </li>
       <li>
-            <a href="#"><i class="fa fa-list fa-fw"></i> Listas<span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level">
-              <li>
-                <%= link_to new_list_path do %>
-                  <i class="fa fa-plus fa-xs"></i><%= " Novo" %>
-                <% end %>
-              </li>
-            <% lista.each do |list| %>
-              <li>
-                  <a href="#"><i class="fa fa-angle-double-right fa-xs"></i><%= " #{list}" %></a>
-              </li>
+        <a href="#"><i class="fa fa-list fa-fw"></i> Listas<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+          <li>
+            <%= link_to new_list_path do %>
+            <i class="fa fa-plus fa-xs"></i><%= " Novo" %>
             <% end %>
-          </ul>
-          <!-- /.nav-second-level -->
+          </li>
+          <% lista.each do |list| %>
+          <li>
+            <%= link_to lists_path(:year => list) do %>
+            <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list}" %>
+            <% end %>
+          </li>
+          <% end %>
+        </ul>
+        <!-- /.nav-second-level -->
       </li>
 
       <li>

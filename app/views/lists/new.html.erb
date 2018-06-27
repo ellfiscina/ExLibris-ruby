@@ -1,1 +1,25 @@
-<%= render 'form', list: @list, title: "Nova Lista" %>
+<div class="row">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Nova Lista
+      </div>
+      <div class="panel-body">
+        <%= form_for @list do |f| %>
+          <div class="form-group">
+            <%= f.label :year %>
+            <%= f.text_field :year, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :book_id %>
+            <%= f.collection_select :book_id, Book.all.order(:title), :id, :title, {include_hidden: false}, { class: "form-control" }%>
+          </div>
+          <div style="text-align: center;">
+             <button type="submit" class="btn btn-primary btn-home">Salvar</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

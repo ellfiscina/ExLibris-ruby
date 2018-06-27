@@ -1,0 +1,30 @@
+<div class="col-lg-3 col-md-6">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-xs-3">
+          <i class="fa fa-tasks fa-5x"></i>
+        </div>
+        <div class="col-xs-9 text-right">
+          <div class="huge">
+            <% if current_user.books_count.nil? %>
+              0
+            <% else %>
+              <%= @old %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <a data-toggle="collapse" data-target="#older">
+        <span class="pull-left">Mais antigo</span>
+        <span class="pull-right" id="iconO">
+          <i class="fa fa-arrow-circle-down"></i>
+        </span>
+        <div class="clearfix"></div>
+      </a>
+      <div id="older" class="collapse"><small><%= @old_title[0] %></small></div>
+    </div>
+  </div>
+</div>

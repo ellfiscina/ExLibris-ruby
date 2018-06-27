@@ -1,0 +1,25 @@
+<div class="col-md-6">
+  <div class="panel panel-default" id="list_div">
+    <div class="panel-heading">
+      <i class="fa fa-list fa-fw"></i> Listas
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+      <div class="list-group" id="list_div_body">
+        <% @list.each do |l| %>
+        <div class="list-group-item nav">
+          <i class="fa fa-angle-double-right fa-xs"></i><%= " #{l[0]}" %>
+          <span class="pull-right text-muted small"><em><%= "#{l[1]} livros" %></em>
+          </span>
+          <span class="nav nav-second-level text-muted small">
+            <%= "#{List.count_pages(l[0])} páginas" %>
+          </span>
+        </div>
+        <% end %>
+      </div>
+      <!-- /.list-group -->
+    </div>
+    <!-- /.panel-body -->
+  </div>
+  <!-- /.panel -->
+</div>

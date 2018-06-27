@@ -1,27 +1,34 @@
-<h1>Lists</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= @year %>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @lists.each do |list| %>
+          <tr>
+            <td><%= list.book.title %></td>
+            <td>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.table-responsive -->
+  </div>
+  <%= render 'form', list: @list, title: "Nova Lista" %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Year</th>
-      <th>Book</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @lists.each do |list| %>
-      <tr>
-        <td><%= list.year %></td>
-        <td><%= list.book %></td>
-        <td><%= link_to 'Show', list %></td>
-        <td><%= link_to 'Edit', edit_list_path(list) %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New List', new_list_path %>
+<div class="row">
+  <div class="text-center">
+    <%= paginate @lists %>
+  </div>
+</div>

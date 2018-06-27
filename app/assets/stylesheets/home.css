@@ -704,3 +704,28 @@ table.dataTable thead .sorting:after {
 a:hover{
   text-decoration: none;
 }
+.footer-row{
+  width: 60%;
+  height: 50px;
+}
+.btn-xs{
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.8;
+  border-radius: 3px;
+  width: 10%;
+}
+#f_btn{
+  position: relative;
+  bottom: 48px;
+  right: 140px;
+  text-align: right;
+}
+#list_div{
+  height: 510px;
+}
+#list_div_body{
+  overflow: auto;
+  overflow-y: scroll;
+  max-height: 410px;
+}
