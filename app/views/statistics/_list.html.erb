@@ -5,21 +5,43 @@
     </div>
     <!-- /.panel-heading -->
     <div class="panel-body">
-      <div class="list-group" id="list_div_body">
-        <% @list.each do |l| %>
-        <div class="list-group-item nav">
-          <i class="fa fa-angle-double-right fa-xs"></i><%= " #{l[0]}" %>
-          <span class="pull-right text-muted small"><em><%= "#{l[1]} livros" %></em>
-          </span>
-          <span class="nav nav-second-level text-muted small">
-            <%= "#{List.count_pages(l[0])} páginas" %>
-          </span>
+      <ul  class="nav nav-pills">
+        <li>
+          <a  href="#books" data-toggle="tab">Livros</a>
+        </li>
+        <li><a href="#pages" data-toggle="tab">Páginas</a>
+        </li>
+        <li><a href="#graph" data-toggle="tab">Gráfico</a>
+        </li>
+      </ul>
+
+      <div class="tab-content clearfix">
+        <div class="tab-pane active" id="books">
+          <div class="list_div_body">
+            <% @list.each do |l| %>
+            <div class="list-group-item nav">
+              <i class="fa fa-angle-double-right fa-xs"></i><%= " #{l[0]}" %>
+              <span class="pull-right text-muted small"><em><%= "#{l[1]} livros" %></em>
+              </span>
+            </div>
+            <% end %>
+          </div>
         </div>
-        <% end %>
+        <div class="tab-pane" id="pages">
+          <div class="list_div_body">
+            <% @list.each do |l| %>
+            <div class="list-group-item nav">
+              <i class="fa fa-angle-double-right fa-xs"></i><%= " #{l[0]}" %>
+              <span class="pull-right text-muted small"><em><%= "#{List.count_pages(l[0])} páginas" %></em>
+              </span>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="tab-pane" id="graph"></div>
       </div>
-      <!-- /.list-group -->
+      <!-- /.panel-body -->
     </div>
-    <!-- /.panel-body -->
+    <!-- /.panel -->
   </div>
-  <!-- /.panel -->
 </div>

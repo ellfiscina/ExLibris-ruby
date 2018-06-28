@@ -16,9 +16,9 @@
         <%= f.hidden_field :year, class: "form-control", value: @year, disable:"disable"%>
       </div>
       <div class="form-group input-group">
-        <%= f.collection_select :book_id, Book.all.order(:title), :id, :title, {include_hidden: false}, { class: "form-control" }%>
+        <%= f.collection_select :book_id, Book.all.order(:title), :id, :title, {include_hidden: false}, { class: "form-control", style:"width: 85%;" }%>
       </div>
-      <div id="f_btn">
+      <div id="f_btn" >
         <button type="submit" class="btn btn-primary btn-xs btn-home ">OK</button>
       </div>
     <% end %>

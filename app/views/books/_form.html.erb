@@ -28,11 +28,13 @@
         </div>
         <div class="form-group">
           <%= form.label :author_id %>
-          <%= form.collection_select :author_id, Author.all.order(:name), :id, :name, { class: "form-control" } %>
+          <%= form.collection_select :author_id, Author.all.order(:name), :id,
+              :name, {}, { class: "form-control" } %>
         </div>
         <div class="form-group">
           <%= form.label :editor_id %>
-          <%= form.collection_select :editor_id, Editor.all.order(:name), :id, :name, { class: "form-control" } %>
+          <%= form.collection_select :editor_id, Editor.all.order(:name), :id,
+              :name, {}, { class: "form-control" } %>
         </div>
         <div class="col-md-4" style="padding-left: 0">
           <div class="form-group">

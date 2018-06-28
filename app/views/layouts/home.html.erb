@@ -18,51 +18,53 @@
 </head>
 
 <body>
+  <div class="wrapper">
 
- <%= render partial: 'layouts/shared/navigation' %>
+    <%= render partial: 'layouts/shared/navigation' %>
 
-  <header class="intro-header" style="background-image: url('/assets/home-bg.jpg')">
-   <div class="overlay"></div>
-   <div class="container">
-     <div class="row">
-       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-         <div class="site-heading">
-           <h1>Ex Libris</h1>
-           <hr class="small">
-           <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+    <header class="masthead" style="background-image: url('/assets/home-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Ex Libris</h1>
+              <span class="subheading">A Blog Theme by Start Bootstrap</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <% if user_signed_in? %>
+     <%= render partial: 'layouts/shared/sidebar' %>
+     <div id="page-wrapper">
+       <div class="container-fluid">
+         <div class="row">
+           <div class="col-lg-12" id="home">
+             <%= yield %>
+           </div>
          </div>
        </div>
      </div>
-   </div>
- </header>
-
- <% if user_signed_in? %>
-   <%= render partial: 'layouts/shared/sidebar' %>
-   <div id="page-wrapper">
-     <div class="container-fluid">
-       <div class="row">
-         <div class="col-lg-12" id="home">
-           <%= yield %>
-         </div>
-       </div>
-     </div>
-   </div>
-<% else %>
-  <div class="container-fluid">
-    <div class="row" style="text-align: center;">
-        <%= yield %>
+  <% else %>
+    <div class="container-fluid">
+      <div class="row" style="text-align: center;">
+          <%= yield %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
-<hr>
-<%= render partial: 'layouts/shared/footer' %>
-<%= render partial: 'layouts/shared/notification' %>
-<%= javascript_include_tag 'application' %>
-<%= javascript_include_tag 'home' %>
-<%= javascript_include_tag 'statistics' %>
-<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+    <hr>
+    <%= render partial: 'layouts/shared/footer' %>
+  </div>
+  <%= render partial: 'layouts/shared/notification' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'home' %>
+  <%= javascript_include_tag 'statistics' %>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 </body>
 
 </html>
