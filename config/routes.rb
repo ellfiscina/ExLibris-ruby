@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :books
-  resources :lists
+  resources :lists, except: [:edit]
   resources :statistics, only: [:index]
   resources :editors
   resources :authors

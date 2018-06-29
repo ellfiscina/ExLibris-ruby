@@ -1,27 +1,30 @@
 <div class="col-md-6">
   <div class="panel panel-default" id="list_div">
     <div class="panel-heading">
-      <i class="fa fa-list fa-fw"></i> Listas
+      <i class="fa fa-list fa-fw"></i> Livros por ano
     </div>
     <!-- /.panel-heading -->
     <div class="panel-body">
       <ul  class="nav nav-pills">
         <li>
+          <a href="#graph" data-toggle="tab">Gráfico</a>
+        </li>
+        <li>
           <a  href="#books" data-toggle="tab">Livros</a>
         </li>
-        <li><a href="#pages" data-toggle="tab">Páginas</a>
-        </li>
-        <li><a href="#graph" data-toggle="tab">Gráfico</a>
+        <li>
+          <a href="#pages" data-toggle="tab">Páginas</a>
         </li>
       </ul>
 
       <div class="tab-content clearfix">
-        <div class="tab-pane active" id="books">
+        <div class="tab-pane active" id="graph", style="height: 370px; width: 90%;"></div>
+        <div class="tab-pane" id="books">
           <div class="list_div_body">
-            <% @list.each do |l| %>
+            <% @list.each do |list| %>
             <div class="list-group-item nav">
-              <i class="fa fa-angle-double-right fa-xs"></i><%= " #{l[0]}" %>
-              <span class="pull-right text-muted small"><em><%= "#{l[1]} livros" %></em>
+              <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
+              <span class="pull-right text-muted small"><em><%= "#{list.books.count} livros" %></em>
               </span>
             </div>
             <% end %>
@@ -29,16 +32,15 @@
         </div>
         <div class="tab-pane" id="pages">
           <div class="list_div_body">
-            <% @list.each do |l| %>
+            <% @list.each do |list| %>
             <div class="list-group-item nav">
-              <i class="fa fa-angle-double-right fa-xs"></i><%= " #{l[0]}" %>
-              <span class="pull-right text-muted small"><em><%= "#{List.count_pages(l[0])} páginas" %></em>
+              <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
+              <span class="pull-right text-muted small"><em><%= "#{list.books.sum(:pages)} páginas" %></em>
               </span>
             </div>
             <% end %>
           </div>
         </div>
-        <div class="tab-pane" id="graph"></div>
       </div>
       <!-- /.panel-body -->
     </div>

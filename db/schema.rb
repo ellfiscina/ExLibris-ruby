@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_23_190719) do
+ActiveRecord::Schema.define(version: 2018_06_29_125741) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -60,6 +60,13 @@ ActiveRecord::Schema.define(version: 2018_06_23_190719) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
+  create_table "books_lists", id: false, force: :cascade do |t|
+    t.integer "list_id", null: false
+    t.integer "book_id", null: false
+    t.index ["book_id"], name: "index_books_lists_on_book_id"
+    t.index ["list_id"], name: "index_books_lists_on_list_id"
+  end
+
   create_table "editors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -69,10 +76,8 @@ ActiveRecord::Schema.define(version: 2018_06_23_190719) do
 
   create_table "lists", force: :cascade do |t|
     t.integer "year"
-    t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_lists_on_book_id"
   end
 
   create_table "users", force: :cascade do |t|

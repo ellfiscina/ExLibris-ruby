@@ -15,7 +15,6 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'gon'
 gem 'multi-select-rails'
-gem "d3-rails"
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-bootstrap.growl'

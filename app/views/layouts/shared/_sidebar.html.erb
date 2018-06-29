@@ -51,10 +51,10 @@
             <i class="fa fa-plus fa-xs"></i><%= " Novo" %>
             <% end %>
           </li>
-          <% lista.each do |list| %>
+          <% lista.each do |l| %>
           <li>
-            <%= link_to lists_path(:year => list) do %>
-            <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list}" %>
+            <%= link_to list_path(l) do %>
+            <i class="fa fa-angle-double-right fa-xs"></i><%= " #{l.year}" %>
             <% end %>
           </li>
           <% end %>

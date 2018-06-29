@@ -1,10 +1,7 @@
 class ApplicationController < ActionController::Base
-
   helper_method :lista
 
-  def lista
-    @list = List.order_uniq(:year)
-  end
-
-
+    def lista
+      @list = List.all.order(:year)
+    end
 end

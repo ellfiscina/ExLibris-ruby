@@ -16,20 +16,25 @@ $(function() {
   });
 });
 
-var timeBegin = 2000,
-    timeEnd = 2050;
+var year = gon.year;
+var book = gon.book;
+var dataset = [];
 
-var dataset = gon.dataset
+for (i = 0; i < year.length; i++) {
+   dataset.push({'y': year[i], 'a': book[i]});
+}
 
-var x = d3.scaleLinear().domain([timeBegin, timeEnd]).range([0,1000]);
+dataset = dataset.sort(function(a,b){
+  return a.y - b.y;
+});
 
-var svg = d3.select("#graph")
-  .append("svg")
-  .append("g").attr("transform", "translate(-100,100)")
-  .selectAll("circle")
-  .data(dataset)
-  .enter()
-  .append("circle")
-  .attr("r", d => {gon.size.count_pages(d[0])})
-  .attr("cx", d => x(d[0]))
-  .attr("cy", d => d[1]);
+Morris.Bar({
+    element: 'graph',
+    data: dataset,
+    xkey: 'y',
+    ykeys: ['a'],
+    barColors: ['#16a085'],
+    labels: ['Livros'],
+    hideHover: 'auto',
+    resize: true
+});

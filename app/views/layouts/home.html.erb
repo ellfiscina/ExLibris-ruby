@@ -42,20 +42,15 @@
        <div class="container-fluid">
          <div class="row">
            <div class="col-lg-12" id="home">
+              <br>
              <%= yield %>
            </div>
          </div>
        </div>
      </div>
   <% else %>
-    <div class="container-fluid">
-      <div class="row" style="text-align: center;">
-          <%= yield %>
-      </div>
-    </div>
+      <%= yield %>
   <% end %>
-
-
     <hr>
     <%= render partial: 'layouts/shared/footer' %>
   </div>

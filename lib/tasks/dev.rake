@@ -15,6 +15,7 @@ namespace :dev do
     puts %x(rake dev:generate_books)
     puts %x(rake dev:generate_images)
     puts %x(rake dev:generate_lists)
+    puts %x(rake dev:books_to_lists)
     puts "[OK]"
   end
 
@@ -104,11 +105,11 @@ namespace :dev do
 
     puts "Gerando listas aleatórias"
 
-    50.times do
-      List.create!(
-        year: Faker::Number.between(2008,2018),
-        book: Book.all.sample
-        )
+    x = 2010
+
+    while x < 2018
+      List.create!( year: x )
+      x += 1
     end
 
     puts "[OK]"
@@ -116,4 +117,18 @@ namespace :dev do
 
   ####################################################################
 
+  desc "TODO"
+  task books_to_lists: :environment do
+
+    puts "Gerando listas aleatórias"
+
+    List.all.each do |list|
+      10.times do
+        list.books << Book.all.sample
+      end
+    end
+
+    puts "[OK]"
   end
+
+end
