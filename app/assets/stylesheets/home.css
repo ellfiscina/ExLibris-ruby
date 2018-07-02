@@ -12,7 +12,7 @@ body {
 #page-wrapper {
   padding: 0 15px;
   min-height: 568px;
-  background-color: white;
+  background-color: #ecf0f1;
 }
 @media (min-width: 768px) {
   #page-wrapper {
@@ -62,7 +62,7 @@ hr.small {
 #mainNav {
   position: absolute;
   border-bottom: 1px solid #e9ecef;
-  background-color: white;
+  background-color: #ecf0f1;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -127,7 +127,7 @@ hr.small {
     -webkit-transition: -webkit-transform 0.2s;
     -moz-transition: -moz-transform 0.2s;
     transition: transform 0.2s;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #ecf0f1;
     background-color: rgba(255, 255, 255, 0.9);
   }
   #mainNav.is-fixed .navbar-brand {
@@ -178,7 +178,7 @@ header.masthead .page-heading,
 header.masthead .post-heading,
 header.masthead .site-heading {
   padding: 200px 0 150px;
-  color: white;
+  color: #ecf0f1;
 }
 
 @media only screen and (min-width: 768px) {
@@ -290,9 +290,9 @@ footer .copyright {
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  color: #fff;
-  background-color: #00657b !important;
-  border-color: #00657b !important;
+  color: #ecf0f1;
+  background-color: #16a085 !important;
+  border-color: #16a085 !important;
 }
 .img-show {
   height: 250px;
@@ -323,6 +323,9 @@ select.form-control:not([size]):not([multiple]){
   width: 150px;
   align-self: center;
 }
+.btn-home:visited{
+  color: #ecf0f1;
+}
 .btn-lg {
   font-size: 16px;
   padding: 25px 35px;
@@ -352,7 +355,7 @@ select.form-control:not([size]):not([multiple]){
 .btn-info.btn-outline:hover,
 .btn-warning.btn-outline:hover,
 .btn-danger.btn-outline:hover {
-  color: white;
+  color: #ecf0f1;
 }
 .panel {
   margin-right: 5px;
@@ -395,10 +398,10 @@ table.dataTable thead .sorting:after {
   text-align: center;
   font-size: 12px;
   line-height: 1.428571429;
-  color:white;
+  color:#ecf0f1;
 }
 .btn-circle:visited{
-  color: white;
+  color: #ecf0f1;
 }
 .btn-circle.btn-lg {
   width: 50px;
@@ -468,7 +471,7 @@ table.dataTable thead .sorting:after {
 }
 .panel-green > .panel-heading {
   border-color: #2ecc71;
-  color: white;
+  color: #ecf0f1;
   background-color: #2ecc71;
 }
 .panel-green > a {
@@ -482,7 +485,7 @@ table.dataTable thead .sorting:after {
 }
 .panel-red > .panel-heading {
   border-color: #e74c3c;
-  color: white;
+  color: #ecf0f1;
   background-color: #e74c3c;
 }
 .panel-red > a {
@@ -496,7 +499,7 @@ table.dataTable thead .sorting:after {
 }
 .panel-yellow > .panel-heading {
   border-color: #f0ad4e;
-  color: white;
+  color: #ecf0f1;
   background-color: #f0ad4e;
 }
 .panel-yellow > a {
@@ -510,7 +513,7 @@ table.dataTable thead .sorting:after {
 }
 .panel-primary > .panel-heading {
   border-color: #3498db;
-  color: white;
+  color: #ecf0f1;
   background-color: #3498db;
 }
 .panel-primary > a {

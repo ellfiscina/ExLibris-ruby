@@ -88,8 +88,9 @@ namespace :dev do
     books = Book.all
     books.each do |book|
       n = Random.rand(9)
+      addr = Rails.root.join("public", "templates","images", "#{n}.jpg")
       book.image.attach(
-        io: File.open("/home/ellen/projects/Ex-libris-ruby/public/templates/images/#{n}.jpg"),
+        io: File.open(addr),
         filename: "#{n}.jpg"
       )
     end
