@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    Editoras
+    <%= @editors.model_name.human(count: 2) %>
     <%= link_to new_editor_path,
     class:"btn btn-success btn-circle pull-right" do %>
       <i class="fa fa-plus"></i>
@@ -11,8 +11,8 @@
         <table class="table table-striped table-bordered table-hover">
           <thead>
             <tr>
-              <th>Nome</th>
-              <th>Qtd de livros</th>
+              <th><%= @editors.model.human_attribute_name('name') %></th>
+              <th><%= @editors.model.human_attribute_name('qtt') %></th>
               <th></th>
             </tr>
           </thead>
@@ -22,7 +22,7 @@
               <td><%= editor.name %></td>
               <td style="width: 150px"><%= editor.books_count %></td>
               <td style="width: 120px">
-                <%= link_to editor_path(editor), class: "btn btn-info btn-circle", remote: true do %>
+                <%= link_to editor_path(editor), class: "btn btn-info btn-circle" do %>
                   <i class="fa fa-list"></i>
                 <% end %>
                 <%= link_to edit_editor_path(editor), class: "btn btn-warning btn-circle" do %>

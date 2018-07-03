@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    Autor
+    <%= @authors.model_name.human(count: 2) %>
     <%= link_to new_author_path,
     class:"btn btn-success btn-circle pull-right" do %>
       <i class="fa fa-plus"></i>
@@ -11,9 +11,9 @@
         <table class="table table-striped table-bordered table-hover">
           <thead>
             <tr>
-              <th>Nome</th>
-              <th>Sobrenome</th>
-              <th>Qtd de livros</th>
+              <th><%= @authors.model.human_attribute_name('firstname') %></th>
+              <th><%= @authors.model.human_attribute_name('lastname') %></th>
+              <th><%= @authors.model.human_attribute_name('qtt') %></th>
               <th></th>
             </tr>
           </thead>
@@ -24,7 +24,7 @@
               <td><%= last_name(author.name) %></td>
               <td style="width: 150px"><%= author.books_count %></td>
               <td style="width: 120px">
-                <%= link_to author_path(author), class: "btn btn-info btn-circle", remote: true do %>
+                <%= link_to author_path(author), class: "btn btn-info btn-circle" do %>
                 <i class="fa fa-list"></i>
                 <% end %>
                 <%= link_to edit_author_path(author), class: "btn btn-warning btn-circle" do %>

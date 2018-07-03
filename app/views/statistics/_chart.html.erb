@@ -1,7 +1,7 @@
  <div class="col-md-6">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <i class="fa fa-bar-chart-o fa-fw"></i> Livros por Estante
+      <i class="fa fa-bar-chart-o fa-fw"></i> <%= t('labels.book_by_shelf') %>
     </div>
     <div class="panel-body">
       <% if current_user.books_count.nil? %>
@@ -10,7 +10,7 @@
       <% end %>
       <div class="well well-sm">
         <h4>
-          <%= "Total: #{current_user.books_count} livros" %>
+          <%= "Total: #{t('labels.qtt_books', qtt: current_user.books_count)}" %>
 
         </h4>
       </div>

@@ -24,36 +24,29 @@ class EditorsController < HomeController
   # POST /editors.json
   def create
     @editor = Editor.new(editor_params)
-
-    respond_to do |format|
       if @editor.save
-        format.html { redirect_to editors_path, notice: 'Editor was successfully created.' }
+        redirect_to editors_path, notice: 'Editor was successfully created.'
       else
-        format.html { render :new }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /editors/1
   # PATCH/PUT /editors/1.json
   def update
-    respond_to do |format|
       if @editor.update(editor_params)
-        format.html { redirect_to editors_path, notice: 'Editor was successfully updated.' }
+        redirect_to editors_path, notice: 'Editor was successfully updated.'
       else
-        format.html { render :edit }
+        render :edit
       end
-    end
   end
 
   # DELETE /editors/1
   # DELETE /editors/1.json
   def destroy
     @editor.destroy
-    respond_to do |format|
-      format.html { redirect_to editors_url, notice: 'Editor was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      redirect_to editors_url, notice: 'Editor was successfully destroyed.'
+      head :no_content
   end
 
   private

@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Clean Blog - Start Bootstrap Theme</title>
+  <title><%= t('app.name') %></title>
 
   <%= include_gon %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -19,50 +19,50 @@
 
 <body>
 
-    <%= render partial: 'layouts/shared/navigation' %>
+  <%= render partial: 'layouts/shared/navigation' %>
 
+  <header class="masthead" style="background-image: url('/assets/home-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1><%= t('app.name') %></h1>
+            <span class="subheading"><%= t('app.small') %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-          <header class="masthead" style="background-image: url('/assets/home-bg.jpg')">
-            <div class="overlay"></div>
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                  <div class="site-heading">
-                    <h1>Ex Libris</h1>
-                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </header>
   <div class="wrapper">
-  <% if user_signed_in? %>
-  <%= render partial: 'layouts/shared/sidebar' %>
+    <% if user_signed_in? %>
+      <%= render partial: 'layouts/shared/sidebar' %>
 
-     <div id="page-wrapper">
-         <div class="container-fluid">
-             <div class="row">
-                 <div class="col-lg-12">
-                     <%= yield %>
-                 </div>
-                 <!-- /.col-lg-12 -->
-             </div>
-             <!-- /.row -->
+      <div id="page-wrapper">
+       <div class="container-fluid">
+         <div class="row">
+           <div class="col-lg-12">
+             <%= yield %>
+           </div>
+           <!-- /.col-lg-12 -->
          </div>
-         <!-- /.container-fluid -->
-     </div>
-  <% else %>
-      <%= yield %>
-  <% end %>
-    <hr>
-  </div>
-    <%= render partial: 'layouts/shared/footer' %>
-  <%= render partial: 'layouts/shared/notification' %>
-  <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'home' %>
-  <%= javascript_include_tag 'statistics' %>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+         <!-- /.row -->
+       </div>
+       <!-- /.container-fluid -->
+      </div>
+      <hr>
+   <% else %>
+    <%= yield %>
+   <% end %>
+ </div>
+
+ <%= javascript_include_tag 'application' %>
+ <%= javascript_include_tag 'home' %>
+ <%= javascript_include_tag 'statistics' %>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+ <%= render partial: 'layouts/shared/notification' %>
 </body>
 
 </html>

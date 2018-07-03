@@ -19,7 +19,9 @@
     attributes:
       author:
         id: Código
-        name: Nome
+        firstname: Nome
+        lastname: Sobrenome
+        qtt: Qtd de livros
       book:
         id: Código
         isbn: ISBN
@@ -29,12 +31,16 @@
         pages: Páginas
         edition: Edição
         language: Idioma
+        author_id: Autor
+        editor_id: Editora
       editor:
         id: Código
         name: Nome
+        qtt: Qtd de livros
       list:
         id: Código
         year: Ano
+        book_ids: Livros
       user:
         id: Código
         created_at: Criado em

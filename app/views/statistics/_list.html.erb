@@ -1,19 +1,19 @@
 <div class="col-md-6">
   <div class="panel panel-default" id="list_div">
     <div class="panel-heading">
-      <i class="fa fa-list fa-fw"></i> Livros por ano
+      <i class="fa fa-list fa-fw"></i> <%= t('labels.book_by_year') %>
     </div>
     <!-- /.panel-heading -->
     <div class="panel-body">
       <ul  class="nav nav-pills">
         <li>
-          <a href="#graph" data-toggle="tab">Gráfico</a>
+          <a href="#graph" data-toggle="tab"><%= t('labels.graph') %></a>
         </li>
         <li>
-          <a  href="#books" data-toggle="tab">Livros</a>
+          <a  href="#books" data-toggle="tab"><%= Book.model_name.human(count: 2) %></a>
         </li>
         <li>
-          <a href="#pages" data-toggle="tab">Páginas</a>
+          <a href="#pages" data-toggle="tab"><%= t('labels.pages') %></a>
         </li>
       </ul>
 
@@ -24,7 +24,8 @@
             <% @list.each do |list| %>
             <div class="list-group-item nav">
               <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
-              <span class="pull-right text-muted small"><em><%= "#{list.books.count} livros" %></em>
+              <span class="pull-right text-muted small">
+                <em><%= t('labels.qtt_books', qtt: list.books.count) %></em>
               </span>
             </div>
             <% end %>
@@ -35,7 +36,8 @@
             <% @list.each do |list| %>
             <div class="list-group-item nav">
               <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
-              <span class="pull-right text-muted small"><em><%= "#{list.books.sum(:pages)} páginas" %></em>
+              <span class="pull-right text-muted small">
+                <em><%= t('labels.qtt_pg', qtt: list.books.sum(:pages)) %></em>
               </span>
             </div>
             <% end %>

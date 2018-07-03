@@ -27,6 +27,9 @@ class Book < ApplicationRecord
   scope :per_shelf, -> (value, page) {
     where(shelf: value).order(created_at: :desc).page(page).per(QTT_PER_PAGE)
   }
+  scope :search, -> (q, page) {
+    where("title LIKE ?", "%#{q}%").page(page).per(QTT_PER_PAGE)
+  }
   scope :max_value, -> (q) { maximum(q) }
   scope :min_value, -> (q) { minimum(q) }
   scope :count_status, -> (value) { where(status: value).count }

@@ -30,38 +30,38 @@
   <div class="panel-body">
     <% if @book.subtitle? %>
       <p class="p-show">
-        <strong>Subtitle:</strong>
+        <strong><%= "#{t('labels.subtitle')}:" %></strong>
         <%= @book.subtitle %>
       </p>
     <% end %>
 
     <p class="p-show">
-      <strong>Editor:</strong>
+      <strong><%= "#{t('labels.editor')}:" %></strong>
       <%= @book.editor.name %>
     </p>
 
     <p class="p-show">
-      <strong>Isbn:</strong>
+      <strong><%= "#{t('labels.isbn')}:" %></strong>
       <%= @book.isbn %>
     </p>
 
     <p class="p-show">
-      <strong>Year:</strong>
+      <strong><%= "#{t('labels.year')}:" %></strong>
       <%= @book.year %>
     </p>
 
     <p class="p-show">
-      <strong>Pages:</strong>
+      <strong><%= "#{t('labels.pages')}:" %></strong>
       <%= @book.pages %>
     </p>
 
     <p class="p-show">
-      <strong>Edition:</strong>
+      <strong><%= "#{t('labels.edition')}:" %></strong>
       <%= @book.edition %>
     </p>
 
     <p class="p-show">
-      <strong>Language:</strong>
+      <strong><%= "#{t('labels.language')}:" %></strong>
       <%= @book.language %>
     </p>
 

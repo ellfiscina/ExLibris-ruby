@@ -1,0 +1,34 @@
+'pt-BR':
+  labels:
+    edit_author: Editar Autor
+    new_author: Novo Autor
+    edit_editor: Editar Editora
+    new_editor: Novo Editora
+    new_list: Nova Lista
+    new_book: Novo Livro
+    edit_book: Editar Livro
+    qtt_books: "%{qtt} livros"
+    qtt_pg: "%{qtt} páginas"
+    statistics: Estatísticas
+    book_by_shelf: Livros por Estante
+    book_by_year: Livros por Ano
+    graph: Gráfico
+    books: Livros
+    pages: Páginas
+    big: Maior
+    small: Menor
+    newer: Mais novo
+    older: Mais antigo
+    own: Tenho
+    read: Lidos
+    reading: Lendo
+    to_read: Fila de Leitura
+    want: Lista de Desejo
+    all: Todos
+    isbn: ISBN
+    subtitle: Subtítulo
+    editor: Editora
+    year: Ano
+    pages: Páginas
+    edition: Edição
+    language: Idioma

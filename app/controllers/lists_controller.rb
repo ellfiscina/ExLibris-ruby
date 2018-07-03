@@ -11,7 +11,7 @@ class ListsController < HomeController
   end
 
   def show
-    @books = @list.books.per_page(params[:page])
+    @books = @list.books.order(:title).per_page(params[:page])
   end
 
   # POST /lists
@@ -25,6 +25,8 @@ class ListsController < HomeController
   end
 
   def update
+    @book = Book.find(params["list"]["book_ids"])
+    @list.books << @book
     if @list.update(list_params)
       redirect_to @list, notice: 'List was successfully updated.'
     else
