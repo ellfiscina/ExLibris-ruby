@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: 21c66bafbd1371b74c0e7a87a71658b08c607c7f
+  revision: c5bd060d85174fe81a664ee621d26df719c5a503
   branch: master
   specs:
     faker (1.8.7)
@@ -244,7 +244,7 @@ GEM
     tilt (2.0.8)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.12)
+    uglifier (4.1.14)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
