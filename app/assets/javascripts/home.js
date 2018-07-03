@@ -4,6 +4,10 @@
 $(document).ready(function() {
 /*  $('#list_book_id').multiSelect();*/
 
+  $('#sidebarCollapse').on('click', function () {
+    $('#sidebar').toggleClass('active');
+  });
+
   $("#bigger").on("hide.bs.collapse", function(){
     $("#iconB").html('<i class="fa fa-arrow-circle-down"></i>');
   });
