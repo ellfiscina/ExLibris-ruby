@@ -20,7 +20,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-animate-css'
 end
 # Use sqlite3 as the database for Active Record
-gem 'pg', '~> 0.18.4'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
