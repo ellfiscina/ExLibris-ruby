@@ -4,7 +4,9 @@
 <div class="panel panel-default container-fluid">
   <div class="panel-heading row">
     <div class="col-sm-4">
-      <%= image_tag @book.image, class:"img-show" %>
+      <% if @book.image.attached? %>
+        <%= image_tag @book.image, class:"img-show" %>
+      <% end %>
     </div>
 
     <div class="col-sm-8">
