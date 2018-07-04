@@ -1,9 +1,9 @@
 'pt-BR':
   labels:
-    edit_author: Editar Autor
-    new_author: Novo Autor
+    edit_author: Editar Autor@
+    new_author: Nov@ Autor@
     edit_editor: Editar Editora
-    new_editor: Novo Editora
+    new_editor: Nova Editora
     new_list: Nova Lista
     new_book: Novo Livro
     edit_book: Editar Livro
