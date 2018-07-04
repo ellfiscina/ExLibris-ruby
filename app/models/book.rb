@@ -11,6 +11,8 @@ class Book < ApplicationRecord
 
 
   validates :title, presence: true
+  validates :year, presence: true
+  validates :pages, presence: true
 
   scope :per_page, -> (page) {
     order(created_at: :desc).page(page).per(QTT_PER_PAGE)
