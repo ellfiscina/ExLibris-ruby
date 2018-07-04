@@ -1,5 +1,6 @@
 .bg{
   background-image: url('/assets/home-bg.jpg');
+  background-repeat: no-repeat;
   height: -webkit-fill-available;
 }
 body {
@@ -19,9 +20,7 @@ body {
   background-color: white;
     transition: all 0.3s;
 }
-@media (min-width: 768px) {
 
-}
 p {
   line-height: 1.5;
   margin: 30px 0;
@@ -295,6 +294,16 @@ a[data-toggle="collapse"] {
     #sidebarCollapse span {
         display: none;
     }
+  .nav-item{
+    padding: 0 10px;
+    display: inline-block;
+  }
+  .login-panel{
+    margin: auto;
+  }
+  .bg{
+    height: auto;
+  }
 }
 header.masthead {
   background: no-repeat center center;
@@ -499,10 +508,6 @@ select.form-control:not([size]):not([multiple]){
 }
 .panel {
   margin-right: 5px;
-}
-
-.login-panel {
-  margin-top: 25%;
 }
 .table-responsive > .table-bordered{
     border: 1px solid #ddd;
