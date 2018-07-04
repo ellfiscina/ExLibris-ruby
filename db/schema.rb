@@ -79,8 +79,10 @@ ActiveRecord::Schema.define(version: 2018_06_29_125741) do
 
   create_table "lists", force: :cascade do |t|
     t.integer "year"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,4 +106,5 @@ ActiveRecord::Schema.define(version: 2018_06_29_125741) do
   add_foreign_key "books", "authors"
   add_foreign_key "books", "editors"
   add_foreign_key "books", "users"
+  add_foreign_key "lists", "users"
 end

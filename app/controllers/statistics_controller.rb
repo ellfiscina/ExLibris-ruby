@@ -1,7 +1,7 @@
 class StatisticsController < HomeController
   def index
     @books = current_user.books.all
-    @list = List.all.order(:year)
+    @list = current_user.lists.order(:year)
 
     @total = current_user.books_count
     @big = @books.max_value(:pages)
@@ -25,7 +25,7 @@ class StatisticsController < HomeController
 
   def book_count
     book = []
-    List.all.each do |list|
+    current_user.lists.each do |list|
         book.push(list.books.count)
     end
     return book
@@ -33,7 +33,7 @@ class StatisticsController < HomeController
 
   def year_count
     year = []
-    List.all.each do |list|
+    current_user.lists.each do |list|
         year.push(list.year)
     end
     return year

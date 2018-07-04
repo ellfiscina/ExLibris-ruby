@@ -109,7 +109,10 @@ namespace :dev do
     x = 2010
 
     while x < 2018
-      List.create!( year: x )
+      List.create!(
+        year: x,
+        user: User.first
+      )
       x += 1
     end
 

@@ -16,7 +16,7 @@ class ListsController < HomeController
 
   # POST /lists
   def create
-    @list = List.new(list_params)
+    @list = current_user.lists.new(list_params)
     if @list.save!
       redirect_to @list, notice: t('messages.created', item: 'Lista')
     else
