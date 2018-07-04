@@ -18,7 +18,7 @@ class ListsController < HomeController
   def create
     @list = List.new(list_params)
     if @list.save!
-      redirect_back(fallback_location: root_path)
+      redirect_to @list, notice: t('messages.created', item: 'Lista')
     else
       render :new
     end
@@ -28,7 +28,7 @@ class ListsController < HomeController
     @book = Book.find(params["list"]["book_ids"])
     @list.books << @book
     if @list.update(list_params)
-      redirect_to @list, notice: 'List was successfully updated.'
+      redirect_to @list, notice: t('messages.inserted')
     else
       render :edit
     end

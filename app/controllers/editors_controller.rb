@@ -25,7 +25,7 @@ class EditorsController < HomeController
   def create
     @editor = Editor.new(editor_params)
       if @editor.save
-        redirect_to editors_path, notice: 'Editor was successfully created.'
+        redirect_to editors_path, notice: t('messages.created', item: 'Editora')
       else
         render :new
       end
@@ -35,7 +35,7 @@ class EditorsController < HomeController
   # PATCH/PUT /editors/1.json
   def update
       if @editor.update(editor_params)
-        redirect_to editors_path, notice: 'Editor was successfully updated.'
+        redirect_to editors_path, notice: t('messages.updated', item: 'Editora')
       else
         render :edit
       end
@@ -45,7 +45,7 @@ class EditorsController < HomeController
   # DELETE /editors/1.json
   def destroy
     @editor.destroy
-      redirect_to editors_url, notice: 'Editor was successfully destroyed.'
+      redirect_to editors_url, notice: t('messages.updated', item: 'Editora')
       head :no_content
   end
 

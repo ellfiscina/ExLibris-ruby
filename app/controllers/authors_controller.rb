@@ -24,20 +24,18 @@ class AuthorsController < HomeController
   def create
     @author = Author.new(author_params)
 
-    respond_to do |format|
       if @author.save
-        redirect_to authors_path, notice: 'Author was successfully created.'
+        redirect_to authors_path, notice: t('messages.created_with', item: 'Autor')
       else
         render :new
       end
-    end
   end
 
   # PATCH/PUT /authors/1
   # PATCH/PUT /authors/1.json
   def update
       if @author.update(author_params)
-        redirect_to authors_path, notice: 'Author was successfully updated.'
+        redirect_to authors_path, notice: t('messages.updated_with', item: 'Autor')
       else
         render :edit
       end
@@ -47,7 +45,7 @@ class AuthorsController < HomeController
   # DELETE /authors/1.json
   def destroy
     @author.destroy
-      redirect_to authors_url, notice: 'Author was successfully destroyed.'
+      redirect_to authors_url, notice: t('messages.destroyed_with', item: 'Autor')
       head :no_content
   end
 

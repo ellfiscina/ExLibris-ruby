@@ -16,7 +16,7 @@ private
     if user_signed_in?
       super
     else
-      redirect_to root_path, notice: "Please Login to view that page!" if request.original_fullpath != root_path
+      redirect_to root_path, notice: t('messages.login') if request.original_fullpath != root_path
     end
   end
 
