@@ -23,3 +23,5 @@ test:
 production:
   <<: *default
   database: Exlibris_production
+  username: Exlibris
+  password: <%= ENV['EXLIBRIS_DATABASE_PASSWORD'] %>
