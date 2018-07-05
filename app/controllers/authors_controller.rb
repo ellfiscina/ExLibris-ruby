@@ -5,6 +5,7 @@ class AuthorsController < HomeController
   # GET /authors.json
   def index
     @authors = Author.all.per_page(params[:page])
+    @books = current_user.books
   end
 
   # GET /authors/new
@@ -59,4 +60,5 @@ class AuthorsController < HomeController
     def author_params
       params.require(:author).permit(:name, :surname)
     end
+
 end

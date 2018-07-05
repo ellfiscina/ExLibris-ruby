@@ -5,6 +5,7 @@ class EditorsController < HomeController
   # GET /editors.json
   def index
     @editors = Editor.all.per_page(params[:page])
+    @books = current_user.books
   end
 
   # GET /editors/new

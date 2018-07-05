@@ -1,3 +1,4 @@
+<br>
 <div class="panel panel-default">
   <div class="panel-heading">
     <%= @editors.model_name.human(count: 2) %>
@@ -20,7 +21,7 @@
             <% @editors.each do |editor| %>
             <tr>
               <td><%= editor.name %></td>
-              <td style="width: 150px"><%= editor.books_count %></td>
+              <td style="width: 150px"><%= @books.count_editor(editor.id) %></td>
               <td style="width: 120px">
                 <%= link_to editor_path(editor), class: "btn btn-info btn-circle" do %>
                   <i class="fa fa-list"></i>

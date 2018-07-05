@@ -15,7 +15,7 @@ body {
 }
 #page-wrapper {
   width: 100%;
-    padding: 20px;
+  padding: 20px;
   min-height: 568px;
   background-color: white;
     transition: all 0.3s;
@@ -161,7 +161,7 @@ hr.small {
     transform: translate3d(0, 100%, 0);
   }
 }
-.sidebar .sidebar-search {
+.sidebar-search {
     padding-bottom: 0px;
 }
 #sidebar {
@@ -260,7 +260,7 @@ a[data-toggle="collapse"] {
         min-width: 80px;
         max-width: 80px;
         text-align: center;
-        margin-left: -80px !important;
+        margin-left: -83px !important;
     }
     #sidebar.active {
         margin-left: 0 !important;
@@ -294,12 +294,12 @@ a[data-toggle="collapse"] {
     #sidebarCollapse span {
         display: none;
     }
+  #page-wrapper {
+    margin: 0;
+  }
   .nav-item{
     padding: 0 10px;
     display: inline-block;
-  }
-  .login-panel{
-    margin: auto;
   }
   .bg{
     height: auto;
@@ -676,4 +676,18 @@ table.dataTable thead .sorting:after {
 }
 .pagination > li > a{
   color: #16a085;
+}
+.login-panel{
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media only screen and (min-width: 992px) {
+  .login-panel{
+    width: 100%;
+  }
+}
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }

@@ -35,6 +35,8 @@ class Book < ApplicationRecord
   scope :max_value, -> (q) { maximum(q) }
   scope :min_value, -> (q) { minimum(q) }
   scope :count_status, -> (value) { where(status: value).count }
+  scope :count_author, -> (value) { where(author_id: value).count }
+  scope :count_editor, -> (value) { where(editor_id: value).count }
 
   # status
   # 1 - Lido
