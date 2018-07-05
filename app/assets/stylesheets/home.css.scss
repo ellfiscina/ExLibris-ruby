@@ -661,13 +661,13 @@ table.dataTable thead .sorting:after {
   color: white;
   background-color: #3498db;
 }
-.panel-primary > a {
+#blue a {
   color: #3498db;
 }
-.panel-primary > a:hover {
-  color: #df8a13;
+#blue a:hover {
+  color: #2980b9;
 }
-.panel-primary  a:visited {
+#blue  a:visited {
   color: #3498db;
 }
 .pagination > .active > a{
@@ -690,4 +690,11 @@ table.dataTable thead .sorting:after {
 .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
+}
+.carousel-control-prev-icon {
+ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }

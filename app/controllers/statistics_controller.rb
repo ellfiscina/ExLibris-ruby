@@ -4,6 +4,10 @@ class StatisticsController < HomeController
     @list = current_user.lists.order(:year)
 
     @total = current_user.books_count
+    @big = @books.max_value(:pages)
+    @small = @books.min_value(:pages)
+    @old = @books.min_value(:published)
+    @new = @books.max_value(:published)
 
     @big_title = @books.title_pages(@big)
     @small_title = @books.title_pages(@small)
