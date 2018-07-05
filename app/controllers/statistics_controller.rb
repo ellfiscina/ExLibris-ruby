@@ -18,7 +18,8 @@ class StatisticsController < HomeController
     gon.reading = @books.count_status(2)
     gon.to_read = @books.count_status(3)
     gon.year = year_count()
-    gon.book = book_count()
+    gon.books = book_count()
+    gon.pages = pages_count()
   end
 
   private
@@ -37,5 +38,12 @@ class StatisticsController < HomeController
         year.push(list.year)
     end
     return year
+  end
+  def pages_count
+    pages = []
+    current_user.lists.each do |list|
+        pages.push(list.books.sum(:pages))
+    end
+    return pages
   end
 end
