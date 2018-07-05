@@ -30,4 +30,8 @@ $(document).ready(function() {
   $("#newer").on("show.bs.collapse", function(){
     $("#iconN").html('<i class="fa fa-arrow-circle-up"></i>');
   });
+
+  $(".oi").click(function(){
+    alert('oi');
+  })
 });

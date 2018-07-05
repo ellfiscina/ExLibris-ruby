@@ -1,10 +1,10 @@
 <br>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <%= @editors.model_name.human(count: 2) %>
+    <h3><%= @editors.model_name.human(count: 2) %></h3>
     <%= link_to new_editor_path,
-    class:"btn btn-success btn-circle pull-right" do %>
-      <i class="fa fa-plus"></i>
+    class:"btn btn-green pull-right" do %>
+      <i class="fa fa-plus fa-2x"></i>
       <% end %>
     </div>
     <div class="panel-body">
@@ -22,15 +22,15 @@
             <tr>
               <td><%= editor.name %></td>
               <td style="width: 150px"><%= @books.count_editor(editor.id) %></td>
-              <td style="width: 120px">
-                <%= link_to editor_path(editor), class: "btn btn-info btn-circle" do %>
-                  <i class="fa fa-list"></i>
+              <td style="width: 150px">
+                <%= link_to editor_path(editor), class: "btn btn-form btn-blue" do %>
+                  <i class="fa fa-list fa-lg"></i>
                 <% end %>
-                <%= link_to edit_editor_path(editor), class: "btn btn-warning btn-circle" do %>
-                <i class="fa fa-edit"></i>
+                <%= link_to edit_editor_path(editor), class: "btn btn-form btn-yellow" do %>
+                <i class="fa fa-edit fa-lg"></i>
                 <% end %>
-                <%= link_to editor, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-circle" do %>
-                <i class="fa fa-trash"></i>
+                <%= link_to editor, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-form btn-red" do %>
+                <i class="fa fa-trash fa-lg"></i>
                 <% end %>
               </td>
             </tr>
