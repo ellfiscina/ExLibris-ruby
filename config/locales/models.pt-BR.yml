@@ -27,7 +27,8 @@
         isbn: ISBN
         title: Título
         subtitle: Subtítulo
-        year: Ano
+        year: Ano de Publicação
+        published: Publicação original
         pages: Páginas
         edition: Edição
         language: Idioma

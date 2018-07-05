@@ -64,6 +64,7 @@ namespace :dev do
         title: Faker::Book.title,
         subtitle: Faker::Book.title,
         year: Faker::Number.between(1500,2018),
+        published: Faker::Number.between(1500,2018),
         pages: Faker::Number.between(50,1000),
         edition: Faker::Number.number(1),
         language: Faker::Book.genre,

@@ -11,8 +11,7 @@ class Book < ApplicationRecord
 
 
   validates :title, presence: true
-  validates :year, presence: true
-  validates :pages, presence: true
+  validates :isbn, uniqueness: {allow_blank: true}
 
   scope :per_page, -> (page) {
     order(created_at: :desc).page(page).per(QTT_PER_PAGE)
@@ -21,7 +20,7 @@ class Book < ApplicationRecord
     select(:title).where(pages: value).pluck(:title)
   }
   scope :title_age, -> (value) {
-    select(:title).where(year: value).pluck(:title)
+    select(:title).where(published: value).pluck(:title)
   }
   scope :per_status, -> (value, page) {
     where(status: value).order(created_at: :desc).page(page).per(QTT_PER_PAGE)

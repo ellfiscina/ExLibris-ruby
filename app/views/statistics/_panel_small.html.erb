@@ -7,7 +7,7 @@
         </div>
         <div class="col-xs-9 text-right">
           <div class="huge">
-            <% if current_user.books_count.nil? %>
+            <% if current_user.books.empty? || @small.nil? %>
               0
             <% else %>
               <%= @small %>

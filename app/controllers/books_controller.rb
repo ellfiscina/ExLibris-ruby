@@ -60,6 +60,6 @@ class BooksController < HomeController
     def book_params
       params.require(:book).permit( :isbn, :title, :subtitle, :year, :pages,
                                     :edition, :language, :shelf, :status,
-                                    :editor_id, :author_id, :image )
+                                    :published, :editor_id, :author_id, :image )
     end
 end
