@@ -24,7 +24,7 @@
               <td style="width: 330px"><%= first_name(author.name) %></td>
               <td style="width: 330px"><%= last_name(author.name) %></td>
               <td style="width: 150px"><%= @books.count_author(author.id) %></td>
-              <td >
+              <td style="width: 150px">
                 <%= link_to author_path(author), class: "btn btn-form btn-blue" do %>
                 <i class="fa fa-list fa-lg"></i>
                 <% end %>
