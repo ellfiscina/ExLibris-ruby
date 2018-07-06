@@ -45,9 +45,11 @@ class EditorsController < HomeController
   # DELETE /editors/1
   # DELETE /editors/1.json
   def destroy
-    @editor.destroy
-      redirect_to editors_url, notice: t('messages.updated', item: 'Editora')
-      head :no_content
+    if @editor.destroy
+      redirect_to editors_path, notice: t('messages.updated', item: 'Editora')
+    else
+      render :index
+    end
   end
 
   private

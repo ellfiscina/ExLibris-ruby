@@ -1,28 +1,18 @@
 class BooksController < HomeController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
-  # GET /books
-  # GET /books.json
   def index
     @books = current_user.books.all.per_page(params[:page])
   end
 
-  # GET /books/1
-  # GET /books/1.json
-  def show
-  end
+  def show;end
 
-  # GET /books/new
   def new
     @book = Book.new
   end
 
-  # GET /books/1/edit
-  def edit
-  end
+  def edit;end
 
-  # POST /books
-  # POST /books.json
   def create
     @book = current_user.books.new(book_params)
 
@@ -33,8 +23,6 @@ class BooksController < HomeController
       end
   end
 
-  # PATCH/PUT /books/1
-  # PATCH/PUT /books/1.json
   def update
       if @book.update(book_params)
         redirect_to @book, notice: t('messages.updated_with', item: 'Livro')
@@ -43,11 +31,12 @@ class BooksController < HomeController
       end
   end
 
-  # DELETE /books/1
-  # DELETE /books/1.json
   def destroy
-    @book.destroy
-      redirect_to books_url, notice: t('messages.destroyed_with', item: 'Livro')
+    if @book.destroy
+      redirect_to books_path, notice: t('messages.destroyed_with', item: 'Livro')
+    else
+      render :show
+    end
   end
 
   private

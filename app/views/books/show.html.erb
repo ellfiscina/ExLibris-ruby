@@ -43,37 +43,47 @@
       <%= @book.editor.name %>
     </p>
 
+    <% if @book.isbn? %>
     <p class="p-show">
       <strong><%= "#{t('labels.isbn')}:" %></strong>
       <%= @book.isbn %>
     </p>
+    <% end %>
 
+    <% if @book.published? %>
     <p class="p-show">
       <strong><%= "#{t('labels.published')}:" %></strong>
       <%= @book.published %>
     </p>
+    <% end %>
 
+    <% if @book.year? %>
     <p class="p-show">
       <strong><%= "#{t('labels.year')}:" %></strong>
       <%= @book.year %>
     </p>
+    <% end %>
 
+    <% if @book.pages? %>
     <p class="p-show">
       <strong><%= "#{t('labels.pages')}:" %></strong>
       <%= @book.pages %>
     </p>
+    <% end %>
 
+    <% if @book.edition? %>
     <p class="p-show">
       <strong><%= "#{t('labels.edition')}:" %></strong>
       <%= @book.edition %>
     </p>
+    <% end %>
 
+    <% if @book.language? %>
     <p class="p-show">
       <strong><%= "#{t('labels.language')}:" %></strong>
       <%= @book.language %>
     </p>
-
-
+    <% end %>
   </div>
 </div>
 </div>

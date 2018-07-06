@@ -45,9 +45,11 @@ class AuthorsController < HomeController
   # DELETE /authors/1
   # DELETE /authors/1.json
   def destroy
-    @author.destroy
-      redirect_to authors_url, notice: t('messages.destroyed_with', item: 'Autor')
-      head :no_content
+    if @author.destroy
+      redirect_to authors_path, notice: t('messages.destroyed_with', item: 'Autor')
+    else
+      render :index
+    end
   end
 
   private
