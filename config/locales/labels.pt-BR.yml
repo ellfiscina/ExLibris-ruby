@@ -9,7 +9,7 @@
     edit_book: Editar Livro
     qtt_books: "%{qtt} livros"
     qtt_pg: "%{qtt} páginas"
-    statistics: Estatísticas
+    statistics: Estatística
     book_by_shelf: Livros por Estante
     book_by_year: Livros por Ano
     graph: Gráfico

@@ -5,7 +5,7 @@
 }
 body {
   background-color: #f8f8f8;
-  font-size: 20px;
+  font-size: 15px;
   color: #212529;
   font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -692,6 +692,10 @@ table.dataTable thead .sorting:after {
   width: 70%;
   margin-right: auto;
   margin-left: auto;
+}
+.custom-search-form{
+  width: 90%;
+  left: 50px;
 }
 @media only screen and (min-width: 992px) {
   .login-panel{
