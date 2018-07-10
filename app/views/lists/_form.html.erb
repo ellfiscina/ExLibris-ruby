@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
           <%= form.label :book_ids %>
-          <%= form.collection_select :book_ids, Book.all.order(:title), :id, :title,
+          <%= form.collection_select :book_ids, current_user.books.all.order(:title), :id, :title,
           {include_hidden: false}, { multiple:"multiple", class: "form-control", id:"list_book_id" }%>
         </div>
         <div style="text-align: center;">
