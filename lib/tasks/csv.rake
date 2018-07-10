@@ -18,8 +18,8 @@ namespace :csv do
           status: row[7],
           shelf: row[8],
           published: row[9],
-          editor: Editor.find(row[10]),
           author: Author.find(row[11]),
+          editor: Editor.find(row[10]),
           user: user
         )
       end
