@@ -6,4 +6,8 @@ class Editor < ApplicationRecord
   scope :per_page, -> (page) {
     page(page).per(QTT_PER_PAGE)
   }
+
+  def to_param
+    "#{id} #{name}".parameterize
+  end
 end

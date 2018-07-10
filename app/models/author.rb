@@ -1,4 +1,5 @@
 class Author < ApplicationRecord
+
   QTT_PER_PAGE = 20
 
   has_many :books, dependent: :destroy
@@ -6,4 +7,8 @@ class Author < ApplicationRecord
   scope :per_page, -> (page) {
     page(page).per(QTT_PER_PAGE)
   }
+
+  def to_param
+    "#{id} #{name}".parameterize
+  end
 end

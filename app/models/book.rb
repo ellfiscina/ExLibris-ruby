@@ -29,7 +29,7 @@ class Book < ApplicationRecord
     where(shelf: value).order(created_at: :desc).page(page).per(QTT_PER_PAGE)
   }
   scope :search, -> (q, page) {
-    where("title LIKE ?", "%#{q}%").page(page).per(QTT_PER_PAGE)
+    where("lower(title) LIKE ?", "%#{q.downcase}%").page(page).per(QTT_PER_PAGE)
   }
   scope :max_value, -> (q) { maximum(q) }
   scope :min_value, -> (q) { minimum(q) }
@@ -37,6 +37,9 @@ class Book < ApplicationRecord
   scope :count_author, -> (value) { where(author_id: value).count }
   scope :count_editor, -> (value) { where(editor_id: value).count }
 
+  def to_param
+    "#{id} #{title}".parameterize
+  end
   # status
   # 1 - Lido
   # 2 - Lendo
