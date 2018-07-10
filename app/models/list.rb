@@ -6,5 +6,5 @@ class List < ApplicationRecord
 
   scope :per_page, -> (page) { page(page).per(QTT_PER_PAGE) }
 
-  validates :year, uniqueness: true
+  validates :year, :uniqueness => {:scope=>:user_id}
 end
