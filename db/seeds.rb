@@ -154,7 +154,7 @@ Book.create!(
   subtitle: 'As Crônicas de Gelo e Fogo',
   year: 2011,
   pages: 656,
-  edition: 1
+  edition: 1,
   language: 'Português',
   status: 1,
   shelf: 1,
