@@ -17,8 +17,9 @@ namespace :csv do
           language: row[6],
           status: row[7],
           shelf: row[8],
-          editor: Editor.all.sample,
-          author: Author.all.sample,
+          published: row[9],
+          editor: Editor.find(row[10]),
+          author: Author.find(row[11]),
           user: user
         )
       end

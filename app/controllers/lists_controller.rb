@@ -1,6 +1,6 @@
 class ListsController < HomeController
   before_action :set_list, only: [:show, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
   # GET /lists
   def index
   end
@@ -11,7 +11,7 @@ class ListsController < HomeController
   end
 
   def show
-    @books = @list.books.order(:title).per_page(params[:page])
+    @books = @list.books.order(sort_column + ' ' + sort_direction).per_page(params[:page])
   end
 
   # POST /lists
@@ -49,5 +49,13 @@ class ListsController < HomeController
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
       params.require(:list).permit(:year, book_ids: [])
+    end
+
+    def sort_column
+      params[:sort] || "title"
+    end
+
+    def sort_direction
+      params[:direction] || "asc"
     end
 end

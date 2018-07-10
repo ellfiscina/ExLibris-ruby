@@ -12,16 +12,14 @@
         <table class="table table-striped table-bordered table-hover">
           <thead>
             <tr>
-              <th></th>
               <th><%= sortable "name", @editors.model.human_attribute_name('name') %></th>
-              <th><%= sortable "books_count", @editors.model.human_attribute_name('qtt') %></th>
+              <th><%= @editors.model.human_attribute_name('qtt') %></th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             <% @editors.each do |editor| %>
             <tr>
-              <td><%= editor.id %></td>
               <td><%= editor.name %></td>
               <td style="width: 150px"><%= @books.count_editor(editor.id) %></td>
               <td style="width: 150px">

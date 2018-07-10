@@ -9,7 +9,7 @@
       <table class="table table-striped table-bordered table-hover">
         <thead>
           <tr>
-            <th><%= @books.model.human_attribute_name('title') %></th>
+            <th><%= sortable "title", @books.model.human_attribute_name('title') %></th>
             <th></th>
           </tr>
         </thead>
