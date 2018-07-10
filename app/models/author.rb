@@ -1,9 +1,9 @@
 class Author < ApplicationRecord
-  QTT_PER_PAGE = 50
+  QTT_PER_PAGE = 20
 
   has_many :books, dependent: :destroy
 
   scope :per_page, -> (page) {
-    order(:name).page(page).per(QTT_PER_PAGE)
+    page(page).per(QTT_PER_PAGE)
   }
 end

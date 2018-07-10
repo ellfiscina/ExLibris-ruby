@@ -1,10 +1,11 @@
 class EditorsController < HomeController
   before_action :set_editor, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /editors
   # GET /editors.json
   def index
-    @editors = Editor.all.per_page(params[:page])
+    @editors = Editor.all.order(sort_column + ' ' + sort_direction).per_page(params[:page])
     @books = current_user.books
   end
 
@@ -61,5 +62,13 @@ class EditorsController < HomeController
     # Never trust parameters from the scary internet, only allow the white list through.
     def editor_params
       params.require(:editor).permit(:name)
+    end
+
+    def sort_column
+      params[:sort] || "name"
+    end
+
+    def sort_direction
+      params[:direction] || "asc"
     end
 end

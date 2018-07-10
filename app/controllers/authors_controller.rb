@@ -1,10 +1,11 @@
 class AuthorsController < HomeController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /authors
   # GET /authors.json
   def index
-    @authors = Author.all.per_page(params[:page])
+    @authors = Author.all.order(sort_column + ' ' + sort_direction).per_page(params[:page])
     @books = current_user.books
   end
 
@@ -63,4 +64,11 @@ class AuthorsController < HomeController
       params.require(:author).permit(:name, :surname)
     end
 
+    def sort_column
+      params[:sort] || "name"
+    end
+
+    def sort_direction
+      params[:direction] || "asc"
+    end
 end

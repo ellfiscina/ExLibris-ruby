@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  QTT_PER_PAGE = 12
+  QTT_PER_PAGE = 16
 
   belongs_to :editor, counter_cache: true
   belongs_to :user, counter_cache: true
@@ -14,7 +14,7 @@ class Book < ApplicationRecord
   validates :isbn, uniqueness: {allow_blank: true}
 
   scope :per_page, -> (page) {
-    order(created_at: :desc).page(page).per(QTT_PER_PAGE)
+    page(page).per(QTT_PER_PAGE)
   }
   scope :title_pages, -> (value) {
     select(:title).where(pages: value).pluck(:title)

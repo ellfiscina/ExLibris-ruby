@@ -2,7 +2,7 @@ class BooksController < HomeController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = current_user.books.all.per_page(params[:page])
+    @books = current_user.books.all.order(params[:sort]).per_page(params[:page])
   end
 
   def show;end

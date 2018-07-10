@@ -12,9 +12,9 @@
         <table class="table table-striped table-bordered table-hover">
           <thead>
             <tr>
-              <th><%= @authors.model.human_attribute_name('firstname') %></th>
+              <th><%= sortable "name", @authors.model.human_attribute_name('firstname') %></th>
               <th><%= @authors.model.human_attribute_name('lastname') %></th>
-              <th><%= @authors.model.human_attribute_name('qtt') %></th>
+              <th><%= sortable "books_count", @authors.model.human_attribute_name('qtt') %></th>
               <th></th>
             </tr>
           </thead>
