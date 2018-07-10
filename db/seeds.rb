@@ -126,7 +126,7 @@ Book.create!(
   title: 'A Esperança',
   year: 2011,
   pages: 335,
-  edition: 1
+  edition: 1,
   language: 'Português',
   status: 1,
   shelf: 1,
