@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $('#list_book_id').multiSelect();
   $('#sidebarCollapse').on('click', function () {
     $('#sidebar').toggleClass('active');
   });
