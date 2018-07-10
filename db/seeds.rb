@@ -1,4 +1,4 @@
-user = User.first
+user = User.find(2)
 
 Book.create!(
   title: 'A Árvore de Ferro',
