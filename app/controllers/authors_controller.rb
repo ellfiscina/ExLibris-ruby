@@ -1,6 +1,6 @@
 class AuthorsController < HomeController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_column, :sort_column2, :sort_direction
 
   # GET /authors
   # GET /authors.json
@@ -19,7 +19,7 @@ class AuthorsController < HomeController
   end
 
   def show
-    @books = @author.books
+    @books = @author.books.order(sort_column + ' ' + sort_direction)
   end
   # POST /authors
   # POST /authors.json
@@ -66,6 +66,10 @@ class AuthorsController < HomeController
 
     def sort_column
       params[:sort] || "name"
+    end
+
+    def sort_column2
+      params[:sort] || "title"
     end
 
     def sort_direction

@@ -1,6 +1,6 @@
 class EditorsController < HomeController
   before_action :set_editor, only: [:show, :edit, :update, :destroy]
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_column,:sort_column2, :sort_direction
 
   # GET /editors
   # GET /editors.json
@@ -19,7 +19,7 @@ class EditorsController < HomeController
   end
 
   def show
-    @books = @editor.books
+    @books = @editor.books.order(sort_column2 + ' ' + sort_direction)
   end
 
   # POST /editors
@@ -66,6 +66,10 @@ class EditorsController < HomeController
 
     def sort_column
       params[:sort] || "name"
+    end
+
+    def sort_column2
+      params[:sort] || "title"
     end
 
     def sort_direction
