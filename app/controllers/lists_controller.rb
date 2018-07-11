@@ -25,7 +25,7 @@ class ListsController < HomeController
   end
 
   def update
-    @book = Book.find(params["list"]["book_ids"])
+    @book = current_user.lists.find(params["list"]["book_ids"])
     @list.books << @book
     if @list.update(list_params)
       redirect_to @list, notice: t('messages.inserted')
@@ -43,7 +43,7 @@ class ListsController < HomeController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_list
-      @list = List.find(params[:id])
+      @list = current_user.list.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
