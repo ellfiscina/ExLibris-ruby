@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :books
-  has_many :lists
+  has_many :books, dependent: :destroy
+  has_many :lists, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
