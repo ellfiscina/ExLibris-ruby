@@ -1,7 +1,10 @@
 <br>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3><%= @editors.model_name.human(count: 2) %></h3>
+    <h3>
+      <%= @editors.model_name.human(count: @editors.count) %>
+      <small><%= "(#{@editors.count})" %></small>
+    </h3>
     <%= link_to new_editor_path,
     class:"btn btn-green pull-right" do %>
       <i class="fa fa-plus fa-2x"></i>

@@ -3,6 +3,7 @@ class BooksController < HomeController
 
   def index
     @books = current_user.books.all.order(params[:sort]).per_page(params[:page])
+    @count = current_user.books.count
   end
 
   def show;end

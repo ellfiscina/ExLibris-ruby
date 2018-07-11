@@ -1,7 +1,10 @@
 <br>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3><%= @authors.model_name.human(count: 2) %></h3>
+    <h3>
+      <%= @authors.model_name.human(count: @authors.count) %>
+      <small><%= "(#{@authors.count})" %></small>
+    </h3>
     <%= link_to new_author_path,
     class:"btn btn-green pull-right" do %>
       <i class="fa fa-plus fa-2x"></i>
