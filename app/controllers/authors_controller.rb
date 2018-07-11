@@ -19,7 +19,7 @@ class AuthorsController < HomeController
   end
 
   def show
-    @books = @author.books.order(sort_column + ' ' + sort_direction)
+    @books = @author.books.order(sort_column2 + ' ' + sort_direction)
   end
   # POST /authors
   # POST /authors.json
