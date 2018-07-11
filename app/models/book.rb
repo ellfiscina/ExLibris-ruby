@@ -31,8 +31,8 @@ class Book < ApplicationRecord
   scope :search, -> (q, page) {
     where("lower(title) LIKE ?", "%#{q.downcase}%").page(page).per(QTT_PER_PAGE)
   }
-  scope :max_value, -> (q) { maximum(q) }
-  scope :min_value, -> (q) { minimum(q) }
+  scope :max_value, -> (q) { where.not(shelf: 2).maximum(q) }
+  scope :min_value, -> (q) { where.not(shelf: 2).minimum(q) }
   scope :count_status, -> (value) { where(status: value).count }
   scope :count_author, -> (value) { where(author_id: value).count }
   scope :count_editor, -> (value) { where(editor_id: value).count }
