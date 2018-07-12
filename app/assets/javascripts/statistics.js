@@ -19,65 +19,147 @@ $(document).ready(function() {
   var pages = gon.pages;
   var books = gon.books;
 
-  var dataset1 = []
-  var dataset2 = []
+  var data = []
 
   for (i = 0; i < year.length; i++) {
-    dataset1.push({'y': year[i], 'a': books[i]});
-  }
-  for (i = 0; i < year.length; i++) {
-    dataset2.push({'y': year[i], 'a': pages[i]});
+    data.push({'year': year[i], 'books': books[i], 'pages': pages[i]});
   }
 
-
-  var graph1 = Morris.Bar({
-    element: 'graph1',
-    data: dataset1,
-    xkey: 'y',
-    ykeys: ['a'],
-    barColors: ['#16a085'],
-    labels: ['Livros'],
-    hideHover: 'auto',
-    resize: true
-  });
-  var graph2 = Morris.Bar({
-    element: 'graph2',
-    data: dataset2,
-    xkey: 'y',
-    ykeys: ['a'],
-    barColors: ['#16a085'],
-    labels: ['Páginas'],
-    hideHover: 'auto',
-    axes: false,
-    resize: true
+  data = data.sort(function (a, b) {
+    if (a.year > b.year) {
+      return 1;
+    }
+    if (a.year < b.year) {
+      return -1;
+    }
+    return 0;
   });
 
+  var colors =  [ ["Livros", "#ecd555"], ["Páginas", "#BF55EC"] ];
 
-  function graph(type, string, element){
-    var dataset = [];
+  var margin = {top: 80, right: 80, bottom: 80, left: 20},
+      width = 970 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;
 
-    for (i = 0; i < year.length; i++) {
-       dataset.push({'y': year[i], 'a': type[i]});
+  var x = d3.scaleBand().rangeRound([0, width]);
+
+  var y0 = d3.scaleLinear().domain([300, 1100]).range([height, 0]),
+      y1 = d3.scaleLinear().domain([20, 80]).range([height, 0]);
+
+  var xAxis = d3.axisBottom(x);
+  var yAxisLeft = d3.axisLeft(y0);
+  var yAxisRight = d3.axisRight(y1);
+
+  var svg = d3.select("#bargraph").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("class", "graph")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  x.domain(data.map(function(d) { return d.year; }));
+  y0.domain([0, d3.max(data, function(d) { return d.books; })]);
+  y1.domain([0, d3.max(data, function(d) { return d.pages; })]);
+
+  svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+  svg.append("g")
+    .attr("class", "y axis axisLeft")
+    .attr("transform", "translate(0,0)")
+    .call(yAxisLeft)
+    .append("text")
+    .attr("y", 6)
+    .attr("dy", "-2em")
+    .style("text-anchor", "end")
+    .style("text-anchor", "end")
+    .text("Livros");
+
+  svg.append("g")
+    .attr("class", "y axis axisRight")
+    .attr("transform", "translate(" + (width) + ",0)")
+    .call(yAxisRight)
+    .append("text")
+    .attr("y", 6)
+    .attr("dy", "-2em")
+    .attr("dx", "2em")
+    .style("text-anchor", "end")
+    .text("Páginas");
+
+  bars = svg.selectAll(".bar").data(data.sort()).enter();
+
+  plot('b');
+  plot('p');
+
+  var legend = svg
+  .append("g")
+  .selectAll("g")
+  .data(colors)
+  .enter()
+  .append('g')
+  .attr('class', 'legend')
+  .attr('transform', function(d, i) {
+    var height = 20;
+    var x = 0;
+    var y = (i * height ) - 70;
+    return 'translate(' + x + ',' + y + ')';
+  });
+
+  legend.append('rect')
+  .attr('width', "15")
+  .attr('height', "15")
+  .style('fill', (d,i) => colors[i][1])
+  .style('stroke', (d,i) => colors[i][1]);
+
+  legend.append('text')
+  .attr('x', "20")
+  .attr('y', "13")
+  .text((d,i) => colors[i][0]);
+
+
+  function plot(type) {
+    if(type == 'b'){
+      var tip = d3.tip().attr("class", "d3-tip").html(d => d.books + " livros");
+      svg.call(tip);
+      bars.append("rect")
+      .attr("class", "bar1")
+      .attr("x", d => x(d.year)+ 15)
+      .attr("width", "30")
+      .attr("y", d => y0(d.books))
+      .attr("height", d => height - y0(d.books))
+      .attr("fill",colors[0][1])
+      .on("mouseover", function(d){
+        d3.select(this).style("fill", "#B9A743");
+        tip.show(d);
+      })
+      .on("mouseout", function(d){
+        d3.select(this).style("fill", colors[0][1]);
+        tip.hide(d);
+      });
+    }
+    else{
+      var tip = d3.tip().attr("class", "d3-tip").html(d => d.pages + " páginas");
+      svg.call(tip);
+      bars.append("rect")
+      .attr("class", "bar2")
+      .attr("x", d => x(d.year) + 30)
+      .attr("width", "30")
+      .attr("y", d => y1(d.pages))
+      .attr("height", d => height - y1(d.pages))
+      .attr("fill",colors[1][1])
+      .on("mouseover", function(d){
+        d3.select(this).style("fill", "#9643B9");
+        tip.show(d);
+      })
+      .on("mouseout", function(d){
+        d3.select(this).style("fill", colors[1][1]);
+        tip.hide(d);
+      });
     }
 
-    dataset = dataset.sort(function(a,b){
-      return a.y - b.y;
-    });
-
 
   }
 
-  $('#pagesTab').click(function(){
-    var x = 400;
-    console.log(x);
-    $('#graph2').width(x);
-    graph2.redraw();
-  });
-  $('#booksTab').click(function(){
-    var x = 320;
-    console.log(x);
-    $('#graph1').width(x);
-
-    graph1.redraw();
-  });
 });

@@ -21,7 +21,7 @@
 
   <%= render partial: 'layouts/shared/navigation' %>
 
-  <header class="masthead" style="background-image: url('/assets/home-bg.jpg')">
+  <header class="masthead" style="background-image: url('/assets/home-bg.jpeg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -53,7 +53,12 @@
                   </span>
                 </div>
               <% end %>
-             <%= yield %>
+              <br>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <%= yield %>
+                </div>
+              </div>
            </div>
          </div>
        </div>
@@ -67,6 +72,7 @@
  <%= javascript_include_tag 'application' %>
  <%= javascript_include_tag 'home' %>
  <%= javascript_include_tag 'statistics' %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
  <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
  <%= render partial: 'layouts/shared/notification' %>

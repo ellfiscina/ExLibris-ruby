@@ -17,8 +17,10 @@ body {
   width: 100%;
   padding: 20px;
   min-height: 568px;
-  background-color: white;
-    transition: all 0.3s;
+  background-image: url('/assets/body-bg.jpg');
+  background-repeat: no-repeat;
+  opacity: .5px;
+  transition: all 0.3s;
 }
 p {
   line-height: 1.5;
@@ -303,6 +305,11 @@ a[data-toggle="collapse"] {
   .bg{
     height: auto;
   }
+
+
+
+
+
 }
 header.masthead {
   background: no-repeat center center;
@@ -602,7 +609,7 @@ table.dataTable thead .sorting:after {
 }
 
 #list_div{
-  height: 510px;
+  height: 505px;
 }
 .list_div_body{
   overflow: auto;
@@ -708,6 +715,7 @@ table.dataTable thead .sorting:after {
   #f_btn button{
     width: 25%;
   }
+
 }
 .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
   border-top-right-radius: 4px;
@@ -747,3 +755,12 @@ td{
   border-radius: 0;
   padding-top: 2px;
 }
+.head{
+  margin: -30px 10px;
+}
+  #graph{
+    overflow: auto;
+    overflow-x: scroll;
+    max-width: 1005px;
+    border: none;
+  }

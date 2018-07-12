@@ -1,8 +1,11 @@
-<br>
-<div class="panel panel-default">
-  <div class="panel-heading">
+  <h3>
     <%= @list.year %>
-    <small class="pull-right"><%= t('labels.qtt_books', qtt: @list.books.count) %></small>
+    <small><%= "(#{@list.books.count})" %></small>
+  <%= link_to list_path, method: :delete, data: { confirm: 'Are you sure?' },
+      class: "btn btn-form btn-red float-right" do %>
+    <i class="fa fa-trash fa-lg"></i>
+  <% end %>
+  </h3>
   </div>
   <div class="panel-body">
     <div class="table-responsive">
@@ -41,8 +44,7 @@
         </div>
       <% end %>
     </div>
-  </div>
-</div>
+
 
 <div class="row justify-content-center">
   <%= paginate @books %>

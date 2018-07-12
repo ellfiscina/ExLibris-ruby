@@ -1,6 +1,4 @@
-<br>
-<div class="panel panel-default">
-  <div class="panel-heading">
+
     <h3>
       <%= @authors.model_name.human(count: @authors.count) %>
       <small><%= "(#{@authors.count})" %></small>
@@ -29,13 +27,13 @@
               <td><%= @books.count_author(author.id) %></td>
               <td style="width: 150px">
                 <%= link_to author_path(author), class: "btn btn-form btn-blue" do %>
-                <i class="fa fa-list fa-lg"></i>
+                  <i class="fa fa-list fa-lg"></i>
                 <% end %>
                 <%= link_to edit_author_path(author), class: "btn btn-form btn-yellow" do %>
-                <i class="fa fa-edit fa-lg"></i>
+                  <i class="fa fa-edit fa-lg"></i>
                 <% end %>
                 <%= link_to author, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-form btn-red" do %>
-                <i class="fa fa-trash fa-lg"></i>
+                  <i class="fa fa-trash fa-lg"></i>
                 <% end %>
               </td>
             </tr>
@@ -44,8 +42,7 @@
         </table>
       </div>
       <!-- /.table-responsive -->
-    </div>
-  </div>
+
   <div class="row justify-content-center">
     <%= paginate @authors %>
   </div>

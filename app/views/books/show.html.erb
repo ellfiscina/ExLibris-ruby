@@ -1,9 +1,5 @@
-<br>
-<div class="col-md-2"></div>
-<div class="col-md-8">
 
-<div class="panel panel-default container-fluid">
-  <div class="panel-heading row">
+  <div class="row">
     <div class="col-sm-4">
       <% if @book.image.attached? %>
         <%= image_tag @book.image, class:"img-show" %>
@@ -29,6 +25,7 @@
       </div>
     </div>
   </div>
+</div>
 
   <div class="panel-body">
     <% if @book.subtitle? %>
@@ -85,5 +82,3 @@
     </p>
     <% end %>
   </div>
-</div>
-</div>

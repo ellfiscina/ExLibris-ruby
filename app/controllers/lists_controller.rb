@@ -1,9 +1,6 @@
 class ListsController < HomeController
   before_action :set_list, only: [:show, :update, :destroy]
   helper_method :sort_column, :sort_direction
-  # GET /lists
-  def index
-  end
 
   # GET /lists/new
   def new
@@ -25,7 +22,7 @@ class ListsController < HomeController
   end
 
   def update
-    @book = current_user.lists.find(params["list"]["book_ids"])
+    @book = current_user.books.find(params["list"]["book_ids"])
     @list.books << @book
     if @list.update(list_params)
       redirect_to @list, notice: t('messages.inserted')
@@ -37,7 +34,7 @@ class ListsController < HomeController
   # DELETE /lists/1
   def destroy
     @list.destroy
-    redirect_back(fallback_location: root_path)
+    redirect_to books_path, notice: t('messages.destroyed', item: 'Lista')
   end
 
   private

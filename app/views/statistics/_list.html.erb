@@ -1,7 +1,7 @@
 <div class="col-md-6">
   <div class="panel panel-default" id="list_div">
     <div class="panel-heading">
-      <i class="fa fa-list fa-fw"></i> <%= t('labels.book_by_year') %>
+      <i class="fa fa-list fa-fw"></i>
     </div>
     <!-- /.panel-heading -->
     <div class="panel-body">
@@ -16,62 +16,31 @@
 
       <div class="tab-content clearfix">
         <div class="tab-pane active" id="books">
-          <div id="carouselBooks" class="carousel slide" data-ride="carousel" style="height: 400px;">
-            <div class="carousel-inner">
-              <div class="carousel-item active" id="graph1" style="height: 370px;"></div>
-              <div class="carousel-item">
-                <div class="list_div_body">
-                  <% @list.each do |list| %>
-                  <div class="list-group-item nav">
-                    <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
-                    <span class="pull-right text-muted small">
-                      <em><%= t('labels.qtt_books', qtt: list.books.count) %></em>
-                    </span>
-                  </div>
-                  <% end %>
-                </div>
-              </div>
+          <div class="list_div_body">
+            <% @list.each do |list| %>
+            <div class="list-group-item nav">
+              <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
+              <span class="pull-right text-muted small">
+                <em><%= t('labels.qtt_books', qtt: list.books.count) %></em>
+              </span>
             </div>
-            <a class="carousel-control-prev" href="#carouselBooks" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselBooks" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+            <% end %>
           </div>
+
         </div>
         <div class="tab-pane" id="pages">
-          <div id="carouselPages" class="carousel slide" data-ride="carousel" style="height: 400px;">
-            <div class="carousel-inner">
-              <div class="carousel-item active" id="graph2" style="height: 400px; left: 30px"></div>
-              <div class="carousel-item">
-                <div class="list_div_body">
-                  <% @list.each do |list| %>
-                  <div class="list-group-item nav">
-                    <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
-                    <span class="pull-right text-muted small">
-                      <em><%= t('labels.qtt_pg', qtt: list.books.sum(:pages)) %></em>
-                    </span>
-                  </div>
-                  <% end %>
-                </div>
-              </div>
+          <div class="list_div_body">
+            <% @list.each do |list| %>
+            <div class="list-group-item nav">
+              <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
+              <span class="pull-right text-muted small">
+                <em><%= t('labels.qtt_pg', qtt: list.books.sum(:pages)) %></em>
+              </span>
             </div>
-            <a class="carousel-control-prev" href="#carouselPages" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselPages" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+            <% end %>
           </div>
         </div>
       </div>
-      <!-- /.panel-body -->
     </div>
-    <!-- /.panel -->
   </div>
 </div>

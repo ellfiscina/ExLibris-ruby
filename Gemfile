@@ -14,10 +14,13 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'gon'
 gem 'multi-select-rails'
+gem 'd3-tip-rails', '~> 0.0.1'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-bootstrap.growl'
   gem 'rails-assets-animate-css'
+  gem 'rails-assets-d3'
 end
 # Use sqlite3 as the database for Active Record
 gem 'pg'
