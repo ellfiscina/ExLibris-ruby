@@ -19,9 +19,8 @@
         <h2 style="color: #6C7A89;">
           <%= @book.title %>
         </h2>
-        <p class="p-show pull-right" id="p-header">
-          <%= "by #{@book.author.name}" %>
-        </p>
+          <%= link_to "by #{@book.author.name}", author_path(@book.author),class:"p-show pull-right", id:"p-header" %>
+
       </div>
     </div>
   </div>
