@@ -1,6 +1,6 @@
     <h3>
-      <%= @editors.model_name.human(count: @editors.count) %>
-      <small><%= "(#{@editors.count})" %></small>
+      <%= @editors.model_name.human(count: @count) %>
+      <small><%= "(#{@count})" %></small>
     </h3>
     <%= link_to new_editor_path,
     class:"btn btn-green pull-right" do %>

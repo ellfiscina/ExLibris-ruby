@@ -7,6 +7,7 @@ class EditorsController < HomeController
   def index
     @editors = Editor.all.order(sort_column + ' ' + sort_direction).per_page(params[:page])
     @books = current_user.books
+    @count = Editor.all.count
   end
 
   # GET /editors/new
