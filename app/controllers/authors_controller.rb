@@ -6,6 +6,7 @@ class AuthorsController < HomeController
   # GET /authors.json
   def index
     @authors = Author.all.order(sort_column + ' ' + sort_direction).per_page(params[:page])
+    @count = Author.all.count
     @books = current_user.books
   end
 

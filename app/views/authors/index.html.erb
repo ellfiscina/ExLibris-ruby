@@ -1,7 +1,7 @@
 
     <h3>
-      <%= @authors.model_name.human(count: @authors.count) %>
-      <small><%= "(#{@authors.count})" %></small>
+      <%= @authors.model_name.human(count: @count) %>
+      <small><%= "(#{@count})" %></small>
     </h3>
     <%= link_to new_author_path,
     class:"btn btn-green pull-right" do %>
