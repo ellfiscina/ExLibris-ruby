@@ -25,7 +25,7 @@ class Book < ApplicationRecord
   scope :per_status, -> (value, page, sort) {
     where(status: value).order(sort).page(page).per(QTT_PER_PAGE)
   }
-  scope :per_shelf, -> (value, page) {
+  scope :per_shelf, -> (value, page, sort) {
     where(shelf: value).order(sort).page(page).per(QTT_PER_PAGE)
   }
   scope :search, -> (q, page) {
