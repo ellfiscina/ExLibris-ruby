@@ -15,6 +15,7 @@ gem 'kaminari-i18n'
 gem 'gon'
 gem 'multi-select-rails'
 gem 'd3-tip-rails', '~> 0.0.1'
+gem "aws-sdk-s3", require: false
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
