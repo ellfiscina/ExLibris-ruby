@@ -10,31 +10,31 @@
             <% end %>
           </li>
           <li>
-            <%= link_to read_path do %>
+            <%= link_to books_path(status: 1) do %>
               <i class="fa fa-bookmark fa-fw" style="color: #2ecc71;"></i>
               <%= t('labels.read') %>
             <% end %>
           </li>
           <li>
-            <%= link_to reading_path do %>
+            <%= link_to books_path(status: 2) do %>
               <i class="fa fa-bookmark fa-fw" style="color: #3498db;"></i>
               <%= t('labels.reading') %>
             <% end %>
           </li>
           <li>
-            <%= link_to to_read_path do %>
+            <%= link_to books_path(status: 3) do %>
               <i class="fa fa-bookmark fa-fw" style="color: #e74c3c;"></i>
               <%= t('labels.to_read') %>
             <% end %>
           </li>
           <hr class="divider">
           <li>
-            <%= link_to own_path do %>
+            <%= link_to books_path(shelf: 1) do %>
               <i class="fa fa-book fa-fw"></i><%= t('labels.own') %>
             <% end %>
           </li>
           <li>
-            <%= link_to want_path do %>
+            <%= link_to books_path(shelf: 3) do %>
               <i class="fa fa-gift fa-fw"></i><%= t('labels.want') %>
             <% end %>
           </li>

@@ -67,6 +67,13 @@
     </p>
     <% end %>
 
+    <% if @book.status == 2 %>
+    <p class="p-show">
+      <strong><%= "#{t('labels.pages')}:" %></strong>
+      <%= @book.pages_read %>
+    </p>
+    <% end %>
+
     <% if @book.edition? %>
     <p class="p-show">
       <strong><%= "#{t('labels.edition')}:" %></strong>

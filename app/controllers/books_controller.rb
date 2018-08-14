@@ -2,8 +2,8 @@ class BooksController < HomeController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = current_user.books.all.order(params[:sort]).per_page(params[:page])
-    @count = current_user.books.count
+    @books =  all_books.order(params[:sort]).per_page(params[:page])
+    @count =  current_user.books.count
   end
 
   def show;end
@@ -42,6 +42,10 @@ class BooksController < HomeController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def all_books
+      Books::ByParamsQuery.call(current_user, params)
+    end
+
     def set_book
       @book = Book.find(params[:id])
     end
