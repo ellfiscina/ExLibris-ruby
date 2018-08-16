@@ -53,7 +53,8 @@ class BooksController < HomeController
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
       params.require(:book).permit( :isbn, :title, :subtitle, :year, :pages,
-                                    :edition, :language, :shelf, :status,
+                                    :edition, :language, :shelf, :status, :pages_read,
                                     :published, :editor_id, :author_id, :image )
     end
+
 end

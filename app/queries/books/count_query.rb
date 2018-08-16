@@ -9,19 +9,11 @@ module Books
     end
 
     def query(params)
-      @relation = select_by_status(params[:status]) if params[:status]
-      @relation = select_by_shelf(params[:shelf]) if params[:shelf]
-      relation
-    end
+      @relation = relation.where(status: params[:status]) if params[:status]
+      @relation = relation.where(author: params[:author]) if params[:author]
+      @relation = relation.where(editor: params[:editor]) if params[:editor]
 
-    private
-
-    def select_by_shelf(shelf)
-      relation.where(shelf: shelf)
-    end
-
-    def select_by_status(status)
-      relation.where(status: status)
+      relation.count
     end
   end
 end

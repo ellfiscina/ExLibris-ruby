@@ -67,22 +67,31 @@
             <%= form.text_field :language, class: "form-control" %>
           </div>
         </div>
-
-        <div class="form-group">
-          <%= form.radio_button(:shelf, 1)%>
-          <%= form.label(:shelf_own, "Tenho") %>
-          <%= form.radio_button(:shelf, 2) %>
-          <%= form.label(:shelf_own_not, "Não tenho") %>
-          <%= form.radio_button(:shelf, 3)%>
-          <%= form.label(:shelf_wish, "Desejo") %>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= form.radio_button(:shelf, 1) %>
+            <%= form.label(:shelf_own, "Tenho") %>
+            <%= form.radio_button(:shelf, 2) %>
+            <%= form.label(:shelf_own_not, "Não tenho") %>
+            <%= form.radio_button(:shelf, 3)%>
+            <%= form.label(:shelf_wish, "Desejo") %>
+          </div>
         </div>
-        <div class="form-group">
-          <%= form.radio_button(:status, 1)%>
-          <%= form.label(:status_read, "Lido") %>
-          <%= form.radio_button(:status, 2) %>
-          <%= form.label(:status_reading, "Lendo") %>
-          <%= form.radio_button(:status, 3)%>
-          <%= form.label(:shelf_to_read, "Fila de Leitura") %>
+        <div class="col-md-4">
+          <div class="form-group status">
+            <%= form.radio_button(:status, 1)%>
+            <%= form.label(:status_read, "Lido") %>
+            <%= form.radio_button(:status, 2) %>
+            <%= form.label(:status_reading, "Lendo") %>
+            <%= form.radio_button(:status, 3)%>
+            <%= form.label(:shelf_to_read, "Fila de Leitura") %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group pages_read">
+            <%= form.label :pages_read %>
+            <%= form.text_field :pages_read, class: "form-control" %>
+          </div>
         </div>
 
         <div class="form-group">

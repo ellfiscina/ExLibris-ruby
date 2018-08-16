@@ -59,21 +59,31 @@ namespace :dev do
     puts "Gerando livros aleatórios"
 
     100.times do
+      pages = Faker::Number.between(50,1000)
+      status = Faker::Number.between(1,3)
+      if status == 1
+        pages_read = pages
+      elsif status == 2
+        pages_read = Faker::Number.between(50,pages)
+      else
+        pages_read = 0
+      end
       book = Book.create!(
         isbn: Faker::Code.isbn,
         title: Faker::Book.title,
         subtitle: Faker::Book.title,
         year: Faker::Number.between(1500,2018),
         published: Faker::Number.between(1500,2018),
-        pages: Faker::Number.between(50,1000),
+        pages: pages,
+        pages_read: pages_read,
         edition: Faker::Number.number(1),
         language: Faker::Book.genre,
-        status: Faker::Number.between(1,3),
+        status: status,
         shelf: Faker::Number.between(1,3),
         editor: Editor.all.sample,
         author: Author.all.sample,
         user: User.first
-        )
+      )
     end
 
     puts "[OK]"

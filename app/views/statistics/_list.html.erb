@@ -5,15 +5,14 @@
     </div>
     <!-- /.panel-heading -->
     <div class="panel-body">
-      <ul  class="nav nav-pills">
-        <li>
-          <a id="bookTab" href="#books" data-toggle="tab"><%= Book.model_name.human(count: 2) %></a>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" id="bookTab" href="#books" data-toggle="tab"><%= Book.model_name.human(count: 2) %></a>
         </li>
-        <li>
-          <a id="pagesTab" href="#pages" data-toggle="tab"><%= t('labels.pages') %></a>
+        <li class="nav-item">
+          <a class="nav-link" id="pagesTab" href="#pages" data-toggle="tab"><%= t('labels.pages') %></a>
         </li>
       </ul>
-
       <div class="tab-content clearfix">
         <div class="tab-pane active" id="books">
           <div class="list_div_body">
@@ -26,7 +25,6 @@
             </div>
             <% end %>
           </div>
-
         </div>
         <div class="tab-pane" id="pages">
           <div class="list_div_body">

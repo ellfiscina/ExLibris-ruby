@@ -1,0 +1,35 @@
+ <div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <i class="fa fa-bar-chart-o fa-fw"></i> <%= t('labels.book_by_shelf') %>
+    </div>
+    <div class="panel-body">
+      <div id="carouselControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div id="morris-donut-chart"></div>
+          </div>
+          <div class="carousel-item">
+            <%= progress_bar count_shelf(status: 3), alternative: 'danger', label: true, style: 'min-width: 20px; height: 40px' %>
+            <%= progress_bar count_shelf(status: 2), label: true, style: 'min-width: 20px; height: 40px' %>
+            <%= progress_bar count_shelf(status: 1), alternative: 'success', label: true, style: 'min-width: 20px; height: 40px' %>
+            <%= progress_bar 1, alternative: 'info', label: true, style: 'min-width: 20px; height: 40px' %>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <h4>
+        <%= "Total: #{t('labels.qtt_books', qtt: current_user.books_count)}" %>
+      </h4>
+    </div>
+  </div>
+</div>

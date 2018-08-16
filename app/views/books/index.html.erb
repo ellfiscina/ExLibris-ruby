@@ -33,6 +33,11 @@
                 <% end %>
               </h4>
             </div>
+            <% if book.status == 2 %>
+            <div class="card-footer">
+              <%= progress_bar book.percentage, label: true, style: 'min-width: 20px' %>
+            </div>
+            <% end %>
           </div>
         </div>
       <% end %>

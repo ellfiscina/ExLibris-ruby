@@ -16,23 +16,18 @@ class Book < ApplicationRecord
   scope :per_page, -> (page) {
     page(page).per(QTT_PER_PAGE)
   }
-  scope :title_pages, -> (value) {
-    select(:title).where(pages: value).pluck(:title)
-  }
-  scope :title_age, -> (value) {
-    select(:title).where(published: value).pluck(:title)
-  }
+
   scope :search, -> (q, page) {
     where("lower(title) LIKE ?", "%#{q.downcase}%").page(page).per(QTT_PER_PAGE)
   }
-  scope :max_value, -> (q) { where.not(shelf: 2).maximum(q) }
-  scope :min_value, -> (q) { where.not(shelf: 2).minimum(q) }
-  scope :count_status, -> (value) { where(status: value).count }
-  scope :count_author, -> (value) { where(author_id: value).count }
-  scope :count_editor, -> (value) { where(editor_id: value).count }
 
   def to_param
     "#{id} #{title}".parameterize
+  end
+
+  def percentage
+    per = pages_read / pages.to_f
+    per.round(2)
   end
 
   # status

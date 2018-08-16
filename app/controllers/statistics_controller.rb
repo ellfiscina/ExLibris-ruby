@@ -1,25 +1,11 @@
 class StatisticsController < HomeController
-  def index
-    @books = current_user.books.all
+  def show
     @list = current_user.lists.order(:year)
+    @max_min = max_min_hash
+    @list_count = list_hash
 
-    @total = current_user.books_count
-    @big = @books.max_value(:pages)
-    @small = @books.min_value(:pages)
-    @old = @books.min_value(:published)
-    @new = @books.max_value(:published)
-
-    @big_title = @books.title_pages(@big)
-    @small_title = @books.title_pages(@small)
-    @old_title = @books.title_age(@old)
-    @new_title = @books.title_age(@new)
-
-    gon.read = @books.count_status(1)
-    gon.reading = @books.count_status(2)
-    gon.to_read = @books.count_status(3)
-    gon.year = year_count()
-    gon.books = book_count()
-    gon.pages = pages_count()
+    gon.count = @list_count
+    gon.shelf = shelf_hash
   end
 
   private
@@ -27,7 +13,7 @@ class StatisticsController < HomeController
   def book_count
     book = []
     current_user.lists.each do |list|
-        book.push(list.books.count)
+      book.push(list.books.count)
     end
     return book
   end
@@ -35,16 +21,59 @@ class StatisticsController < HomeController
   def year_count
     year = []
     current_user.lists.each do |list|
-        year.push(list.year)
+      year.push(list.year)
     end
     return year
   end
+
   def pages_count
     pages = []
     current_user.lists.each do |list|
-        pages.push(list.books.sum(:pages))
+      pages.push(list.books.sum(:pages))
     end
     return pages
   end
 
+  def count_query(params)
+    Books::CountQuery.call(current_user, params)
+  end
+
+  def pluck_query(params)
+    Books::MinMaxQuery.call(current_user, params)
+  end
+
+  def max_min_hash
+    h = Hash.new
+
+    h[:big] = pluck_query(type: 'max', attr: :pages)
+    h[:small] = pluck_query(type: 'min', attr: :pages)
+    h[:old] = pluck_query(type: 'min', attr: :published)
+    h[:new] = pluck_query(type: 'max', attr: :published)
+
+    h
+  end
+
+  def list_hash
+    h = Hash.new
+
+    current_user.lists.each do |list|
+      year = list.year
+      h[year] = {
+        books: list.books.count,
+        pages: list.books.sum(:pages)
+      }
+    end
+
+    h
+  end
+
+  def shelf_hash
+    h = Hash.new
+
+    h['read'] = count_query(status: 1)
+    h['reading'] = count_query(status: 2)
+    h['to_read'] = count_query(status: 3)
+
+    h
+  end
 end

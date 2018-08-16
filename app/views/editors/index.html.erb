@@ -21,7 +21,9 @@
             <% @editors.each do |editor| %>
             <tr>
               <td><%= editor.name %></td>
-              <td style="width: 150px"><%= @books.count_editor(editor.id) %></td>
+              <td style="width: 150px">
+                <%= Books::CountQuery.call(current_user, editor: editor.id) %>
+              </td>
               <td style="width: 150px">
                 <%= link_to editor_path(editor), class: "btn btn-form btn-blue" do %>
                   <i class="fa fa-list fa-lg"></i>

@@ -7,10 +7,10 @@
         </div>
         <div class="col-xs-9 text-right">
           <div class="huge">
-            <% if current_user.books.empty? || @old.nil? %>
+            <% if current_user.books.empty? || @max_min[:old].nil? %>
               0
             <% else %>
-              <%= @old %>
+              <%= @max_min[:old].last %>
             <% end %>
           </div>
         </div>
@@ -24,7 +24,7 @@
         </span>
         <div class="clearfix"></div>
       </a>
-      <div id="older" class="collapse"><small><%= @old_title[0] %></small></div>
+      <div id="older" class="collapse"><small><%= @max_min[:old][0] %></small></div>
     </div>
   </div>
 </div>

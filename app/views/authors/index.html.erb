@@ -24,7 +24,9 @@
             <tr>
               <td><%= first_name(author.name) %></td>
               <td><%= last_name(author.name) %></td>
-              <td><%= @books.count_author(author.id) %></td>
+              <td>
+                <%= Books::CountQuery.call(current_user, author: author.id) %>
+              </td>
               <td style="width: 150px">
                 <%= link_to author_path(author), class: "btn btn-form btn-blue" do %>
                   <i class="fa fa-list fa-lg"></i>

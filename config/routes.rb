@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :books
   resource :shelf, only: :show
   resources :lists, except: [:edit, :index]
-  resources :statistics, only: [:index]
+  resource :statistics, only: [:show]
   resources :editors
   resources :authors
 end

@@ -16,6 +16,7 @@ gem 'gon'
 gem 'multi-select-rails'
 gem 'd3-tip-rails', '~> 0.0.1'
 gem "aws-sdk-s3", require: false
+gem 'bootstrap_progressbar', '~> 0.2.0'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
@@ -70,6 +71,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rails-erd'
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+  gem 'better_errors', '~> 2.4'
 end
 
 group :test do

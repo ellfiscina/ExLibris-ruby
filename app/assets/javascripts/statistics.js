@@ -1,28 +1,32 @@
 $(document).ready(function() {
+  var list = gon.count;
+  var shelf = gon.shelf
+  var year = Object.keys(list);
+
+  var data = []
+
   Morris.Donut({
     element: 'morris-donut-chart',
     data: [{
       label: "Livros lidos",
-      value: gon.read
+      value: shelf.read
     }, {
       label: "Livros lendo",
-      value: gon.reading
+      value: shelf.reading
     }, {
       label: "Fila de Leitura",
-      value: gon.to_read
+      value: shelf.to_read
     }],
     colors: ['#2ecc71', '#3498db', '#e74c3c'],
     resize: true
   });
 
-  var year = gon.year;
-  var pages = gon.pages;
-  var books = gon.books;
-
-  var data = []
-
   for (i = 0; i < year.length; i++) {
-    data.push({'year': year[i], 'books': books[i], 'pages': pages[i]});
+    data.push({
+      'year': year[i],
+      'books': list[year[i]]['books'],
+      'pages': list[year[i]]['pages']
+    });
   }
 
   data = data.sort(function (a, b) {
@@ -34,6 +38,7 @@ $(document).ready(function() {
     }
     return 0;
   });
+
 
   var colors =  [ ["Livros", "#ecd555"], ["Páginas", "#BF55EC"] ];
 

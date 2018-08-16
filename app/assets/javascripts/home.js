@@ -35,4 +35,21 @@ $(document).ready(function() {
   $(".oi").click(function(){
     alert('oi');
   })
+
+  $('.status input[type="radio"]').click(function() {
+    if($(this).attr('value') == 2) {
+      $('.pages_read').show();
+    }
+    else{
+      var pg
+      if($(this).attr('value') == 1){
+        pg = $('input[name="book[pages]"]').val();
+      }
+      else if($(this).attr('value') == 3){
+        pg = 0;
+      }
+      $('.pages_read').hide();
+      $('input[name="book[pages_read]"]').val(pg);
+    }
+  });
 });
