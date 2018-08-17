@@ -35,7 +35,7 @@
             </div>
             <% if book.status == 2 %>
             <div class="card-footer">
-              <%= progress_bar book.percentage, label: true, style: 'min-width: 20px' %>
+              <%= progress_bar book.percentage, alternative: progress_alt(book.percentage), label: true, style: 'min-width: 20px' %>
             </div>
             <% end %>
           </div>
