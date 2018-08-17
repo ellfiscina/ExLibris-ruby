@@ -9,7 +9,6 @@
               <th><%= @books.model.human_attribute_name('title') %></th>
               <th><%= @books.model.human_attribute_name('subtitle') %></th>
               <th><%= @books.model.human_attribute_name('published') %></th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -33,17 +32,6 @@
                   ----
                 <% else %>
                 <%= book.published %>
-                <% end %>
-              </td>
-              <td style="width: 150px">
-                <%= link_to user_book_path(book), class: "btn btn-form btn-blue" do %>
-                  <i class="fa fa-book fa-lg"></i>
-                <% end %>
-                <%= link_to edit_user_book_path(book), class: "btn btn-form btn-yellow" do %>
-                  <i class="fa fa-pencil fa-lg"></i>
-                <% end %>
-                <%= link_to user_book_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-form btn-red" do %>
-                  <i class="fa fa-trash fa-lg"> </i>
                 <% end %>
               </td>
             </tr>
