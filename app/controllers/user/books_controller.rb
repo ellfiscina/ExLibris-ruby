@@ -41,8 +41,8 @@ class User::BooksController < User::UserBaseController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def all_books
+      @title = title(params)
       Books::ByParamsQuery.call(current_user, params)
     end
 
@@ -50,11 +50,27 @@ class User::BooksController < User::UserBaseController
       @book = Book.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
       params.require(:book).permit( :isbn, :title, :subtitle, :year, :pages,
                                     :edition, :language, :shelf, :status, :pages_read,
                                     :published, :editor_id, :author_id, :image )
     end
 
+    def title(params)
+      if params[:status] == '1'
+        title = 'Lido'
+      elsif params[:status] == '2'
+        title = 'Lendo'
+      elsif params[:status] == '3'
+        title = 'Fila de Leitura'
+      elsif params[:shelf] == '1'
+        title = 'Tenho'
+      elsif params[:shelf] == '3'
+        title = 'Desejo'
+      elsif params[:query]
+        title = params[:query]
+      else
+        title = 'Todos'
+      end
+    end
 end
