@@ -23,6 +23,7 @@ class Book < ApplicationRecord
 
   def percentage
     per = pages_read / pages.to_f
+    per = 0 if per.nan?
     per.round(2)
   end
 
