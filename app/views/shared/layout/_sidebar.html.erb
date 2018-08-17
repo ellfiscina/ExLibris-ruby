@@ -1,0 +1,79 @@
+<div class="navbar-default sidebar" role="navigation" id="sidebar">
+    <ul class="nav" id="side-menu">
+      <li>
+        <a href="#"><i class="fa fa-book fa-fw"></i> Estantes<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+          <li>
+            <%= link_to user_books_path do %>
+              <i class="fa fa-bookmark fa-fw" style="color: #8e44ad;"></i>
+              <%= t('.all') %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to user_books_path(status: 1) do %>
+              <i class="fa fa-bookmark fa-fw" style="color: #2ecc71;"></i>
+              <%= t('.read') %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to user_books_path(status: 2) do %>
+              <i class="fa fa-bookmark fa-fw" style="color: #3498db;"></i>
+              <%= t('.reading') %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to user_books_path(status: 3) do %>
+              <i class="fa fa-bookmark fa-fw" style="color: #e74c3c;"></i>
+              <%= t('.to_read') %>
+            <% end %>
+          </li>
+          <hr class="divider">
+          <li>
+            <%= link_to user_books_path(shelf: 1) do %>
+              <i class="fa fa-book fa-fw"></i><%= t('.own') %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to user_books_path(shelf: 3) do %>
+              <i class="fa fa-gift fa-fw"></i><%= t('.want') %>
+            <% end %>
+          </li>
+        </ul>
+        <!-- /.nav-second-level -->
+      </li>
+      <li>
+        <%= link_to user_authors_path do %>
+        <i class="fa fa-users fa-fw"></i> <%= Author.model_name.human(count: 2) %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to user_editors_path do %>
+        <i class="fa fa-edit fa-fw"></i><%= Editor.model_name.human(count: 2) %>
+        <% end %>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-list fa-fw"></i> <%= List.model_name.human(count: 2) %><span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+          <li>
+            <%= link_to new_user_list_path do %>
+              <i class="fa fa-plus fa-xs"></i><%= t('.new_list') %>
+            <% end %>
+          </li>
+          <% lista.each do |l| %>
+          <li>
+            <%= link_to user_list_path(l) do %>
+              <i class="fa fa-angle-double-right fa-xs"></i><%= " #{l.year}" %>
+            <% end %>
+          </li>
+          <% end %>
+        </ul>
+        <!-- /.nav-second-level -->
+      </li>
+      <li>
+        <%= link_to new_user_book_path do %>
+        <i class="fa fa-plus fa-fw"></i><%= t('.new_book') %>
+        <% end %>
+      </li>
+    </ul>
+  <!-- /.sidebar-collapse -->
+</div>

@@ -1,0 +1,22 @@
+<div class="head">
+  <h1 class="page-header"><%= t('labels.statistics') %></h1>
+</div>
+</div>
+<div class="panel-body justify-content-center">
+
+    <div class="row" >
+      <%= render partial: 'user/dashboards/panel_old'  %>
+      <%= render partial: 'user/dashboards/panel_new'  %>
+      <%= render partial: 'user/dashboards/panel_big'  %>
+      <%= render partial: 'user/dashboards/panel_small'  %>
+    </div>
+
+    <div class="row">
+      <%= render partial: 'user/dashboards/test'  %>
+      <%= render partial: 'user/dashboards/list'  %>
+    </div>
+    <div class="row justify-content-center">
+      <%= render partial: 'user/dashboards/graph'  %>
+    </div>
+
+</div>

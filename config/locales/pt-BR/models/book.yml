@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      book:
+        one: Livro
+        other: Livros
+    attributes:
+      book:
+        id: Código
+        isbn: ISBN
+        title: Título
+        subtitle: Subtítulo
+        year: Ano de Publicação
+        published: Publicação original
+        pages: Páginas
+        edition: Edição
+        language: Idioma
+        author_id: Autor
+        editor_id: Editora

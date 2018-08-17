@@ -15,4 +15,22 @@ module ApplicationHelper
     count = Books::CountQuery.call(current_user, params)
     count/total.to_f
   end
+
+  def author_for_select
+    a = []
+    Author.all.order(:name).each do |author|
+      a.push([author.name, author.id])
+    end
+
+    a
+  end
+
+  def editor_for_select
+    a = []
+    Editor.all.order(:name).each do |editor|
+      a.push([editor.name, editor.id])
+    end
+
+    a
+  end
 end

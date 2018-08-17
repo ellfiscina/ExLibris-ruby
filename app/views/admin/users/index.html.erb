@@ -1,0 +1,38 @@
+
+    <h3>
+      Usuários
+      <small><%= "(#{@count})" %></small>
+    </h3>
+    </div>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <th><%= @users.model.human_attribute_name('name') %></th>
+              <th><%= @users.model.human_attribute_name('qtt') %></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td>
+                <%= user.books_count %>
+              </td>
+              <td style="width: 150px">
+                <%= link_to admin_user_path(user), class: "btn btn-form btn-blue" do %>
+                  <i class="fa fa-list fa-lg"></i>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.table-responsive -->
+
+  <div class="row justify-content-center">
+    <%= paginate @users %>
+  </div>

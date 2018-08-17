@@ -1,0 +1,7 @@
+pt-BR:
+  shared:
+    layout:
+      navigation:
+        dashboard: Painel
+        profile: Perfil
+        sign_out: Sair

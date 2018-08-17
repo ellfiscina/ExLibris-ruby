@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      author:
+        one: Autor
+        other: Autores
+    attributes:
+      author:
+        id: Código
+        firstname: Nome
+        lastname: Sobrenome
+        qtt: Qtd de livros

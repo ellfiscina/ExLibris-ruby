@@ -17,10 +17,6 @@ class Book < ApplicationRecord
     page(page).per(QTT_PER_PAGE)
   }
 
-  scope :search, -> (q, page) {
-    where("lower(title) LIKE ?", "%#{q.downcase}%").page(page).per(QTT_PER_PAGE)
-  }
-
   def to_param
     "#{id} #{title}".parameterize
   end

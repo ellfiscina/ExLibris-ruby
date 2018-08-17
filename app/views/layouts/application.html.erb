@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Exlibris</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="en">
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+<head>
 
-  </head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-  <body>
-    <%= yield %>
-  </body>
+  <title><%= t('app.name') %></title>
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+
+</head>
+
+<body>
+  <%= render partial: 'shared/layout/navigation' %>
+  <%= yield %>
+
+ <%= javascript_include_tag 'application' %>
+
+ <%= render partial: 'shared/layout/notification' %>
+</body>
+
 </html>

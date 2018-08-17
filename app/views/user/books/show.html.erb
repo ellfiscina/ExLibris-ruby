@@ -1,0 +1,88 @@
+  <div class="row">
+    <div class="col-sm-4">
+      <% if @book.image.attached? %>
+        <%= image_tag @book.image, class:"img-show" %>
+      <% end %>
+    </div>
+
+    <div class="col-sm-8">
+      <div class="pull-right">
+        <%= link_to edit_user_book_path(@book), class:"btn-show" do %>
+          <i class="fa fa-pencil"> </i>
+        <% end %>
+        <%= link_to user_book_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn-show" do %>
+          <i class="fa fa-trash"> </i>
+        <% end %>
+      </div>
+      <div class="div-show">
+        <h2 style="color: #6C7A89;">
+          <%= @book.title %>
+        </h2>
+          <%= link_to "by #{@book.author.name}", user_author_path(@book.author),class:"p-show pull-right", id:"p-header" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="panel-body">
+    <% if @book.subtitle? %>
+      <p class="p-show">
+        <strong><%= "#{t('labels.subtitle')}:" %></strong>
+        <%= @book.subtitle %>
+      </p>
+    <% end %>
+
+    <p class="p-show">
+      <strong><%= "#{t('labels.editor')}:" %></strong>
+      <%= @book.editor.name %>
+    </p>
+
+    <% if @book.isbn? %>
+    <p class="p-show">
+      <strong><%= "#{t('labels.isbn')}:" %></strong>
+      <%= @book.isbn %>
+    </p>
+    <% end %>
+
+    <% if @book.published? %>
+    <p class="p-show">
+      <strong><%= "#{t('labels.published')}:" %></strong>
+      <%= @book.published %>
+    </p>
+    <% end %>
+
+    <% if @book.year? %>
+    <p class="p-show">
+      <strong><%= "#{t('labels.year')}:" %></strong>
+      <%= @book.year %>
+    </p>
+    <% end %>
+
+    <% if @book.pages? %>
+    <p class="p-show">
+      <strong><%= "#{t('labels.pages')}:" %></strong>
+      <%= @book.pages %>
+    </p>
+    <% end %>
+
+    <% if @book.status == 2 %>
+    <p class="p-show">
+      <strong><%= "#{t('labels.pages_read')}:" %></strong>
+      <%= "#{@book.pages_read} | #{@book.percentage*100}%" %>
+    </p>
+    <% end %>
+
+    <% if @book.edition? %>
+    <p class="p-show">
+      <strong><%= "#{t('labels.edition')}:" %></strong>
+      <%= @book.edition %>
+    </p>
+    <% end %>
+
+    <% if @book.language? %>
+    <p class="p-show">
+      <strong><%= "#{t('labels.language')}:" %></strong>
+      <%= @book.language %>
+    </p>
+    <% end %>
+  </div>

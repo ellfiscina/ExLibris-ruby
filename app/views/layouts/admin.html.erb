@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title><%= t('app.name') %></title>
+
+  <%= include_gon %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag    'home', media: 'all' %>
+  <%= csrf_meta_tags %>
+
+</head>
+
+<body>
+
+  <%= render partial: 'shared/layout/admin_nav' %>
+
+  <header class="masthead" style="background-image: url('/assets/user-bg.jpeg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1><%= t('app.name') %></h1>
+            <span class="subheading"><%= t('app.small') %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrapper">
+    <% if admin_signed_in? %>
+      <%= render partial: 'shared/layout/admin_sidebar' %>
+
+      <div id="page-wrapper">
+       <div class="container-fluid">
+         <div class="row">
+           <div class="col-lg-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <%= yield %>
+                </div>
+              </div>
+           </div>
+         </div>
+       </div>
+      </div>
+      <hr>
+   <% else %>
+    <%= yield %>
+   <% end %>
+ </div>
+
+ <%= javascript_include_tag 'application' %>
+ <%= javascript_include_tag 'home' %>
+ <%= javascript_include_tag 'statistics' %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+ <%= render partial: 'shared/layout/notification' %>
+</body>
+
+</html>

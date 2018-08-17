@@ -11,6 +11,7 @@ module Books
     def query(params)
       @relation = select_by_status(params[:status]) if params[:status]
       @relation = select_by_shelf(params[:shelf]) if params[:shelf]
+      @relation = select_by_title(params[:query]) if params[:query]
       relation
     end
 
@@ -22,6 +23,9 @@ module Books
 
     def select_by_status(status)
       relation.where(status: status)
+    end
+    def select_by_title(title)
+      relation.where("lower(title) LIKE ?", "%#{title.downcase}%")
     end
   end
 end

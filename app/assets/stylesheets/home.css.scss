@@ -1,7 +1,11 @@
-.bg{
-  background-image: url('/assets/home-bg.jpg');
+.bg, .bgEdit{
+  background-image: url('/assets/user-bg.jpg');
   background-repeat: no-repeat;
+  background-size: cover;
   height: -webkit-fill-available;
+}
+.bgEdit{
+  height: fit-content;
 }
 body {
   background-color: #f8f8f8;

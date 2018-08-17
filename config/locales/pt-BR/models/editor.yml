@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      editor:
+        one: Editora
+        other: Editoras
+    attributes:
+      editor:
+        id: Código
+        name: Nome
+        qtt: Qtd de livros

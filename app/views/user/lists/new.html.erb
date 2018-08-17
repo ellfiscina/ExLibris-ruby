@@ -1,0 +1,32 @@
+    <%= t("labels.new_list") %>
+      </div>
+      <div class="panel-body">
+        <%= form_for @list, url: {action: "create"} do |form| %>
+        <% if @list.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+          <ul>
+            <% @list.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+        <div class="form-group">
+          <%= form.label :year %>
+          <%= form.text_field :year, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :book_ids %>
+          <%= form.collection_select :book_ids, current_user.books.all.order(:title), :id, :title,
+          {include_hidden: false}, { multiple:"multiple", class: "form-control", id:"list_book_id" }%>
+        </div>
+        <div style="text-align: center;">
+          <button type="submit" class="btn btn-primary btn-home"><%= t('buttons.save') %></button>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

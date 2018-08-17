@@ -17,7 +17,6 @@ gem 'multi-select-rails'
 gem 'd3-tip-rails', '~> 0.0.1'
 gem "aws-sdk-s3", require: false
 gem 'bootstrap_progressbar', '~> 0.2.0'
-
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-bootstrap.growl'

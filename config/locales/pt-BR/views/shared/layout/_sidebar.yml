@@ -1,0 +1,12 @@
+pt-BR:
+  shared:
+    layout:
+      sidebar:
+        all: Todos
+        read: Lido
+        reading: Lendo
+        to_read: Fila de Leitura
+        own: Tenho
+        want: Lista de Desejo
+        new_list: Nova Lista
+        new_book: Novo Livro
