@@ -10,6 +10,7 @@
           <thead>
             <tr>
               <th><%= @users.model.human_attribute_name('name') %></th>
+              <th><%= @users.model.human_attribute_name('email') %></th>
               <th><%= @users.model.human_attribute_name('qtt') %></th>
               <th></th>
             </tr>
@@ -18,6 +19,7 @@
             <% @users.each do |user| %>
             <tr>
               <td><%= user.name %></td>
+              <td><%= user.email %></td>
               <td>
                 <%= user.books_count %>
               </td>
