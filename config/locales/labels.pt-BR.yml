@@ -15,6 +15,7 @@
     graph: Gráfico
     books: Livros
     pages: Páginas
+    pages_read: Páginas Lidas
     big: Maior
     small: Menor
     newer: Mais novo
