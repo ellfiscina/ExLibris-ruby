@@ -1,0 +1,7 @@
+pt-BR:
+  user:
+    dashboards:
+      chart:
+        by_shelf: por Estante
+        qtt_books: "%{qtt} livros"
+        qtt_pg: "%{qtt} páginas"

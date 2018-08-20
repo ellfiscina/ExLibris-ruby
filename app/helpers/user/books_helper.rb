@@ -11,4 +11,32 @@ module User::BooksHelper
       alternative = 'warning'
     end
   end
+
+  def active_class(type, param)
+    if param.nil? && type == "created_at"
+      active = 'active'
+    elsif type == param
+      active = 'active'
+    else
+      active = ''
+    end
+  end
+
+  def sum_pages(status, type)
+    if status.nil?
+      pages = current_user.books.sum(:pages)
+    else
+      books = current_user.books.where(status: status)
+      pages = books.sum(:pages_read) if type == 'read'
+      pages = books.sum(:pages) if type == 'all'
+    end
+
+    pages
+  end
+
+  def percent(sum)
+    total = current_user.books.sum(:pages)
+
+    sum/total.to_f
+  end
 end

@@ -32,10 +32,6 @@ $(document).ready(function() {
     $("#iconN").html('<i class="fa fa-arrow-circle-up"></i>');
   });
 
-  $(".oi").click(function(){
-    alert('oi');
-  })
-
   $('.status input[type="radio"]').click(function() {
     if($(this).attr('value') == 2) {
       $('.pages_read').show();

@@ -751,13 +751,13 @@ td{
 }
 #menu1{
   -webkit-appearance: inherit;
-  font-size: 65%;
   font-weight: normal;
   padding: 0;
   letter-spacing: 0;
   text-transform: none;
   border-radius: 0;
   padding-top: 2px;
+  margin-top: 5px;
 }
 .head{
   margin: -30px 10px;
@@ -774,4 +774,17 @@ td{
 }
 #carouselControls{
   height: 371px;
+}
+.progress_bar{
+  min-width: 20px;
+  height: 40px;
+}
+.progress-bar-striped, .progress-bar-info{
+  background-color: #3498db;
+}
+.progress-bar-success{
+  background-color: #2ecc71;
+}
+.progress-bar-danger{
+  background-color: #e74c3c;
 }

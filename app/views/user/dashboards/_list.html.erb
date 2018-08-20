@@ -1,7 +1,7 @@
 <div class="col-md-6">
   <div class="panel panel-default" id="list_div">
     <div class="panel-heading">
-      <i class="fa fa-list fa-fw"></i>
+      <i class="fa fa-list fa-fw"></i><%= t('.by_list') %>
     </div>
     <!-- /.panel-heading -->
     <div class="panel-body">
@@ -10,7 +10,7 @@
           <a class="nav-link active" id="bookTab" href="#books" data-toggle="tab"><%= Book.model_name.human(count: 2) %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="pagesTab" href="#pages" data-toggle="tab"><%= t('labels.pages') %></a>
+          <a class="nav-link" id="pagesTab" href="#pages" data-toggle="tab"><%= t('.pages') %></a>
         </li>
       </ul>
       <div class="tab-content clearfix">
@@ -20,7 +20,7 @@
             <div class="list-group-item nav">
               <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
               <span class="pull-right text-muted small">
-                <em><%= t('labels.qtt_books', qtt: list.books.count) %></em>
+                <em><%= t('.qtt_books', qtt: list.books.count) %></em>
               </span>
             </div>
             <% end %>
@@ -32,7 +32,7 @@
             <div class="list-group-item nav">
               <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
               <span class="pull-right text-muted small">
-                <em><%= t('labels.qtt_pg', qtt: list.books.sum(:pages)) %></em>
+                <em><%= t('.qtt_pg', qtt: list.books.sum(:pages)) %></em>
               </span>
             </div>
             <% end %>

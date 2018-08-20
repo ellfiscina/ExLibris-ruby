@@ -2,8 +2,10 @@ class User::BooksController < User::UserBaseController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books =  all_books.order(params[:sort]).per_page(params[:page])
+    @sort = params[:sort]
+    @books =  all_books.order(@sort).per_page(params[:page])
     @count =  current_user.books.count
+    @title = title(params)
   end
 
   def show;end
@@ -42,7 +44,6 @@ class User::BooksController < User::UserBaseController
 
   private
     def all_books
-      @title = title(params)
       Books::ByParamsQuery.call(current_user, params)
     end
 

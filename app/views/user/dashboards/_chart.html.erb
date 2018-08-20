@@ -1,19 +1,62 @@
  <div class="col-md-6">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <i class="fa fa-bar-chart-o fa-fw"></i> <%= t('labels.book_by_shelf') %>
+      <i class="fa fa-bar-chart-o fa-fw"></i> <%= t('.by_shelf') %>
     </div>
     <div class="panel-body">
-      <% if current_user.books_count.nil? %>
-      <% else %>
-        <div id="morris-donut-chart"></div>
-      <% end %>
-      <div class="well well-sm">
-        <h4>
-          <%= "Total: #{t('labels.qtt_books', qtt: current_user.books_count)}" %>
-
-        </h4>
+      <div id="carouselControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div id="morris-donut-chart"></div>
+          </div>
+          <div class="carousel-item">
+            <h4>
+              Fila de leitura
+              <small>
+                <%= "#{sum_pages(3, 'all')} pg" %>
+              </small>
+            </h4>
+            <%= progress_bar percent(sum_pages(3, 'all')),
+                             alternative: 'danger',
+                             class:'progress_bar' %>
+            <h4>
+              Lendo
+              <small>
+                <%= "#{sum_pages(2, 'read')}/#{sum_pages(2, 'all')} pg" %>
+              </small>
+            </h4>
+            <div class="progress progress_bar">
+                <%= simple_progress_bar percent(sum_pages(2, 'read')),
+                                        active: true %>
+                <%= simple_progress_bar percent(sum_pages(2, 'all')),
+                                        alternative: 'info',
+                                        style: '; opacity: .5' %>
+            </div>
+            <h4>
+              Páginas lidas
+              <small>
+                <%= "#{sum_pages(1, 'all')} pg" %>
+              </small>
+            </h4>
+            <%= progress_bar percent(sum_pages(1, 'all')),
+                             alternative: 'success',
+                             class:'progress_bar' %>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
+    </div>
+    <div class="panel-footer">
+      <h4>
+        <%= "#{t('.qtt_books', qtt: current_user.books_count)} / #{t('.qtt_pg', qtt: sum_pages(nil, 'all'))}" %>
+      </h4>
     </div>
   </div>
 </div>

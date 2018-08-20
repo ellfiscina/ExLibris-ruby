@@ -7,6 +7,7 @@ pt-BR:
     attributes:
       author:
         id: Código
+        name: Nome
         firstname: Nome
         lastname: Sobrenome
         qtt: Qtd de livros

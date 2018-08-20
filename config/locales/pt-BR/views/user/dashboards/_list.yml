@@ -1,0 +1,8 @@
+pt-BR:
+  user:
+    dashboards:
+      list:
+        by_list: por Lista
+        pages: Páginas
+        qtt_books: "%{qtt} livros"
+        qtt_pg: "%{qtt} páginas"

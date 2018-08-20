@@ -1,0 +1,14 @@
+pt-BR:
+  user:
+    books:
+      show:
+        isbn: ISBN
+        subtitle: Subtítulo
+        year: Ano de Publicação
+        published: Publicação original
+        pages: Páginas
+        pages_read: Páginas Lidas
+        edition: Edição
+        language: Idioma
+        author: Autor@
+        editor: Editora
