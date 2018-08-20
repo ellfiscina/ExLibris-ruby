@@ -6,6 +6,7 @@ class User::BooksController < User::UserBaseController
     @books =  all_books.order(@sort).per_page(params[:page])
     @count =  current_user.books.count
     @title = title(params)
+    @partial = whitelisted_partial || 'grid'
   end
 
   def show;end
@@ -73,5 +74,9 @@ class User::BooksController < User::UserBaseController
       else
         title = 'Todos'
       end
+    end
+
+    def whitelisted_partial
+      %w(grid list).detect { |str| str == params[:view] }
     end
 end

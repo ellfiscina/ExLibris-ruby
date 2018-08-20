@@ -1,8 +1,6 @@
   <div class="row">
     <div class="col-sm-4">
-      <% if @book.image.attached? %>
-        <%= image_tag @book.image, class:"img-show" %>
-      <% end %>
+      <%= image_tag image_for_book(@book), class:"img-show" %>
     </div>
 
     <div class="col-sm-8">
@@ -18,7 +16,7 @@
         <h2 style="color: #6C7A89;">
           <%= @book.title %>
         </h2>
-          <%= link_to "by #{@book.author.name}", user_author_path(@book.author),class:"p-show pull-right", id:"p-header" %>
+          <%= link_to "by #{@book.author.name}", user_author_path(@book.author),class:"p-show", id:"p-header" %>
       </div>
     </div>
   </div>

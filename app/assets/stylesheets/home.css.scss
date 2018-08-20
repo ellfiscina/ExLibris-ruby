@@ -458,14 +458,17 @@ footer .copyright {
 }
 .img-show {
   height: 250px;
-  max-width: 180px;
+  max-width: 200px;
 }
 .img-responsive{
   height: 150px;
   max-width: 180px;
   margin: auto;
 }
-
+.card-img-top{
+  height: 180px;
+  max-width: 144px;
+}
 .home-item {
   margin-bottom: 30px;
   text-align: center;
@@ -787,4 +790,8 @@ td{
 }
 .progress-bar-danger{
   background-color: #e74c3c;
+}
+.img-thumbnail{
+  height: 95px;
+  max-width: 76px;
 }

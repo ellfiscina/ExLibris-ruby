@@ -17,6 +17,8 @@ gem 'multi-select-rails'
 gem 'd3-tip-rails', '~> 0.0.1'
 gem "aws-sdk-s3", require: false
 gem 'bootstrap_progressbar', '~> 0.2.0'
+gem 'image_processing', '~> 1.2'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-bootstrap.growl'
@@ -48,7 +50,7 @@ gem 'jquery-ui-rails'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

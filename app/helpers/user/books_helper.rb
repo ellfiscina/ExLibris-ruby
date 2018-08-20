@@ -39,4 +39,12 @@ module User::BooksHelper
 
     sum/total.to_f
   end
+
+  def image_for_book(book)
+    if book.image.attached?
+      book.image
+    else
+      "missing.jpg"
+    end
+  end
 end
