@@ -1,4 +1,11 @@
 $(document).ready(function() {
+  $('#edit_progress').on('click', function(){
+    $('#reading_progress').modal('show')
+  });
+  $('#add_author').on('click', function(){
+    $('#new_author').modal('show')
+  });
+
   $('#list_book_id').multiSelect();
   $('#sidebarCollapse').on('click', function () {
     $('#sidebar').toggleClass('active');
