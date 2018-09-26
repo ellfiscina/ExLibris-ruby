@@ -4,7 +4,7 @@ class User::BooksController < User::UserBaseController
   def index
     @sort = params[:sort]
     @books =  all_books.order(@sort).per_page(params[:page])
-    @count =  current_user.books.count
+    @count = all_books.count
     @title = title(params)
     @partial = whitelisted_partial || 'grid'
   end

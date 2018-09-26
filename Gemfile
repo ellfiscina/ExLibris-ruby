@@ -18,9 +18,9 @@ gem 'd3-tip-rails', '~> 0.0.1'
 gem "aws-sdk-s3", require: false
 gem 'bootstrap_progressbar', '~> 0.2.0'
 gem 'image_processing', '~> 1.2'
+gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap'
   gem 'rails-assets-bootstrap.growl'
   gem 'rails-assets-animate-css'
   gem 'rails-assets-d3'

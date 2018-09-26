@@ -66,7 +66,8 @@
     <% if @book.status == 2 %>
     <p class="p-show">
       <strong><%= "#{t('.pages_read')}:" %></strong>
-      <%= "#{@book.pages_read} | #{@book.percentage*100}%" %>
+      <%= "#{@book.pages_read} | #{(@book.percentage*100).round(2)}%" %>
+      <button type="button" class="btn btn-show btn-modal" id="edit_progress"><i class="fa fa-pencil"></i></button>
     </p>
     <% end %>
 
@@ -84,3 +85,28 @@
     </p>
     <% end %>
   </div>
+
+<div class="modal" id="reading_progress" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edite o seu progresso</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_for @book, url: {action: :update} do |form| %>
+      <div class="modal-body">
+          <div class="form-group">
+            <%= form.label :pages_read %>
+            <%= form.text_field :pages_read, class: "form-control" %>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
