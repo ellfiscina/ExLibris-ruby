@@ -1,9 +1,9 @@
 class User::EditorsController < User::UserBaseController
   before_action :set_editor, only: [:show, :edit, :update, :destroy]
-  helper_method :sort_column,:sort_column2, :sort_direction
+  helper_method :sort_column, :sort_direction
 
   def index
-    @editors = Editor.all.order(sort_column + ' ' + sort_direction).per_page(params[:page])
+    @editors = Editor.all.order(sort_column("name") + ' ' + sort_direction).per_page(params[:page])
     @count = Editor.all.count
   end
 
@@ -14,7 +14,7 @@ class User::EditorsController < User::UserBaseController
   def edit;end
 
   def show
-    @books = @editor.books.order(sort_column2 + ' ' + sort_direction)
+    @books = @editor.books.order(sort_column("title") + ' ' + sort_direction)
   end
 
   def create
@@ -51,12 +51,8 @@ class User::EditorsController < User::UserBaseController
       params.require(:editor).permit(:name)
     end
 
-    def sort_column
-      params[:sort] || "name"
-    end
-
-    def sort_column2
-      params[:sort] || "title"
+    def sort_column(string=nil)
+      params[:sort] || string
     end
 
     def sort_direction

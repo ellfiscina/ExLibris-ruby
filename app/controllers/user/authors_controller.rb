@@ -1,9 +1,9 @@
 class User::AuthorsController < User::UserBaseController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
-  helper_method :sort_column, :sort_column2, :sort_direction
+  helper_method :sort_column, :sort_direction
 
   def index
-    @authors = Author.all.order(sort_column + ' ' + sort_direction).per_page(params[:page])
+    @authors = Author.all.order(sort_column("name") + ' ' + sort_direction).per_page(params[:page])
     @count = Author.all.count
   end
 
@@ -11,10 +11,10 @@ class User::AuthorsController < User::UserBaseController
     @author = Author.new
   end
 
-  def edit;end
+  def edit; end
 
   def show
-    @books = @author.books.order(sort_column2 + ' ' + sort_direction)
+    @books = @author.books.order(sort_column("title") + ' ' + sort_direction)
   end
 
   def create
@@ -52,12 +52,8 @@ class User::AuthorsController < User::UserBaseController
       params.require(:author).permit(:name, :surname)
     end
 
-    def sort_column
-      params[:sort] || "name"
-    end
-
-    def sort_column2
-      params[:sort] || "title"
+    def sort_column(string=nil)
+      params[:sort] || string
     end
 
     def sort_direction

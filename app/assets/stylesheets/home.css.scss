@@ -616,12 +616,12 @@ table.dataTable thead .sorting:after {
 }
 
 #list_div{
-  height: 505px;
+  height: 543px;
 }
 .list_div_body{
   overflow: auto;
   overflow-y: scroll;
-  max-height: 370px;
+  max-height: 425px;
   border: none;
 }
 .panel-green {
@@ -798,4 +798,10 @@ td{
 .btn-modal{
   background: none;
   padding: 0;
+}
+.list_count{
+  position: relative;
+  top: -49px;
+  float: right;
+  margin-right: 10px;
 }

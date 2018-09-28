@@ -22,22 +22,24 @@ module User::BooksHelper
     end
   end
 
-  def sum_pages(status, type)
-    if status.nil?
-      pages = current_user.books.sum(:pages)
-    else
-      books = current_user.books.where(status: status)
-      pages = books.sum(:pages_read) if type == 'read'
-      pages = books.sum(:pages) if type == 'all'
-    end
+  def count_books(status=nil)
+    books = current_user.books.where(shelf: 1)
 
-    pages
+    if status.nil?
+      books.count
+    else
+      books.where(status: status).count
+    end
   end
 
-  def percent(sum)
+  def pages_percent(sum)
     total = current_user.books.sum(:pages)
 
     sum/total.to_f
+  end
+
+  def books_percent(count, total)
+    count/total.to_f
   end
 
   def image_for_book(book)

@@ -17,24 +17,30 @@
         <div class="tab-pane active" id="books">
           <div class="list_div_body">
             <% @list.each do |list| %>
-            <div class="list-group-item nav">
-              <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
-              <span class="pull-right text-muted small">
-                <em><%= t('.qtt_books', qtt: list.books.count) %></em>
-              </span>
-            </div>
+              <div class="list-group-item nav">
+                <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
+                <%= progress_bar books_percent(list.books.count, current_user.books_count),
+                                 alternative: 'warning',
+                                 class:'progress_bar' %>
+                <span class="list_count text-muted small">
+                  <%= t('.qtt_books', qtt: list.books.count) %>
+                </span>
+              </div>
             <% end %>
           </div>
         </div>
         <div class="tab-pane" id="pages">
           <div class="list_div_body">
             <% @list.each do |list| %>
-            <div class="list-group-item nav">
-              <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
-              <span class="pull-right text-muted small">
-                <em><%= t('.qtt_pg', qtt: list.books.sum(:pages)) %></em>
-              </span>
-            </div>
+              <div class="list-group-item nav">
+                <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
+                <%= progress_bar pages_percent(list.books.sum(:pages)),
+                                 alternative: 'warning',
+                                 class:'progress_bar' %>
+                <span class="list_count text-muted small">
+                  <%= t('.qtt_pg', qtt: list.books.sum(:pages)) %>
+                </span>
+              </div>
             <% end %>
           </div>
         </div>

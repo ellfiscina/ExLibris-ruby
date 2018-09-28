@@ -5,10 +5,10 @@
         <table class="table table-striped table-bordered table-hover">
           <thead>
             <tr>
-              <th><%= sortable2 "isbn", @books.model.human_attribute_name('isbn') %></th>
-              <th><%= sortable2 "title", @books.model.human_attribute_name('title') %></th>
-              <th><%= sortable2 "subtitle", @books.model.human_attribute_name('subtitle') %></th>
-              <th><%= sortable2 "published", @books.model.human_attribute_name('published') %></th>
+              <th><%= sortable "isbn", @books.model.human_attribute_name('isbn') %></th>
+              <th><%= sortable "title", @books.model.human_attribute_name('title') %></th>
+              <th><%= sortable "subtitle", @books.model.human_attribute_name('subtitle') %></th>
+              <th><%= sortable "published", @books.model.human_attribute_name('published') %></th>
               <th></th>
             </tr>
           </thead>
