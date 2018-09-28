@@ -19,7 +19,7 @@
             <% @list.each do |list| %>
               <div class="list-group-item nav">
                 <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
-                <%= progress_bar books_percent(list.books.count, current_user.books_count),
+                <%= progress_bar books_percent(list.books.count, current_user.books.where(status: 1).count),
                                  alternative: 'warning',
                                  class:'progress_bar' %>
                 <span class="list_count text-muted small">

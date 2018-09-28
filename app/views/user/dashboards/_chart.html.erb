@@ -23,11 +23,11 @@
             </span>
             <h4>Lendo
               <small>
-                <%= t('.qtt_books', qtt: "#{count_books(2)}/#{count_books}") %>
+                <%= t('.qtt_books', qtt: "#{count_books(2)}/#{count_books(2)+ count_books(3)}") %>
               </small>
             </h4>
             <div class="progress progress_bar">
-                <%= simple_progress_bar books_percent(count_books(2), count_books),
+                <%= simple_progress_bar books_percent(count_books(2), count_books(2)+ count_books(3)),
                                         active: true %>
                 <%= simple_progress_bar 1,
                                         alternative: 'info',

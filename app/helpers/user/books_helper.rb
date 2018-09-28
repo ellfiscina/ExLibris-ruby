@@ -33,7 +33,7 @@ module User::BooksHelper
   end
 
   def pages_percent(sum)
-    total = current_user.books.sum(:pages)
+    total = current_user.books.where(shelf: 1).sum(:pages)
 
     sum/total.to_f
   end
