@@ -1,3 +1,4 @@
+<div class="panel-heading">
   <div class="head">
     <h3 class="btn dropdown-toggle pull-right" type="button" id="menu1" data-toggle="dropdown">
       Filtrar
@@ -28,9 +29,8 @@
 <div class="panel-body">
   <%= render @partial %>
 </div>
-<hr>
-
-<!-- Pagination -->
-<div class="row justify-content-center">
-  <%= paginate @books %>
+<div class="panel-footer">
+  <div class="row justify-content-center">
+    <%= paginate @books %>
+  </div>
 </div>

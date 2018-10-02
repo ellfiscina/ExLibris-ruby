@@ -18,7 +18,7 @@ body {
   align-items: stretch;
 }
 #page-wrapper {
-  width: 100%;
+  width: -webkit-fill-available;
   padding: 20px;
   min-height: 568px;
   background-image: url('/assets/body-bg.jpg');
