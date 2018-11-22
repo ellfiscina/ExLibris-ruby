@@ -12,16 +12,9 @@
       <%= content_tag :li, role: "presentation", class: active_class("created_at", @sort) do %>
         <%= link_to "Uploaded", {sort: :created_at} , role:"menuitem", tabindex:"-1" %>
       <% end %>
-      <li class="divider"></li>
-      <li>
-        <%= link_to "Grade", {view: :grid}, role:"menuitem", tabindex:"-1" %>
-      </li>
-      <li>
-        <%= link_to "Lista", {view: :list}, role:"menuitem", tabindex:"-1" %>
-      </li>
     </ul>
     <h1 class="page-header"><%= @books.model_name.human(count: 2) %>
-      <small><%= "#{@title}(#{@count})" %></small>
+      <small><%= "#{@title} (#{@count})" %></small>
     </h1>
   </div>
 </div>

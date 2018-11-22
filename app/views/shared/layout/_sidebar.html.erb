@@ -1,79 +1,80 @@
-<div class="navbar-default sidebar" role="navigation" id="sidebar">
-    <ul class="nav" id="side-menu">
-      <li>
-        <a href="#"><i class="fa fa-book fa-fw"></i> Estantes<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-          <li>
-            <%= link_to user_books_path do %>
-              <i class="fa fa-bookmark fa-fw" style="color: #8e44ad;"></i>
-              <%= t('.all') %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to user_books_path(status: 1) do %>
-              <i class="fa fa-bookmark fa-fw" style="color: #2ecc71;"></i>
-              <%= t('.read') %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to user_books_path(status: 2) do %>
-              <i class="fa fa-bookmark fa-fw" style="color: #3498db;"></i>
-              <%= t('.reading') %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to user_books_path(status: 3) do %>
-              <i class="fa fa-bookmark fa-fw" style="color: #e74c3c;"></i>
-              <%= t('.to_read') %>
-            <% end %>
-          </li>
-          <hr class="divider">
-          <li>
-            <%= link_to user_books_path(shelf: 1) do %>
-              <i class="fa fa-book fa-fw"></i><%= t('.own') %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to user_books_path(shelf: 3) do %>
-              <i class="fa fa-gift fa-fw"></i><%= t('.want') %>
-            <% end %>
-          </li>
-        </ul>
-        <!-- /.nav-second-level -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="secondBar">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <%= link_to new_user_book_path do %>
+          <i class="fa fa-plus fa-fw"></i><%= t('.new_book') %>
+        <% end %>
       </li>
-      <li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-book fa-fw"></i> Estantes</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to user_books_path, class:"dropdown-item" do %>
+            <i class="fa fa-bookmark fa-fw" style="color: #8e44ad;"></i>
+            <%= t('.all') %>
+          <% end %>
+          <%= link_to user_books_path(status: 1), class:"dropdown-item" do %>
+            <i class="fa fa-bookmark fa-fw" style="color: #2ecc71;"></i>
+            <%= t('.read') %>
+          <% end %>
+          <%= link_to user_books_path(status: 2), class:"dropdown-item" do %>
+            <i class="fa fa-bookmark fa-fw" style="color: #3498db;"></i>
+            <%= t('.reading') %>
+          <% end %>
+          <%= link_to user_books_path(status: 3), class:"dropdown-item" do %>
+            <i class="fa fa-bookmark fa-fw" style="color: #e74c3c;"></i>
+            <%= t('.to_read') %>
+          <% end %>
+          <div class="divider"></div>
+          <%= link_to user_books_path(shelf: 1), class:"dropdown-item" do %>
+            <i class="fa fa-book fa-fw"></i><%= t('.own') %>
+          <% end %>
+          <%= link_to user_books_path(shelf: 3), class:"dropdown-item" do %>
+            <i class="fa fa-gift fa-fw"></i><%= t('.want') %>
+          <% end %>
+        </div>
+      </li>
+      <li class="nav-item">
         <%= link_to user_authors_path do %>
-        <i class="fa fa-users fa-fw"></i> <%= Author.model_name.human(count: 2) %>
+          <i class="fa fa-users fa-fw"></i>
+          <%= Author.model_name.human(count: 2) %>
         <% end %>
       </li>
-      <li>
+      <li class="nav-item">
         <%= link_to user_editors_path do %>
-        <i class="fa fa-edit fa-fw"></i><%= Editor.model_name.human(count: 2) %>
+        <i class="fa fa-edit fa-fw"></i>
+        <%= Editor.model_name.human(count: 2) %>
         <% end %>
       </li>
-      <li>
-        <a href="#"><i class="fa fa-list fa-fw"></i> <%= List.model_name.human(count: 2) %><span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-          <li>
-            <%= link_to new_user_list_path do %>
-              <i class="fa fa-plus fa-xs"></i><%= t('.new_list') %>
-            <% end %>
-          </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-list fa-fw"></i> <%= List.model_name.human(count: 2) %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to new_user_list_path do %>
+            <i class="fa fa-plus fa-xs"></i><%= t('.new_list') %>
+          <% end %>
+          <div class="divider"></div>
           <% lista.each do |l| %>
-          <li>
             <%= link_to user_list_path(l) do %>
               <i class="fa fa-angle-double-right fa-xs"></i><%= " #{l.year}" %>
             <% end %>
-          </li>
           <% end %>
-        </ul>
-        <!-- /.nav-second-level -->
-      </li>
-      <li>
-        <%= link_to new_user_book_path do %>
-        <i class="fa fa-plus fa-fw"></i><%= t('.new_book') %>
-        <% end %>
+        </div>
       </li>
     </ul>
-  <!-- /.sidebar-collapse -->
-</div>
+    <%= form_tag user_books_path, method: :get do %>
+      <div class="input-group custom-search-form">
+       <%= text_field_tag(:query, params[:query], {class: "form-control",  placeholder: "Buscar livro"}) %>
+        <span class="input-group-btn">
+          <%= button_tag(type: "submit", class: "btn btn-default", style:"padding: 6px;") do %>
+            <i class="fa fa-search"></i>
+          <% end %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</nav>

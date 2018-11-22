@@ -32,6 +32,12 @@ module User::BooksHelper
     end
   end
 
+  def total_pages
+    books = current_user.books.where(status: 1)
+
+    books.sum(:pages)
+  end
+
   def pages_percent(sum)
     total = current_user.books.where(shelf: 1).sum(:pages)
 

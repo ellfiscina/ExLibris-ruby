@@ -12,13 +12,13 @@ Rails.application.routes.draw do
     resources :books
     resources :editors
     resources :lists, except: [:edit, :index]
-    resource :dashboards, only: :show
+    resource :dashboard, only: :show
   end
 
   namespace :admin do
-    root to: 'dashboards#show'
+    root to: 'dashboard#show'
 
-    resource :dashboards, only: :show
+    resource :dashboard, only: :show
     resources :users, only: [:index, :show]
   end
 end

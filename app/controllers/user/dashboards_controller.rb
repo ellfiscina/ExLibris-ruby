@@ -55,11 +55,17 @@ class User::DashboardsController < User::UserBaseController
 
   def year_hash
     h = Hash.new
+    i = 0
 
-    h['read'] = count_query(status: 1)
-    h['reading'] = count_query(status: 2)
-    h['to_read'] = count_query(status: 3)
-
+    current_user.books.each do |book|
+      h[i] = {
+        year: book.published,
+        title: book.title,
+        link: book.author_id,
+        author: book.author.name
+      }
+      i += 1
+    end
     h
   end
 end
