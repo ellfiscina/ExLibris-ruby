@@ -53,6 +53,13 @@ class User::BooksController < User::UserBaseController
     end
 
     def book_params
+      if params[:progress] == 'percentage'
+        params[:book][:pages_read] = percent_to_pages(params[:book][:pages_read])
+      end
+      if params[:book][:pages_read] == @book.pages || params[:status].present?
+        params[:book][:status] = 1
+      end
+
       params.require(:book).permit( :isbn, :title, :subtitle, :year, :pages,
                                     :edition, :language, :shelf, :status, :pages_read,
                                     :published, :editor_id, :author_id, :image )
@@ -78,5 +85,9 @@ class User::BooksController < User::UserBaseController
 
     def whitelisted_partial
       %w(grid list).detect { |str| str == params[:view] }
+    end
+
+    def percent_to_pages(percent)
+      ((percent.to_i * @book.pages)/100).round()
     end
 end
