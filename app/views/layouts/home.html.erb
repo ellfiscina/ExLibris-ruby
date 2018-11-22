@@ -10,13 +10,14 @@
 
   <title><%= t('app.name') %></title>
 
+  <%= include_gon %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag    'home', media: 'all' %>
   <%= csrf_meta_tags %>
 
 </head>
 
 <body>
-
   <%= render partial: 'shared/layout/navigation' %>
 
   <header class="masthead" style="background-image: url('/assets/home-bg.jpeg')">

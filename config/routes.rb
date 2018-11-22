@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   devise_for :admins
 
   namespace :user do
+    root to: 'books#index'
+
     resources :authors
     resources :books
     resources :editors

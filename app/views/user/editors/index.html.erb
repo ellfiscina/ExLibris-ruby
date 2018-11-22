@@ -4,10 +4,9 @@
       <%= @editors.model_name.human(count: @count) %>
       <small><%= "(#{@count})" %></small>
     </h3>
-    <%= link_to new_user_editor_path,
-    class:"btn btn-green pull-right" do %>
+    <%= link_to new_user_editor_path, class:"btn btn-green pull-right" do %>
       <i class="fa fa-plus fa-2x"></i>
-      <% end %>
+    <% end %>
   </div>
   <div class="panel-body">
     <div class="table-responsive">
@@ -43,7 +42,9 @@
       </table>
     </div>
   </div>
-</div>
-<div class="row justify-content-center">
-  <%= paginate @editors %>
+  <div class="panel-footer">
+    <div class="row justify-content-center">
+      <%= paginate @editors %>
+    </div>
+  </div>
 </div>
