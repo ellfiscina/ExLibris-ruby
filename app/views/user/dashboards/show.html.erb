@@ -1,43 +1,46 @@
-<div class="head">
-  <h1 class="page-header"><%= t('.statistics') %></h1>
-</div>
-</div>
-<div class="panel-body justify-content-center">
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" id="mainTab" href="#main" data-toggle="tab"><%= Book.model_name.human(count: 2) %></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="graphTab" href="#graphPane" data-toggle="tab"><%= t('.graph') %></a>
-    </li>
-    <li class="nav-item" style="display: none">
-      <a class="nav-link" id="timelineTab" href="#timeline" data-toggle="tab"><%= t('.timeline') %></a>
-    </li>
-  </ul>
-  <div class="tab-content clearfix">
-    <div class="tab-pane active" id="main">
-      <br>
-      <div class="row" >
-        <%= render partial: 'user/dashboards/panel_old'  %>
-        <%= render partial: 'user/dashboards/panel_new'  %>
-        <%= render partial: 'user/dashboards/panel_big'  %>
-        <%= render partial: 'user/dashboards/panel_small'  %>
-      </div>
-      <div class="row">
-        <%= render partial: 'user/dashboards/chart'  %>
-        <%= render partial: 'user/dashboards/list'  %>
-      </div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="head">
+      <h1 class="page-header"><%= t('.statistics') %></h1>
     </div>
-    <div class="tab-pane" id="graphPane">
-      <br>
-      <div class="row justify-content-center">
-        <%= render partial: 'user/dashboards/graph'  %>
+  </div>
+  <div class="panel-body justify-content-center">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" id="mainTab" href="#main" data-toggle="tab"><%= Book.model_name.human(count: 2) %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="graphTab" href="#graphPane" data-toggle="tab"><%= t('.graph') %></a>
+      </li>
+      <li class="nav-item" style="display: none">
+        <a class="nav-link" id="timelineTab" href="#timeline" data-toggle="tab"><%= t('.timeline') %></a>
+      </li>
+    </ul>
+    <div class="tab-content clearfix">
+      <div class="tab-pane active" id="main">
+        <br>
+        <div class="row" >
+          <%= render partial: 'user/dashboards/panel_old'  %>
+          <%= render partial: 'user/dashboards/panel_new'  %>
+          <%= render partial: 'user/dashboards/panel_big'  %>
+          <%= render partial: 'user/dashboards/panel_small'  %>
+        </div>
+        <div class="row">
+          <%= render partial: 'user/dashboards/chart'  %>
+          <%= render partial: 'user/dashboards/list'  %>
+        </div>
       </div>
-    </div>
-    <div class="tab-pane" id="timeline">
-      <br>
-      <div class="row justify-content-center">
-        <%= render partial: 'user/dashboards/timeline'  %>
+      <div class="tab-pane" id="graphPane">
+        <br>
+        <div class="row justify-content-center">
+          <%= render partial: 'user/dashboards/graph'  %>
+        </div>
+      </div>
+      <div class="tab-pane" id="timeline">
+        <br>
+        <div class="row justify-content-center">
+          <%= render partial: 'user/dashboards/timeline'  %>
+        </div>
       </div>
     </div>
   </div>

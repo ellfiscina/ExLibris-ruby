@@ -4,11 +4,6 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarToggler">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <%= link_to new_user_book_path do %>
-          <i class="fa fa-plus fa-fw"></i><%= t('.new_book') %>
-        <% end %>
-      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-book fa-fw"></i> Estantes</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -64,6 +59,11 @@
             <% end %>
           <% end %>
         </div>
+      </li>
+      <li class="nav-item">
+        <%= link_to new_user_book_path do %>
+          <i class="fa fa-plus fa-fw"></i><%= t('.new_book') %>
+        <% end %>
       </li>
     </ul>
     <%= form_tag user_books_path, method: :get do %>
