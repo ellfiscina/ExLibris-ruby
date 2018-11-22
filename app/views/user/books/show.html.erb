@@ -1,13 +1,13 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-          <div class="pull-right">
-            <%= link_to edit_user_book_path(@book), class:"btn-show" do %>
-              <i class="fa fa-pencil"> </i>
-            <% end %>
-            <%= link_to user_book_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn-show" do %>
-              <i class="fa fa-trash"> </i>
-            <% end %>
-          </div>
+    <div class="pull-right">
+      <%= link_to edit_user_book_path(@book), class:"btn-show" do %>
+        <i class="fa fa-pencil"> </i>
+      <% end %>
+      <%= link_to user_book_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn-show" do %>
+        <i class="fa fa-trash"> </i>
+      <% end %>
+    </div>
     <div class="container-flex">
       <div class="row">
         <div class="book-show">
@@ -99,8 +99,12 @@
       <%= form_for @book, url: {action: :update} do |form| %>
       <div class="modal-body">
           <div class="form-group">
-            <%= form.label :pages_read %>
+            <label>Progresso</label>
             <%= form.text_field :pages_read, class: "form-control" %>
+            <div class="form-group">
+              <input type="radio" name="progress" value="pages">Páginas<br>
+              <input type="radio" name="progress" value="percentage">Porcentagem<br>
+            </div>
           </div>
       </div>
       <div class="modal-footer">
