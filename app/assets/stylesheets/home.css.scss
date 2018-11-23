@@ -630,6 +630,12 @@ td{
 .head{
   margin: -30px 10px;
 }
+.head.stats{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
   #graph{
     overflow: auto;
     overflow-x: scroll;
