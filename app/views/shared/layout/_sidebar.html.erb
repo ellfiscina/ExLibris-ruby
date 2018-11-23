@@ -7,63 +7,66 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-book fa-fw"></i> Estantes</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to user_books_path, class:"dropdown-item nav-link" do %>
-            <i class="fa fa-bookmark fa-fw" style="color: #8e44ad;"></i>
-            <%= t('.all') %>
-          <% end %>
-          <%= link_to user_books_path(status: 1), class:"dropdown-item nav-link" do %>
-            <i class="fa fa-bookmark fa-fw" style="color: #2ecc71;"></i>
-            <%= t('.read') %>
-          <% end %>
-          <%= link_to user_books_path(status: 2), class:"dropdown-item nav-link" do %>
-            <i class="fa fa-bookmark fa-fw" style="color: #3498db;"></i>
-            <%= t('.reading') %>
-          <% end %>
-          <%= link_to user_books_path(status: 3), class:"dropdown-item nav-link" do %>
-            <i class="fa fa-bookmark fa-fw" style="color: #e74c3c;"></i>
-            <%= t('.to_read') %>
-          <% end %>
+          <%= link_to fa_icon('bookmark', text: t('.all')),
+                      user_books_path,
+                      class:"dropdown-item nav-link",
+                      style:"color: #8e44ad;" %>
+          <%= link_to fa_icon('bookmark', text: t('.read')),
+                      user_books_path(status: 1),
+                      class:"dropdown-item nav-link",
+                      style:"color: #2ecc71;" %>
+          <%= link_to fa_icon('bookmark', text: t('.reading')),
+                      user_books_path(status: 2),
+                      class:"dropdown-item nav-link",
+                      style:"color: #3498db;" %>
+          <%= link_to fa_icon('bookmark', text: t('.to_read')),
+                      user_books_path(status: 3),
+                      class:"dropdown-item nav-link",
+                      style:"color: #e74c3c;" %>
           <div class="divider"></div>
-          <%= link_to user_books_path(shelf: 1), class:"dropdown-item nav-link" do %>
-            <i class="fa fa-book fa-fw"></i><%= t('.own') %>
-          <% end %>
-          <%= link_to user_books_path(shelf: 3), class:"dropdown-item nav-link" do %>
-            <i class="fa fa-gift fa-fw"></i><%= t('.want') %>
-          <% end %>
+          <%= link_to fa_icon('book', text: t('.own')),
+                      user_books_path(shelf: 1),
+                      class:"dropdown-item nav-link" %>
+          <%= link_to fa_icon('gift', text: t('.want')),
+                      user_books_path(shelf: 3),
+                      class:"dropdown-item nav-link" %>
         </div>
       </li>
       <li class="nav-item">
-        <%= link_to user_authors_path, class:"nav-link" do %>
-          <i class="fa fa-users fa-fw"></i>
-          <%= Author.model_name.human(count: 2) %>
-        <% end %>
+        <%= link_to fa_icon('users', text: Author.model_name.human(count: 2)),
+                    user_authors_path,
+                    class:"nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to user_editors_path, class:"nav-link" do %>
-        <i class="fa fa-edit fa-fw"></i>
-        <%= Editor.model_name.human(count: 2) %>
-        <% end %>
+        <%= link_to fa_icon('edit', text: Editor.model_name.human(count: 2)),
+                    user_editors_path,
+                    class:"nav-link" %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-list fa-fw"></i> <%= List.model_name.human(count: 2) %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to new_user_list_path, class:"dropdown-item nav-link" do %>
-            <i class="fa fa-plus fa-fw"></i><%= "#{t('.new_list')}" %>
-          <% end %>
+          <%= link_to fa_icon('plus', text: t('.new_list')),
+                      new_user_list_path,
+                      class:"dropdown-item nav-link" %>
           <div class="divider"></div>
           <% lista.each do |l| %>
-            <%= link_to user_list_path(l), class:"dropdown-item nav-link" do %>
-              <i class="fa fa-angle-double-right fa-xs"></i><%= " #{l.year}" %>
-            <% end %>
+            <%= link_to l.year,
+                        user_list_path(l),
+                        class:"dropdown-item nav-link" %>
           <% end %>
         </div>
       </li>
       <li class="nav-item">
-        <%= link_to new_user_book_path, class:"nav-link" do %>
-          <i class="fa fa-plus fa-fw"></i><%= t('.new_book') %>
-        <% end %>
+        <%= link_to fa_icon('th', text: t('.statistics')),
+                    user_dashboard_path,
+                    class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to fa_icon('plus', text: t('.new_book')),
+                    new_user_book_path,
+                    class:"nav-link" %>
       </li>
     </ul>
     <%= form_tag user_books_path, method: :get, class:"search-form" do %>
