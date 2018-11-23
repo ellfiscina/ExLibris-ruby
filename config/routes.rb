@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :editors
     resources :lists, except: [:edit, :index]
     resource :dashboard, only: :show
+    resources :toread_lists
   end
 
   namespace :admin do
