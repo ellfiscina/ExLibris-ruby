@@ -1,0 +1,3 @@
+- erro ao criar livro
+- ajustar page-header do dashboard#show
+- lista de leitura (to read list)

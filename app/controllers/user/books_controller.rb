@@ -28,6 +28,12 @@ class User::BooksController < User::UserBaseController
   end
 
   def update
+      if params[:progress] == 'percentage'
+        params[:book][:pages_read] = percent_to_pages(params[:book][:pages_read])
+      end
+      if params[:book][:pages_read] == @book.pages || params[:status].present?
+        params[:book][:status] = 1
+      end
       if @book.update(book_params)
         redirect_to user_book_path(@book), notice: t('messages.updated_with', item: 'Livro')
       else
@@ -53,13 +59,6 @@ class User::BooksController < User::UserBaseController
     end
 
     def book_params
-      if params[:progress] == 'percentage'
-        params[:book][:pages_read] = percent_to_pages(params[:book][:pages_read])
-      end
-      if params[:book][:pages_read] == @book.pages || params[:status].present?
-        params[:book][:status] = 1
-      end
-
       params.require(:book).permit( :isbn, :title, :subtitle, :year, :pages,
                                     :edition, :language, :shelf, :status, :pages_read,
                                     :published, :editor_id, :author_id, :image )
