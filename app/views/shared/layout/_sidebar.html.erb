@@ -30,6 +30,10 @@
           <%= link_to fa_icon('gift', text: t('.want')),
                       user_books_path(shelf: 3),
                       class:"dropdown-item nav-link" %>
+          <div class="divider"></div>
+          <%= link_to fa_icon('list-ol', text: 'Ordem de Leitura'),
+                      user_toread_lists_path,
+                      class:"dropdown-item nav-link" %>
         </div>
       </li>
       <li class="nav-item">
