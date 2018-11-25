@@ -16,10 +16,11 @@
       <div class="tab-content clearfix">
         <div class="tab-pane active" id="books">
           <div class="list_div_body">
+            <% max = max_count %>
             <% @list.each do |list| %>
               <div class="list-group-item nav">
                 <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
-                <%= progress_bar books_percent(list.books.count, current_user.books.where(status: 1).count),
+                <%= progress_bar books_percent(list.books.count, max),
                                  alternative: 'warning',
                                  class:'progress_bar' %>
                 <span class="list_count text-muted small">
@@ -31,10 +32,11 @@
         </div>
         <div class="tab-pane" id="pages">
           <div class="list_div_body">
+            <% max = max_pages %>
             <% @list.each do |list| %>
               <div class="list-group-item nav">
                 <i class="fa fa-angle-double-right fa-xs"></i><%= " #{list.year}" %>
-                <%= progress_bar pages_percent(list.books.sum(:pages)),
+                <%= progress_bar list.books.sum(:pages)/max.to_f,
                                  alternative: 'warning',
                                  class:'progress_bar' %>
                 <span class="list_count text-muted small">

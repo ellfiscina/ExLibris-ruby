@@ -49,4 +49,20 @@ module User::BooksHelper
       "missing.jpg"
     end
   end
+
+  def max_count
+    l = []
+    current_user.lists.each do |list|
+      l.push(list.books.count)
+    end
+    l.max
+  end
+
+  def max_pages
+    l = []
+    current_user.lists.each do |list|
+      l.push(list.books.sum(:pages))
+    end
+    l.max
+  end
 end
