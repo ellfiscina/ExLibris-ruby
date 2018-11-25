@@ -3,7 +3,7 @@ class User::EditorsController < User::UserBaseController
   helper_method :sort_column, :sort_direction
 
   def index
-    @editors = Editor.all.order(sort_column("name") + ' ' + sort_direction).per_page(params[:page])
+    @editors = all_editors.order(sort_column("name") + ' ' + sort_direction).per_page(params[:page])
     @count = Editor.all.count
   end
 
@@ -43,6 +43,10 @@ class User::EditorsController < User::UserBaseController
   end
 
   private
+    def all_editors
+      Editors::ByParamsQuery.call(params)
+    end
+
     def set_editor
       @editor = Editor.find(params[:id])
     end

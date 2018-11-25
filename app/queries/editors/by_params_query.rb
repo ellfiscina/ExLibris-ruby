@@ -1,11 +1,11 @@
-module Authors
+module Editors
   class ByParamsQuery < ApplicationQuery
     def self.call(params)
       new.query(params)
     end
 
     def initialize
-      @relation = Author.all
+      @relation = Editor.all
     end
 
     def query(params)

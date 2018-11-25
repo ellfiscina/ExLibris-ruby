@@ -43,8 +43,20 @@
     </div>
   </div>
   <div class="panel-footer">
-    <div class="row justify-content-center">
-      <%= paginate @editors %>
+      <div class="row justify-content-center">
+        <%= form_tag user_editors_path, method: :get, class:"search-form" do %>
+          <div class="input-group custom-search-form">
+           <%= text_field_tag(:query, params[:query], {class: "form-control",  placeholder: "Buscar autor"}) %>
+            <span class="input-group-btn">
+              <%= button_tag(type: "submit", class: "btn btn-default", style:"padding: 6px;") do %>
+                <i class="fa fa-search"></i>
+              <% end %>
+            </span>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
+</div>
+<div class="row justify-content-center">
+  <%= paginate @editors %>
 </div>
