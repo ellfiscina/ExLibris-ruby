@@ -11,3 +11,4 @@
 //= require home
 //= require statistics
 //= require html5sortable
+//= require DnD
