@@ -1,18 +1,15 @@
-module Books
+module Authors
   class ByParamsQuery < ApplicationQuery
-    def self.call(user, params)
-      new(user).query(params)
+    def self.call(params)
+      new.query(params)
     end
 
-    def initialize(user)
-      @relation = user.books.all
+    def initialize
+      @relation = Author.all
     end
 
     def query(params)
-      @relation = select_by_status(params[:status]) if params[:status]
-      @relation = select_by_shelf(params[:shelf]) if params[:shelf]
-      @relation = select_by_title(params[:query]) if params[:query]
-      relation
+      relation.where("lower(name) LIKE ?", "%#{params[:query].downcase.rstrip()}%")
     end
 
     private

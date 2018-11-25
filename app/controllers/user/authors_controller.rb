@@ -3,7 +3,7 @@ class User::AuthorsController < User::UserBaseController
   helper_method :sort_column, :sort_direction
 
   def index
-    @authors = Author.all.order(sort_column("name") + ' ' + sort_direction).per_page(params[:page])
+    @authors = all_authors.order(sort_column("name") + ' ' + sort_direction).per_page(params[:page])
     @count = Author.all.count
   end
 
@@ -44,6 +44,10 @@ class User::AuthorsController < User::UserBaseController
   end
 
   private
+    def all_authors
+      Authors::ByParamsQuery.call(params)
+    end
+
     def set_author
       @author = Author.find(params[:id])
     end
