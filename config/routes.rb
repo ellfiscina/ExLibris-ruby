@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :lists, except: [:edit, :index]
     resource :dashboard, only: :show
     resources :toread_lists, only: :index
+
+    put 'sort', to: 'toread_lists#sort'
   end
 
   namespace :admin do

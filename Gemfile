@@ -20,6 +20,8 @@ gem 'font-awesome-rails', '~> 4.7'
 gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'bootstrap_sb_admin_base_v2'
+gem 'acts_as_list'
+gem 'html5sortable-rails', '~> 0.9.3.0'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap.growl'

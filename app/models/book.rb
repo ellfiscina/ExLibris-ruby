@@ -12,6 +12,9 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :isbn, uniqueness: {allow_blank: true}
 
+  acts_as_list scope: :user
+  default_scope { order(position: :asc) }
+
   scope :per_page, -> (page) {
     page(page).per(QTT_PER_PAGE)
   }
