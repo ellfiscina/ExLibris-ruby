@@ -3,3 +3,4 @@ pt-BR:
     dashboards:
       show:
         statistics: Estatísticas
+        graph: Gráfico
