@@ -1,11 +1,12 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="pull-right">
+      <button type="button" class="btn btn-show btn-modal" id="edit_status"><i class="fa fa-bookmark" style="font-size: 1.3em; padding-left: 0.5em"></i></button>
       <%= link_to edit_user_book_path(@book), class:"btn-show" do %>
-        <i class="fa fa-pencil"> </i>
+        <i class="fa fa-pencil" style="font-size: 1.3em; padding-left: 0.5em"> </i>
       <% end %>
       <%= link_to user_book_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn-show" do %>
-        <i class="fa fa-trash"> </i>
+        <i class="fa fa-trash" style="font-size: 1.3em; padding-left: 0.5em"> </i>
       <% end %>
     </div>
     <div class="container-flex">
@@ -96,10 +97,10 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= form_for @book, url: {action: :update} do |form| %>
+      <%= form_for @book, url: {action: :update} do |f| %>
       <div class="modal-body">
           <div class="form-group">
-            <%= form.text_field :pages_read, class: "form-control" %>
+            <%= f.text_field :pages_read, class: "form-control" %>
             <div class="form-group">
               <br>
               <label class="radio-inline">
@@ -113,6 +114,33 @@
       </div>
       <div class="modal-footer">
         <button type="submit" name="status" class="btn btn-outline-primary" value="1">Terminei</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="reading_status" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edite o seu status</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_for @book, url: {action: :update} do |f| %>
+      <div class="modal-body">
+          <div class="form-group">
+            <%= f.select :status,
+                         [['Lido', 1], ['Lendo', 2], ['Ler', 3]],
+                         {},
+                         { class: "form-control" } %>
+          </div>
+      </div>
+      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Save changes</button>
       </div>

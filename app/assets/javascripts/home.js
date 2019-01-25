@@ -2,6 +2,9 @@ $(document).ready(function() {
   $('#edit_progress').on('click', function(){
     $('#reading_progress').modal('show')
   });
+  $('#edit_status').on('click', function(){
+    $('#reading_status').modal('show')
+  });
   $('#add_author').on('click', function(){
     $('#new_author').modal('show')
   });
