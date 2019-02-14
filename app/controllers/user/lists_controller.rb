@@ -9,6 +9,7 @@ class User::ListsController < User::UserBaseController
 
   def show
     @books = @list.books.order(sort_column + ' ' + sort_direction).per_page(params[:page])
+    @all_books = Book.all.sort_by{ |book| book.title }
   end
 
   # POST /lists
