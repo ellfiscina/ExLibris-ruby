@@ -53,7 +53,7 @@ class User::AuthorsController < User::UserBaseController
     end
 
     def author_params
-      params.require(:author).permit(:name, :surname)
+      params.require(:author).permit(:name, :birth_date, :death_date)
     end
 
     def sort_column(string=nil)

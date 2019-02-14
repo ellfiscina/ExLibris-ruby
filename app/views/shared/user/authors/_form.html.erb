@@ -15,9 +15,27 @@
       </ul>
     </div>
     <% end %>
-    <div class="form-group">
-      <%= form.label :name %>
-      <%= form.text_field :name, class: "form-control" %>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <%= form.label :name %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <%= form.label :birth_date %>
+          <%= form.date_field :birth_date, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <%= form.label :death_date %>
+          <%= form.date_field :death_date, class: "form-control" %>
+        </div>
+      </div>
     </div>
     <div style="text-align: center;">
       <button type="submit" class="btn btn-primary btn-home"><%= t('buttons.save') %></button>

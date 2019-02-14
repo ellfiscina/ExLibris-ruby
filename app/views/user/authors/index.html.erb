@@ -16,6 +16,8 @@
           <tr>
             <th><%= sortable "name", @authors.model.human_attribute_name('firstname') %></th>
             <th><%= @authors.model.human_attribute_name('lastname') %></th>
+            <th><%= sortable "birth_date", @authors.model.human_attribute_name('birth_date') %></th>
+            <th><%= sortable "death_date", @authors.model.human_attribute_name('death_date') %></th>
             <th><%= @authors.model.human_attribute_name('qtt') %></th>
             <th></th>
           </tr>
@@ -25,6 +27,8 @@
           <tr>
             <td><%= first_name(author.name) %></td>
             <td><%= last_name(author.name) %></td>
+            <td><%= l(author.birth_date) %></td>
+            <td><%= l(author.death_date) %></td>
             <td>
               <%= Books::CountQuery.call(current_user, author: author.id) %>
             </td>

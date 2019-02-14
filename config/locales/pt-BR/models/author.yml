@@ -11,3 +11,5 @@ pt-BR:
         firstname: Nome
         lastname: Sobrenome
         qtt: Qtd de livros
+        birth_date: Nascimento
+        death_date: Falecimento

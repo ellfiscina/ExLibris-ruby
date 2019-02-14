@@ -27,8 +27,11 @@ namespace :dev do
     puts "Gerando autores aleatórios"
 
     10.times do
+      date = Faker::Date.birthday(1, 100)
       Author.create!(
-        name: Faker::Book.author
+        name: Faker::Book.author,
+        birth_date: date,
+        death_date: date.next_year(Faker::Number.between(30,90))
         )
     end
 
