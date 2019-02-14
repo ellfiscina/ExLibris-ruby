@@ -28,4 +28,8 @@ module ApplicationHelper
 
     a
   end
+
+  def format_date(date)
+    l(date) unless date.nil?
+  end
 end

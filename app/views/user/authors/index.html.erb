@@ -27,8 +27,8 @@
           <tr>
             <td><%= first_name(author.name) %></td>
             <td><%= last_name(author.name) %></td>
-            <td><%= l(author.birth_date) %></td>
-            <td><%= l(author.death_date) %></td>
+            <td><%= format_date(author.birth_date) %></td>
+            <td><%= format_date(author.death_date) %></td>
             <td>
               <%= Books::CountQuery.call(current_user, author: author.id) %>
             </td>
