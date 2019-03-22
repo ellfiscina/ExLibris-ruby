@@ -2,11 +2,10 @@ class User::BooksController < User::UserBaseController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @sort = params[:sort]
-    @books =  all_books.order(@sort).per_page(params[:page])
+    @books = all_books.reorder(params[:sort]).per_page(params[:page])
     @count = all_books.count
     @title = title(params)
-    @partial = whitelisted_partial || 'grid'
+    # @partial = whitelisted_partial || 'grid'
   end
 
   def show;end

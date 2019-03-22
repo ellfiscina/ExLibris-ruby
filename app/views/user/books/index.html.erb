@@ -5,14 +5,14 @@
         Filtrar
       </h3>
       <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="width: 20%;">
-        <%= content_tag :li, role: "presentation", class: active_class("title", @sort) do %>
-          <%= link_to "Título", {sort: :title}, role:"menuitem", tabindex:"-1" %>
+        <%= content_tag :li, role: "presentation", class: active_class("title", params[:sort]) do %>
+          <%= link_to "Título", {sort: :title, status: params[:status], shelf: params[:shelf]}, role:"menuitem", tabindex:"-1" %>
         <% end %>
-        <%= content_tag :li, role: "presentation", class: active_class("published", @sort) do %>
-          <%= link_to "Publicação", {sort: :published} , role:"menuitem", tabindex:"-1" %>
+        <%= content_tag :li, role: "presentation", class: active_class("published", params[:sort]) do %>
+          <%= link_to "Publicação", {sort: :published, status: params[:status], shelf: params[:shelf]} , role:"menuitem", tabindex:"-1" %>
         <% end %>
-        <%= content_tag :li, role: "presentation", class: active_class("created_at", @sort) do %>
-          <%= link_to "Uploaded", {sort: :created_at} , role:"menuitem", tabindex:"-1" %>
+        <%= content_tag :li, role: "presentation", class: active_class("created_at", params[:sort]) do %>
+          <%= link_to "Uploaded", {sort: :created_at, status: params[:status], shelf: params[:shelf]} , role:"menuitem", tabindex:"-1" %>
         <% end %>
       </ul>
       <h1 class="page-header"><%= @books.model_name.human(count: 2) %>
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="panel-body">
-    <%= render @partial %>
+    <%= render 'grid' %>
   </div>
   <hr>
   <div class="panel-footer">
