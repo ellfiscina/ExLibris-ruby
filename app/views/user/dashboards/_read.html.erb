@@ -1,0 +1,28 @@
+<div class="col-md-5">
+  <div class="panel panel-default" id="list_div">
+    <div class="panel-heading">
+      <i class="fa fa-book fa-fw"></i><%= t('.most_read') %>
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th class="text-center">Vezes lidas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% most_read(@list).each do |read| %>
+              <tr>
+                <td><%= read[0] %></td>
+                <td class="text-center"><%= read[1] %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
