@@ -50,10 +50,10 @@ class User::ListsController < User::UserBaseController
     end
 
     def sort_column
-      params[:sort] || :title
+      params[:sort] || "title"
     end
 
     def sort_direction
-      params[:direction] || :asc
+      params[:direction] || "asc"
     end
 end
