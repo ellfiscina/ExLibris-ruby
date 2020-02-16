@@ -17,7 +17,7 @@ gem "aws-sdk-s3", require: false
 gem 'bootstrap_progressbar', '~> 0.2.0'
 gem 'image_processing', '~> 1.2'
 gem 'font-awesome-rails', '~> 4.7'
-gem 'bootstrap', '~> 4.1', '>= 4.1.3'
+gem 'bootstrap', '~> 4.3'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'bootstrap_sb_admin_base_v2'
 gem 'acts_as_list'
