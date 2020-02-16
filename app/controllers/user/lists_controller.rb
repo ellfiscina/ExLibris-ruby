@@ -8,7 +8,7 @@ class User::ListsController < User::UserBaseController
   end
 
   def show
-    @books = @list.books.order(title: :asc).per_page(params[:page])
+    @books = @list.books.reorder(:title).per_page(params[:page])
     @all_books = Book.all.sort_by{ |book| book.title }
   end
 
